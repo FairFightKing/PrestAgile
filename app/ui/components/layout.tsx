@@ -1,7 +1,8 @@
 import Header from "./header";
 import Footer from "./footer";
+import {Component} from "react";
 
-function Layout({children}) {
+function Layout({children}: any) {
     return (
         <>
             <Header/>
