@@ -1,0 +1,67 @@
+name: preprodbo CI
+
+on:
+  push:
+    branches: [ preprod ]
+    paths:
+      - 'backoffice/**'
+
+  pull_request:
+    branches: [ preprod ]
+    paths:
+      - 'backoffice/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: backoffice/package-lock.json
+      - run: npm install
+      - run: |
+          npm ci
+          npm run build --if-present
+          npm test
+      env:
+        CI: true
+
+  unit:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: cd backoffice
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: npm run test
+
+  eslint:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: cd backoffice
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Super Linter
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: preprod
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    needs: [build, eslint, unit]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Heroku
+      - run: npm install dpl
+      - run: dpl --provider=heroku --app=${{ HEROKU_APP }} --api-key=${{ HEROKU_KEY }} --skip_cleanup=true
+
