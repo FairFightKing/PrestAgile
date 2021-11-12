@@ -16,19 +16,17 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [ 12.x, 14.x, 16.x ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      env:
-        DATABASE_URL: postgres://rcqasdcfxyfmhr:adfc018fb1d4ec927234c91938819e06b9d852a149c92bfa40de73ff5a91e5ce@ec2-54-220-243-77.eu-west-1.compute.amazonaws.com:5432/d64b59nnd48otr
-        NODE_ENV: production
-        MY_HEROKU_URL: https://preprodprestagile.herokuapp.com/
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-        cache-dependency-path: backoffice/package-lock.json
-    - run: cd backoffice && npm install && npm run build
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        env:
+          DATABSE_URl: ${{ secrets.DATABASE_URL }}
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: backoffice/package-lock.json
+      - run: cd backoffice && npm install && npm run build
