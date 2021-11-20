@@ -1,0 +1,72 @@
+name: prod CI BO
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'backoffice/**'
+
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'backoffice/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+          cache: 'npm'
+          cache-dependency-path: backoffice/package-lock.json
+      - run: |
+          cd backoffice
+          npm install
+  #         npm run build
+
+  unit:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: |
+          cd backoffice
+          npm install
+          npm run test
+  eslint:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Super Linter
+        uses: github/super-linter@v3
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FILTER_REGEX_INCLUDE: .backoffice/.
+          FILTER_REGEX_EXCLUDE: .node_modules/.
+  heroku-deploy:
+      needs: [ build, eslint, unit ]
+      runs-on: ubuntu-latest
+      steps:
+        - name: Check out repository
+          uses: actions/checkout@v2
+        - name: Deploy to Heroku
+          uses: akhileshns/heroku-deploy@v3.12.12
+          with:
+            heroku_api_key: ${{ secrets.HEROKU_KEY }}
+            heroku_app_name: ${{ secrets.PROD_HEROKU_APP }}
+            heroku_email: ${{ secrets.HEROKU_MAIL }}
+            branch: main
+
+
+
