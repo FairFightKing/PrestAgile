@@ -1,9 +1,5 @@
-import { Box } from '@material-ui/core';
+import { Container } from '@chakra-ui/react'
 
 export default function Footer() {
-  return (
-    <Box display="flex" bgcolor="grey.200" p={2} alignItems="center">
-      Footer
-    </Box>
-  );
+  return <Container style={{ background: 'blue' }}>Footer</Container>
 }

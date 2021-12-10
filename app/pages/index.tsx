@@ -1,14 +1,15 @@
-import type { NextPage } from 'next';
-import { Button } from '@mui/material';
-import styled from 'styled-components';
-import Layout from '../ui/components/layout';
+import type { NextPage } from 'next'
+import styled from 'styled-components'
+import Layout from '../ui/components/layout'
+import { CompetenceRanking } from '../ui/components/competenceRanking'
 
 const Home: NextPage = () => {
   return (
     <div>
-      z ehdbhe behbeh efe bhfezbfh endn Page accueil Next Js. de wo enen
+      <CompetenceRanking ranking={1} />
+      <br />
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

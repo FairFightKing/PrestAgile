@@ -1,16 +1,18 @@
-import { Box, Button, Typography } from '@material-ui/core';
-import { LinkComponent } from './navigation/LinkComponent';
+import { LinkComponent } from './navigation/LinkComponent'
+import { Container } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 
 export default function Header() {
   return (
-    <Box display="flex" bgcolor="grey.200" p={2} alignItems="center">
-      <Typography>Prestagile</Typography>
-      <Box>
+    <Container style={{ background: 'red' }}>
+      <Text>Prestagile</Text>
+      <Container>
         <LinkComponent
           target="/test"
-          child={<Button color="primary">Test</Button>}
+          child={<Button colorScheme="teal">Test</Button>}
         />
-      </Box>
-    </Box>
-  );
+      </Container>
+    </Container>
+  )
 }
