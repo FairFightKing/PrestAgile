@@ -4,6 +4,7 @@ import {
   ButtonApp,
   TextApp,
   ButtonGroupApp,
+  CheckboxApp,
 } from '../ui/components/form/input/input'
 import { MdBuild } from 'react-icons/md'
 
@@ -30,19 +31,28 @@ const Home: NextPage = () => {
               content="contenu 2"
               isDisable={false}
               left
-              colorButton="teal"
+              colorButton="red"
               icon={<MdBuild />}
             />
             <ButtonApp
               content="contenu 3"
               isDisable={true}
               left
-              colorButton="teal"
+              colorButton="blue"
               icon={<MdBuild />}
             />
           </>
         }
       />
+      <br />
+      <CheckboxApp
+        isDisable={false}
+        colorCheckbox="red"
+        checkboxName="test"
+        checkboxValue="test"
+        content="test checkbox"
+      />
+      <br />
     </div>
   )
 }

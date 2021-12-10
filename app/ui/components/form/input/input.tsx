@@ -1,6 +1,7 @@
-import { Flex, Button, Input, ButtonGroup } from '@chakra-ui/react'
+import { Flex, Button, Input, ButtonGroup, Checkbox } from '@chakra-ui/react'
 import { ButtonProps } from './types/ButtonApp'
 import { TextAppProps } from './types/TextApp'
+import { CheckboxAppProps } from './types/CheckboxApp'
 
 export const ButtonApp = ({
   right = false,
@@ -36,4 +37,23 @@ export const TextApp = ({
 
 export const ButtonGroupApp = ({ children }) => (
   <ButtonGroup>{children}</ButtonGroup>
+)
+
+export const CheckboxApp = ({
+  isDisable = false,
+  content,
+  colorCheckbox,
+  sized,
+  checkboxName,
+  checkboxValue,
+}: CheckboxAppProps) => (
+  <Checkbox
+    isDisabled={isDisable}
+    size={sized}
+    colorScheme={colorCheckbox}
+    name={checkboxName}
+    value={checkboxValue}
+  >
+    {content}
+  </Checkbox>
 )
