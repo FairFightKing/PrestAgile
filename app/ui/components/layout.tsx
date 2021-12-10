@@ -1,6 +1,6 @@
-import Header from './header';
-import Footer from './footer';
-import { Component } from 'react';
+import Header from './header'
+import Footer from './footer'
+import { Component } from 'react'
 
 function Layout({ children }: any) {
   return (
@@ -9,7 +9,7 @@ function Layout({ children }: any) {
       <main>{children}</main>
       <Footer />
     </>
-  );
+  )
 }
 
-export default Layout;
+export default Layout
