@@ -1,5 +1,6 @@
-import { Flex, Button, ButtonGroup } from '@chakra-ui/react'
+import { Flex, Button, Input } from '@chakra-ui/react'
 import { ButtonProps } from './types/ButtonApp'
+import { TextAppProps } from './types/TextApp'
 
 export function ButtonApp({
   right = false,
@@ -25,4 +26,12 @@ export function ButtonApp({
       </Button>
     </Flex>
   )
+}
+
+export function TextApp({
+  placeholder,
+  size,
+  variant = 'outline',
+}: TextAppProps) {
+  return <Input placeholder={placeholder} size={size} variant={variant} />
 }

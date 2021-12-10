@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import styled from 'styled-components'
 import Layout from '../ui/components/layout'
 import { CompetenceRanking } from '../ui/components/competenceRanking'
-import { ButtonApp } from '../ui/components/form/input/input'
+import { ButtonApp, TextApp } from '../ui/components/form/input/input'
 import { MdBuild } from 'react-icons/md'
 
 const Home: NextPage = () => {
@@ -18,6 +18,8 @@ const Home: NextPage = () => {
         colorButton="teal"
         icon={<MdBuild />}
       />
+      <br />
+      <TextApp placeholder="YEP" />
       <br />
     </div>
   )
