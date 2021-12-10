@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_input_inputs",
+  "info": {
+    "name": "input",
+    "icon": "edit",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "information": {
+      "type": "string"
+    },
+    "additionnalData": {
+      "type": "enumeration",
+      "enum": [
+        "competences",
+        "metiers"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "select",
+        "text",
+        "checkbox",
+        "number",
+        "download"
+      ],
+      "required": true
+    },
+    "multipleChoice": {
+      "type": "boolean",
+      "default": false,
+      "required": true,
+      "unique": false
+    }
+  }
+}

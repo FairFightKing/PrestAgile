@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "formulaire_freelances",
+  "info": {
+    "name": "Formulaire freelance",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "Etapes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "etapes.etapes",
+      "required": false
+    }
+  }
+}
