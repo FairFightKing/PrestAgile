@@ -26,3 +26,7 @@ export function ButtonApp({
     </Flex>
   )
 }
+
+export function ButtonGroupApp({ children }) {
+  return <ButtonGroup>{children}</ButtonGroup>
+}
