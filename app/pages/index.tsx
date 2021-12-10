@@ -1,8 +1,10 @@
 import type { NextPage } from 'next'
-import styled from 'styled-components'
-import Layout from '../ui/components/layout'
 import { CompetenceRanking } from '../ui/components/competenceRanking'
-import { ButtonApp, TextApp } from '../ui/components/form/input/input'
+import {
+  ButtonApp,
+  TextApp,
+  ButtonGroupApp,
+} from '../ui/components/form/input/input'
 import { MdBuild } from 'react-icons/md'
 
 const Home: NextPage = () => {
@@ -21,6 +23,26 @@ const Home: NextPage = () => {
       <br />
       <TextApp placeholder="YEP" />
       <br />
+      <ButtonGroupApp
+        children={
+          <>
+            <ButtonApp
+              content="contenu 2"
+              isDisable={false}
+              left
+              colorButton="teal"
+              icon={<MdBuild />}
+            />
+            <ButtonApp
+              content="contenu 3"
+              isDisable={true}
+              left
+              colorButton="teal"
+              icon={<MdBuild />}
+            />
+          </>
+        }
+      />
     </div>
   )
 }

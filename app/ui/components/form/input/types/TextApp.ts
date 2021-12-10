@@ -1,5 +1,5 @@
-export declare interface TextAppProps{
-    placeholder: string,
-    size?: string,
-    variant?: string
+export declare interface TextAppProps {
+  placeholder: string
+  size?: string
+  variant?: string
 }

@@ -1,8 +1,8 @@
-import { Flex, Button, Input } from '@chakra-ui/react'
+import { Flex, Button, Input, ButtonGroup } from '@chakra-ui/react'
 import { ButtonProps } from './types/ButtonApp'
 import { TextAppProps } from './types/TextApp'
 
-export function ButtonApp({
+export const ButtonApp = ({
   right = false,
   left = false,
   icon,
@@ -11,27 +11,29 @@ export function ButtonApp({
   colorButton,
   isDisable = false,
   sized,
-}: ButtonProps) {
-  return (
-    <Flex justifyContent={'center'}>
-      <Button
-        rightIcon={right && icon}
-        leftIcon={left && icon}
-        variant={variantButton}
-        colorScheme={colorButton}
-        isDisabled={isDisable}
-        size={sized}
-      >
-        {content}
-      </Button>
-    </Flex>
-  )
-}
+}: ButtonProps) => (
+  <Flex justifyContent={'center'}>
+    <Button
+      rightIcon={right && icon}
+      leftIcon={left && icon}
+      variant={variantButton}
+      colorScheme={colorButton}
+      isDisabled={isDisable}
+      size={sized}
+    >
+      {content}
+    </Button>
+  </Flex>
+)
 
-export function TextApp({
+export const TextApp = ({
   placeholder,
   size,
   variant = 'outline',
-}: TextAppProps) {
-  return <Input placeholder={placeholder} size={size} variant={variant} />
-}
+}: TextAppProps) => (
+  <Input placeholder={placeholder} size={size} variant={variant} />
+)
+
+export const ButtonGroupApp = ({ children }) => (
+  <ButtonGroup>{children}</ButtonGroup>
+)
