@@ -79,3 +79,5 @@ This API tries to respect [DDD](https://en.wikipedia.org/wiki/Domain-driven_desi
 [Exploring CQRS and Event Sourcing (book)](https://www.microsoft.com/en-us/download/details.aspx?id=34774)
 
 [This initiation is based on](https://tushar-chy.medium.com/a-simple-todo-application-with-nestjs-typeorm-postgresql-swagger-pgadmin4-jwt-and-docker-caa2742a4295)
+
+[@NestJs/cqrs](https://docs.nestjs.com/recipes/cqrs)
