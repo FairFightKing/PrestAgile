@@ -5,6 +5,7 @@ import {
   TextApp,
   ButtonGroupApp,
   CheckboxApp,
+  Autocomplete,
 } from '../ui/components/form/input/input'
 import { MdBuild } from 'react-icons/md'
 
@@ -53,6 +54,7 @@ const Home: NextPage = () => {
         content="test checkbox"
       />
       <br />
+      <Autocomplete data={[{ title: 'ouais' }]} />
     </div>
   )
 }

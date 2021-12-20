@@ -1,6 +1,14 @@
-import { Flex, Button, Input, ButtonGroup, Checkbox } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Flex,
+  Input,
+  Checkbox,
+} from '@chakra-ui/react'
 import { ButtonProps } from './types/ButtonApp'
 import { TextAppProps } from './types/TextApp'
+import { useEffect, useState } from 'react'
 import { CheckboxAppProps } from './types/CheckboxApp'
 
 export const ButtonApp = ({
@@ -31,13 +39,61 @@ export const TextApp = ({
   placeholder,
   size,
   variant = 'outline',
+  onChange,
 }: TextAppProps) => (
-  <Input placeholder={placeholder} size={size} variant={variant} />
+  <Input
+    placeholder={placeholder}
+    size={size}
+    variant={variant}
+    onChange={onChange}
+  />
 )
 
 export const ButtonGroupApp = ({ children }) => (
   <ButtonGroup>{children}</ButtonGroup>
 )
+
+export const Autocomplete = ({ data }) => {
+  const [typedInput, setTypedInput] = useState('')
+  const [dataToCompleteOn, setDataToCompleteOn] = useState([])
+  const [currentData, setCurrentData] = useState([])
+
+  interface dataElement {
+    title: string
+  }
+
+  useEffect(() => {
+    setDataToCompleteOn(data)
+    setCurrentData(data)
+  }, [data])
+
+  useEffect(
+    () =>
+      setDataToCompleteOn(
+        currentData.filter((el: dataElement) => el.title.includes(typedInput)),
+      ),
+    [typedInput],
+  )
+
+  return (
+    <>
+      <Box mb="0.3rem">
+        <TextApp
+          placeholder="Autocompleter here"
+          onChange={({ target }) => setTypedInput(target.value)}
+        />
+      </Box>
+      {dataToCompleteOn.length >= 1 &&
+        typedInput !== '' &&
+        typedInput !== ' ' &&
+        dataToCompleteOn.map(({ title }, key) => (
+          <Box key={key} borderWidth="1px" p="0.5rem" mb="0.3rem" size={'md'}>
+            {title}
+          </Box>
+        ))}
+    </>
+  )
+}
 
 export const CheckboxApp = ({
   isDisable = false,
