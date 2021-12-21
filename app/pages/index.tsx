@@ -6,6 +6,7 @@ import {
   ButtonGroupApp,
   CheckboxApp,
   Autocomplete,
+  NumberInputApp,
 } from '../ui/components/form/input/input'
 import { MdBuild } from 'react-icons/md'
 
@@ -55,6 +56,9 @@ const Home: NextPage = () => {
       />
       <br />
       <Autocomplete data={[{ title: 'ouais' }]} />
+      <br />
+      <NumberInputApp minimum={10} maximum={15} steps={0.5} valueDefault={10} />
+      <br />
     </div>
   )
 }
