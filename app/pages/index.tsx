@@ -6,6 +6,7 @@ import {
   ButtonGroupApp,
   CheckboxApp,
   Autocomplete,
+  GroupTextApp,
 } from '../ui/components/form/input/input'
 import { MdBuild } from 'react-icons/md'
 
@@ -25,26 +26,24 @@ const Home: NextPage = () => {
       <br />
       <TextApp placeholder="YEP" />
       <br />
-      <ButtonGroupApp
-        children={
-          <>
-            <ButtonApp
-              content="contenu 2"
-              isDisable={false}
-              left
-              colorButton="red"
-              icon={<MdBuild />}
-            />
-            <ButtonApp
-              content="contenu 3"
-              isDisable={true}
-              left
-              colorButton="blue"
-              icon={<MdBuild />}
-            />
-          </>
-        }
-      />
+      <ButtonGroupApp>
+        <>
+          <ButtonApp
+            content="contenu 2"
+            isDisable={false}
+            left
+            colorButton="red"
+            icon={<MdBuild />}
+          />
+          <ButtonApp
+            content="contenu"
+            isDisable={true}
+            left
+            colorButton="blue"
+            icon={<MdBuild />}
+          />
+        </>
+      </ButtonGroupApp>
       <br />
       <CheckboxApp
         isDisable={false}
@@ -55,6 +54,7 @@ const Home: NextPage = () => {
       />
       <br />
       <Autocomplete data={[{ title: 'ouais' }]} />
+      <GroupTextApp placeholder="Cuck" />
     </div>
   )
 }

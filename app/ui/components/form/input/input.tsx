@@ -5,6 +5,8 @@ import {
   Flex,
   Input,
   Checkbox,
+  InputGroup,
+  InputLeftElement,
 } from '@chakra-ui/react'
 import { ButtonProps } from './types/ButtonApp'
 import { TextAppProps } from './types/TextApp'
@@ -23,8 +25,8 @@ export const ButtonApp = ({
 }: ButtonProps) => (
   <Flex justifyContent={'center'}>
     <Button
-      rightIcon={right && icon}
-      leftIcon={left && icon}
+      rightIcon={icon}
+      leftIcon={icon}
       variant={variantButton}
       colorScheme={colorButton}
       isDisabled={isDisable}
@@ -47,6 +49,13 @@ export const TextApp = ({
     variant={variant}
     onChange={onChange}
   />
+)
+
+export const GroupTextApp = ({ placeholder, onChange }: TextAppProps) => (
+  <InputGroup>
+    <InputLeftElement pointerEvents="none" children={<p>Okay</p>} />
+    <Input placeholder={placeholder} onChange={onChange} />
+  </InputGroup>
 )
 
 export const ButtonGroupApp = ({ children }) => (
