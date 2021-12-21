@@ -5,22 +5,19 @@ import {
   Flex,
   Input,
   Checkbox,
-<<<<<<< HEAD
   InputGroup,
   InputLeftElement,
-=======
   NumberInput,
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
->>>>>>> 10d740c64b86000375edc02d5008e32ef31ffdd4
 } from '@chakra-ui/react'
 import { ButtonProps } from './types/ButtonApp'
 import { TextAppProps } from './types/TextApp'
 import { useEffect, useState } from 'react'
 import { CheckboxAppProps } from './types/CheckboxApp'
-import { NumberInputApp } from './types/NumberInputApp'
+import { NumberInputAppProps } from './types/NumberInputAppProps'
 
 export const ButtonApp = ({
   right = false,
@@ -137,7 +134,7 @@ export const NumberInputApp = ({
   maximum,
   minimum,
   sized,
-}: NumberInputApp) => (
+}: NumberInputAppProps) => (
   <NumberInput
     step={steps}
     size={sized}

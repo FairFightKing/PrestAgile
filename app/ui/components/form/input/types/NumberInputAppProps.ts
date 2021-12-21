@@ -1,4 +1,4 @@
-export declare interface NumberInputApp{
+export declare interface NumberInputAppProps {
     valueDefault ?: number;
     minimum ?: number;
     maximum ?: number;
