@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test": "jest"
   },
   "lint-staged": {
     "*.{tsx, ts, scss, css}": [
@@ -28,15 +29,19 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "ts-node": "^10.4.0"
   },
   "devDependencies": {
-    "@types/node": "16.11.6",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.6",
     "@types/react": "17.0.34",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.3",
     "husky": "^4.3.0",
+    "jest": "^27.4.5",
     "prettier": "^2.4.1",
-    "typescript": "4.4.4"
+    "ts-jest": "^27.1.2",
+    "typescript": "^4.4.4"
   }
 }
