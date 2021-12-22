@@ -5,9 +5,7 @@ export interface StepGeneratorInterface {
 }
 
 export class StepGeneratorImplementation implements StepGeneratorInterface {
-    changeStep(value, array): Step {
-        return new Step(array.Etapes[value].id, array.Etapes[value].title, array.Etapes[value].input)
-    }
+    changeStep = (value, array): Step => new Step(array.Etapes[value].id, array.Etapes[value].title, array.Etapes[value].input)
 }
 
 
