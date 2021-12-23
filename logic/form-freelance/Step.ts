@@ -1,16 +1,8 @@
-export default class Step {
+import {Input} from "./Input";
 
-    constructor(private _id: number, private _title: string, private _inputs: Array<Object>) {}
-
-    get id(): number {
-        return this._id;
-    }
-
-    get title(): string {
-        return this._title;
-    }
-
-    get inputs(): Array<Object> {
-        return this._inputs;
-    }
+export declare interface Step {
+    _id: number,
+    _title: string,
+    _description: string,
+    _inputs?: Array<Input>
 }
