@@ -7,7 +7,7 @@
     "start": "next start",
     "lint": "prettier --check .",
     "format": "prettier --write .",
-    "test": "jest"
+    "test": "jest --verbose ./tests/form-freelance/unitary-test/changeStep.test.ts"
   },
   "lint-staged": {
     "*.{tsx, ts, scss, css}": [
