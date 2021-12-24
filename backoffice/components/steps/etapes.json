@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_etapes_etapes",
+  "info": {
+    "name": "steps",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "input": {
+      "type": "component",
+      "repeatable": true,
+      "component": "input.input"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}
