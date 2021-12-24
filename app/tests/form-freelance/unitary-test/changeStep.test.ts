@@ -1,4 +1,4 @@
-import {StepGeneratorImplementation} from '../../../../logic/form-freelance/changeStep'
+import {StepGeneratorImplementation} from '../../../../logic/form-freelance/services/changeStep'
 import {expect} from '@jest/globals'
 
 const data = {
@@ -86,5 +86,5 @@ test('should return the new array with new step and inputs content inside it', (
 test("should return error if index of Etapes doesn't exist", () => {
     const stepGeneratorImpl = new StepGeneratorImplementation()
     const currentContext = data.Etapes.length + 1
-    expect(() => stepGeneratorImpl.changeStep(currentContext, data)).toThrow() // bon
+    expect(() => stepGeneratorImpl.changeStep(currentContext, data)).toThrow()
 })

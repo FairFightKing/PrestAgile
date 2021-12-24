@@ -1,4 +1,4 @@
-import {Step} from "./Step";
+import {Step} from "../interfaces/Step";
 
 export interface StepGeneratorInterface {
     changeStep(value: number, array: Array<Object>): Step | Error;

@@ -16,10 +16,10 @@
       "type": "string",
       "required": true
     },
-    "Etapes": {
+    "steps": {
       "type": "component",
       "repeatable": true,
-      "component": "etapes.etapes",
+      "component": "steps.etapes",
       "required": false
     },
     "description": {
