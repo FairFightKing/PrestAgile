@@ -14,18 +14,6 @@ beforeEach(async () => {
     }
 })
 
-test('should return simple input', () => {
-    expect(data).toMatchObject({
-            id: expect.any(Number),
-            title: expect.any(String),
-            description: expect.any(String || null),
-            published_at: expect.any(String),
-            created_at: expect.any(String),
-            updated_at: expect.any(String),
-        }
-    )
-})
-
 test('the form should have a minimum of steps in it', () => {
     expect(data.steps.length >= 1).toBeTruthy()
 })
