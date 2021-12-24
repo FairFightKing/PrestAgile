@@ -1,8 +1,8 @@
-import {Input} from "../interfaces/Input";
 import {Form} from "../interfaces/Form";
+import axios from "axios";
 
 export interface HttpClient {
-    getForm(): Object
+    getForm(): Promise<Form>
 }
 
 const fakeData = {
@@ -54,16 +54,9 @@ const fakeData = {
     ]
 }
 
-
-
 export default class HttpClientImplementation implements HttpClient {
-    getForm = (): Object => {
-        return fakeData
+    getForm = async (): Promise<Form> => {
+        const response = await axios("http://localhost:1337/formulaire-freelance")
+        return await response.data;
     }
 }
-
-/**
-
-
-
- **/

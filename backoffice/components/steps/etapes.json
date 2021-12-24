@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "input": {
+    "inputs": {
       "type": "component",
       "repeatable": true,
       "component": "input.input"
