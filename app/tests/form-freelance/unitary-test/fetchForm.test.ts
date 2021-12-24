@@ -1,10 +1,17 @@
 import HttpClientImplementation from "../../../../logic/form-freelance/services/httpClient";
+import {expect} from "@jest/globals";
 
 const HttpClientImpl = new HttpClientImplementation();
 let data;
 
 beforeEach(async () => {
-    data = await HttpClientImpl.getForm()
+    try {
+        //TODO need to implement env variables
+        data = await HttpClientImpl.getForm("http://localhost:1337/formulaire-freelance")
+    }
+    catch (e) {
+        return e
+    }
 })
 
 test('should return simple input', () => {
