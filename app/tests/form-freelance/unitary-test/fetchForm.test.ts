@@ -1,5 +1,4 @@
 import HttpClientImplementation from "../../../../logic/form-freelance/services/httpClient";
-import exp from "constants";
 
 test('should return simple input', () => {
     const HttpClientImpl = new HttpClientImplementation();
