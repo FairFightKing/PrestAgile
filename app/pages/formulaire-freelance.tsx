@@ -15,6 +15,7 @@ const FormFreelance: NextPage = () => {
   }, [progress])
 
   return (
+    //TODO: remove the id
     <Box backgroundColor="blue.50" id="oui">
       <Box w={'40%'} m={'auto'}>
         <Progress value={progress} colorScheme="teal" />

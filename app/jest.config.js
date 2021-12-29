@@ -8,7 +8,7 @@ const customJestConfig = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   globals: {
-    'jsdom': {
+    jsdom: {
       isolatedModules: true,
     },
   },

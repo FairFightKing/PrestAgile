@@ -6,11 +6,9 @@ export interface HttpClient {
 }
 
 export default class HttpClientImplementation implements HttpClient {
-    //TODO need to implement env variables in url base fetching
     getForm = async (url : string): Promise<Form> => {
-        let response = await axios(url)
+        let response = await axios(process.env.BO_URL +  url)
         if (response.status === 404) throw new Error("The url doesn't exist")
         return response.data
     }
-
 }
