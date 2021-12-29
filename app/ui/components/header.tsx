@@ -1,16 +1,15 @@
-import { Box, Button, Typography } from '@material-ui/core';
 import { LinkComponent } from './navigation/LinkComponent';
 
 export default function Header() {
   return (
-    <Box display="flex" bgcolor="grey.200" p={2} alignItems="center">
-      <Typography>Prestagile</Typography>
-      <Box>
+    <div>
+      <h1>Prestagile</h1>
+      <div>
         <LinkComponent
           target="/test"
-          child={<Button color="primary">Test</Button>}
+          child={<button color="primary">Test</button>}
         />
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 }
