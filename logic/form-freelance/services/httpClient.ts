@@ -12,4 +12,5 @@ export default class HttpClientImplementation implements HttpClient {
         if (response.status === 404) throw new Error("The url doesn't exist")
         return response.data
     }
+
 }

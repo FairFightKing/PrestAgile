@@ -15,7 +15,7 @@ const FormFreelance: NextPage = () => {
   }, [progress])
 
   return (
-    <Box backgroundColor="blue.50">
+    <Box backgroundColor="blue.50" id="oui">
       <Box w={'40%'} m={'auto'}>
         <Progress value={progress} colorScheme="teal" />
         <Box

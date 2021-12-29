@@ -6,13 +6,13 @@ export interface StepGeneratorInterface {
 
 export class StepGeneratorImplementation implements StepGeneratorInterface {
     changeStep = (value, array): Step => {
-        if(array.Etapes[value].id === undefined) throw new Error("error")
-        let step = array.Etapes[value]
+        if(array.steps[value].id === undefined) throw new Error("The index of the step is undefined")
+        let step = array.steps[value]
         return {
-            _id: step.id,
-            _title: step.title,
-            _description: step._description,
-            _inputs: [...step.input]
+            id: step.id,
+            title: step.title,
+            description: step.description,
+            inputs: [...step.inputs]
         }
     }
 }

@@ -2,82 +2,58 @@ import {StepGeneratorImplementation} from '../../../../logic/form-freelance/serv
 import {expect} from '@jest/globals'
 
 const data = {
-    Etapes: [
+    steps: [
         {
-            id: 1,
-            title: 'Etape 1',
-            description: "Description 1",
-            input: [
+            id: 5,
+            title: "step 1",
+            description: "description",
+            inputs: [
                 {
-                    id: 1,
-                    name: 'text',
-                    information: 'Merci de pas faire de fautes',
+                    id: 11,
+                    name: "text",
+                    information: "information",
                     additionnalData: null,
-                    type: 'text',
-                    multipleChoice: false,
+                    type: "text",
+                    multipleChoice: false
                 },
                 {
-                    id: 2,
-                    name: 'Second',
-                    information: 'oui',
-                    additionnalData: 'competences',
-                    type: 'select',
-                    multipleChoice: false,
-                },
-            ],
+                    id: 12,
+                    name: "text",
+                    information: "information",
+                    additionnalData: null,
+                    type: "text",
+                    multipleChoice: false
+                }
+            ]
         },
         {
-            id: 2,
-            title: 'Etape 2',
-            description: "Description 2",
-            input: [
-                {
-                    id: 1,
-                    name: 'text',
-                    information: 'Merci de pas faire de fautes',
-                    additionnalData: null,
-                    type: 'text',
-                    multipleChoice: false,
-                },
-                {
-                    id: 2,
-                    name: 'Second',
-                    information: 'oui',
-                    additionnalData: 'competences',
-                    type: 'select',
-                    multipleChoice: false,
-                },
-            ],
+            id: 6,
+            title: "Etape 2",
+            description: "description",
+            inputs: [ ]
         },
+        {
+            id: 7,
+            title: "Title",
+            description: "Description",
+            inputs: [
+                {
+                    id: 10,
+                    name: "name",
+                    information: "info",
+                    additionnalData: null,
+                    type: "checkbox",
+                    multipleChoice: false
+                }
+            ]
+        }
     ],
 }
 
 test('should return the new array with new step and inputs content inside it', () => {
     const stepGeneratorImpl = new StepGeneratorImplementation()
-    const stepValue = {
-        _id: 2,
-        _title: 'Etape 2',
-        _description: undefined,
-        _inputs: [
-            {
-                id: 1,
-                name: 'text',
-                information: 'Merci de pas faire de fautes',
-                additionnalData: null,
-                type: 'text',
-                multipleChoice: false,
-            },
-            {
-                id: 2,
-                name: 'Second',
-                information: 'oui',
-                additionnalData: 'competences',
-                type: 'select',
-                multipleChoice: false,
-            },
-        ],
-    }
-    const currentContext = data.Etapes.length - 1 > 0 ? data.Etapes.length - 1 : 0
+    const currentContext = 1
+    const stepValue = data.steps[currentContext]
     expect(stepGeneratorImpl.changeStep(currentContext, data)).toEqual(
         stepValue
     )
@@ -85,6 +61,6 @@ test('should return the new array with new step and inputs content inside it', (
 
 test("should return error if index of Etapes doesn't exist", () => {
     const stepGeneratorImpl = new StepGeneratorImplementation()
-    const currentContext = data.Etapes.length + 1
+    const currentContext = data.steps.length + 1
     expect(() => stepGeneratorImpl.changeStep(currentContext, data)).toThrow()
 })

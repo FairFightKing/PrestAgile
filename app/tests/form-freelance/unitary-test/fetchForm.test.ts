@@ -6,8 +6,7 @@ let data;
 
 beforeEach(async () => {
     try {
-        //TODO need to implement env variables
-        data = await HttpClientImpl.getForm("http://localhost:1337/formulaire-freelance")
+        data = await HttpClientImpl.getForm(process.env.BO_URL + "formulaire-freelance")
     }
     catch (e) {
         return e
@@ -15,7 +14,7 @@ beforeEach(async () => {
 })
 
 test('the form should have a minimum of steps in it', () => {
-    expect(data.steps.length >= 1).toBeTruthy()
+    expect(data.steps.length >= 2).toBeTruthy()
 })
 
 test('should return a minimum of inputs in each steps', () => {
