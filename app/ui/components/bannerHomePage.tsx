@@ -1,15 +1,15 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Button, ButtonGroup } from '@chakra-ui/react';
 
 export default function BannerHomePage() {
   return (
-    <Flex bg="tomato">
-      <Box bg="#2945FF" color="white">
-        <Box m={100}>
+    <Flex bg="tomato" w="100%">
+      <Box bg="#2945FF" w="50%" color="white">
+        <Box my={75} ml={125}>
           <h2
             style={{
               fontFamily: 'Inter',
               fontWeight: 500,
-              fontSize: '3.25rem',
+              fontSize: '4rem',
             }}
           >
             Votre expert à
@@ -17,12 +17,38 @@ export default function BannerHomePage() {
             portée de clic
           </h2>
           <p
-            style={{ fontFamily: 'Inter', fontWeight: 200, fontSize: '1.2rem' }}
+            style={{
+              fontFamily: 'Inter',
+              fontWeight: 200,
+              fontSize: '1.75rem',
+            }}
           >
             Trouver un expert freelance en agilité ou en gestion
             <br />
             de projet selon vos projet ...
           </p>
+          <ButtonGroup mt={10} spacing="3.5rem" variant="solid">
+            <Button
+              color="black"
+              py={8}
+              px={12}
+              borderRadius="100px"
+              bg="#FFEEEE"
+              size="lg"
+            >
+              Un freelance
+            </Button>
+            <Button
+              color="black"
+              py={8}
+              px={12}
+              borderRadius="100px"
+              bg="#E1DCFF"
+              size="lg"
+            >
+              Une mission
+            </Button>
+          </ButtonGroup>
         </Box>
         <Box></Box>
       </Box>
