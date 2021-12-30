@@ -19,10 +19,14 @@
     }
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.7.3",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@mui/material": "^5.0.6",
     "@mui/styled-engine-sc": "^5.0.4",
+    "framer-motion": "^5.5.5",
     "lint-staged": "^12.0.2",
     "next": "12.0.3",
     "react": "17.0.2",
