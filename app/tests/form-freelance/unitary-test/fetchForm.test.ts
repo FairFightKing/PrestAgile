@@ -6,9 +6,7 @@ let data
 
 beforeEach(async () => {
   try {
-    data = await HttpClientImpl.getForm(
-      'formulaire-freelance',
-    )
+    data = await HttpClientImpl.getForm('formulaire-freelance')
   } catch (e) {
     return e
   }
