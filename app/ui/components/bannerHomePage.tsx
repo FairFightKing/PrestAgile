@@ -10,6 +10,7 @@ export default function BannerHomePage() {
               fontFamily: 'Inter',
               fontWeight: 500,
               fontSize: '4rem',
+              margin: '2rem 0',
             }}
           >
             Votre expert à
