@@ -1,6 +1,6 @@
 import {expect} from "@jest/globals";
-import * as bcrypt from 'bcrypt';
 import FormInputValidator from "../../../../../logic/validators/registration/formInputValidator";
+import PasswordHelper from "../../helpers/PasswordHelper";
 
 export interface ILoginForm {
     email: string,
@@ -26,18 +26,6 @@ const falseDataPassword: ILoginForm = {
 //     checkInputEmail(email: ILoginForm["email"]) : boolean
 //     checkInputPassword(password:ILoginForm["password"]) : boolean
 // }
-
-class PasswordHelper {
-    public static hash = (password: ILoginForm["password"]): Promise<ILoginForm["password"]> => {
-        return bcrypt.hash(password, 10)
-    }
-    public static compare = (passwordToCompareTo: ILoginForm["password"], passwordInDb: ILoginForm["password"]): Promise<boolean> => {
-        return bcrypt.compare(passwordToCompareTo, passwordInDb)
-    }
-}
-
-/* ------------------------------------------------------------------------------------------------------------------ */
-
 
 test('The input fields should be verified', () => expect(FormInputValidator.checkInputFields(data)).toBeTruthy() )
 test('Wrong Email should throw custom error', () => expect(() => FormInputValidator.checkInputFields(falseData)).toThrow() )
