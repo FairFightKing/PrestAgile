@@ -1,31 +1,20 @@
 import {expect} from "@jest/globals";
 import FormInputValidator from "../../../../../logic/validators/registration/formInputValidator";
 import PasswordHelper from "../../helpers/PasswordHelper";
+import {LoginFormDTO} from "../DTO/LoginFormDTO";
 
-export interface ILoginForm {
-    email: string,
-    password?: string,
-    passwordHash?: string,
-    age?: number,
-}
-
-const data: ILoginForm = {
+const data: LoginFormDTO = {
     email: 'sosthene.fruchard78@gmail.com',
     password: 'Password@7889',
 }
-const falseData: ILoginForm = {
+const falseData: LoginFormDTO = {
     email: 'soenefm',
     password: 'Password@7889',
 }
-const falseDataPassword: ILoginForm = {
+const falseDataPassword: LoginFormDTO = {
     email: 'sosthene.fruchard78@gmail.com',
     password: 'prd',
 }
-// export interface IValidatorInput {
-//     checkInputFields({email,password} : ILoginForm) : boolean|Error
-//     checkInputEmail(email: ILoginForm["email"]) : boolean
-//     checkInputPassword(password:ILoginForm["password"]) : boolean
-// }
 
 test('The input fields should be verified', () => expect(FormInputValidator.checkInputFields(data)).toBeTruthy() )
 test('Wrong Email should throw custom error', () => expect(() => FormInputValidator.checkInputFields(falseData)).toThrow() )
