@@ -1,11 +1,12 @@
 import * as bcrypt from "bcrypt";
-import {ILoginForm} from "../LoginRegister/Test/fetchInput.test";
+import {LoginFormDTO} from "../LoginRegister/DTO/LoginFormDTO";
+
 
 export default class PasswordHelper {
-    public static hash = (password: ILoginForm["password"]): Promise<ILoginForm["password"]> => {
+    public static hash = (password: LoginFormDTO["password"]): Promise<LoginFormDTO["password"]> => {
         return bcrypt.hash(password, 10)
     }
-    public static compare = (passwordToCompareTo: ILoginForm["password"], passwordInDb: ILoginForm["password"]): Promise<boolean> => {
+    public static compare = (passwordToCompareTo: LoginFormDTO["password"], passwordInDb: LoginFormDTO["password"]): Promise<boolean> => {
         return bcrypt.compare(passwordToCompareTo, passwordInDb)
     }
 }
