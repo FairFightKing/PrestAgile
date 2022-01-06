@@ -1,12 +1,15 @@
-import type { NextPage } from 'next'
-import { Link } from '@chakra-ui/react'
+import type { NextPage } from 'next';
+import styled from 'styled-components';
+import Layout from '../ui/components/layout';
+import BannerHomePage from '../ui/components/bannerHomePage';
 
 const Home: NextPage = () => {
   return (
     <div>
-      <Link href="/register">Register</Link>
+      Page accueil Next Js.
+      <BannerHomePage />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
