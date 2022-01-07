@@ -2,12 +2,12 @@ import { Box, Flex, Button, ButtonGroup, Text, Image } from '@chakra-ui/react';
 
 export default function BannerHomePage() {
   return (
-    <Flex bg="grey" h="520px">
+    <Flex h="520px">
       <Box bg="#2945FF" w="50%" color="white">
-        <Box my={75} ml={125}>
+        <Box my="12.5%" ml="20%">
           <Text
             lineHeight="120%"
-            my={2}
+            my="2%"
             fontFamily="Inter"
             letterSpacing="-1px"
             fontWeight="500"
@@ -18,7 +18,7 @@ export default function BannerHomePage() {
             portée de clic
           </Text>
           <Text
-            pt={5}
+            pt="2.5%"
             lineHeight="120%"
             fontFamily="Inter"
             fontWeight="400"
@@ -30,7 +30,7 @@ export default function BannerHomePage() {
             de projet selon vos projet ...
           </Text>
           <ButtonGroup
-            mt={10}
+            mt="10%"
             letterSpacing="-1px"
             spacing="3.5rem"
             variant="solid"
@@ -72,7 +72,7 @@ export default function BannerHomePage() {
         />
         <Box mx="-64.15%">
           <Image
-            alt="2 personne qui travail ensemble"
+            alt="2 personnes qui travaillent ensemble"
             src="bannerHomePagePicture.png"
           />
         </Box>
