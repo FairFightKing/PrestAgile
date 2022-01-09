@@ -38,3 +38,5 @@ test('Hash password will return false when data arent equal', async () => {
   const compare = await PasswordHelper.hash(falseDataPassword.password)
   expect(await PasswordHelper.compare(data.password, compare)).toBeFalsy()
 })
+
+test('Form input should be ')
