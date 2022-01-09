@@ -3,26 +3,13 @@ interface RegistrationInput {
     password: string
 }
 
-interface RegistrationOutput {
-    email: boolean,
-    password: {
-        specialChar: boolean,
-        length: boolean,
-        uppercase: boolean
-    }
-}
-
 export class RegistrationServicesImpl {
-    public static checkInput = ({email, password}: RegistrationInput): RegistrationOutput => {
+    public static checkInputForApi = ({email, password}: RegistrationInput): boolean => {
         const emailRegex = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/
         const specialCharRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
-        return {
-            email: emailRegex.test(email),
-            password: {
-                specialChar: specialCharRegex.test(password),
-                length: password.length >= 8,
-                uppercase: /[A-Z]/.test(password)
-            }
-        }
+        if (!(password.length >= 8)) return false
+        if (!(/[A-Z]/.test(password))) return false
+        if (!(emailRegex.test(email))) return false
+        return specialCharRegex.test(password);
     }
 }
