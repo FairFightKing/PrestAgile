@@ -1,5 +1,5 @@
 import * as bcrypt from 'bcrypt'
-import { LoginFormDTO } from '../LoginRegister/DTO/LoginFormDTO'
+import { LoginFormDTO } from '../DTO/LoginFormDTO'
 
 export default class PasswordHelper {
   public static hash = (
