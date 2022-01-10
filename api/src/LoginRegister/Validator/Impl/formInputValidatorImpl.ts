@@ -4,11 +4,11 @@ export default class FormInputValidatorImpl {
   public static checkInputFields = ({
     email,
     password,
-  }: LoginFormDTO): LoginFormDTO => {
+  }: LoginFormDTO): boolean | Error => {
     if (!this.checkInputEmail(email)) throw Error('The User Email is not valid')
     if (!this.checkInputPassword(password))
       throw Error('The User Password is not valid')
-    return { email: email, password: password }
+    return true
   }
   private static checkInputEmail = (email: LoginFormDTO['email']): boolean => {
     // todo : check length  >= 11 && comment what does the regex do

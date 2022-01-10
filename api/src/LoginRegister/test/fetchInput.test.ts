@@ -2,6 +2,7 @@ import { expect } from '@jest/globals'
 import FormInputValidatorImpl from '../Validator/Impl/formInputValidatorImpl'
 import PasswordHelper from '../helpers/PasswordHelper'
 import { LoginFormDTO } from '../DTO/LoginFormDTO'
+import { LoginManager } from '../Manager/LoginManager'
 
 const data: LoginFormDTO = {
   email: 'sosthene.fruchard78@gmail.com',
@@ -25,11 +26,7 @@ test('Wrong password should throw custom error', () =>
     FormInputValidatorImpl.checkInputFields(falseDataPassword),
   ).toThrow())
 test('Password hashed successfully', async () =>
-  expect(
-    await PasswordHelper.hash(
-      FormInputValidatorImpl.checkInputFields(data).password,
-    ),
-  ))
+  expect(await PasswordHelper.hash(data.password)))
 test('Hash password can be validated', async () => {
   const compare = await PasswordHelper.hash(data.password)
   expect(await PasswordHelper.compare(data.password, compare)).toBeTruthy()
@@ -38,5 +35,7 @@ test('Hash password will return false when data arent equal', async () => {
   const compare = await PasswordHelper.hash(falseDataPassword.password)
   expect(await PasswordHelper.compare(data.password, compare)).toBeFalsy()
 })
-
-test('Form input should be ')
+test('The Manager should verify correctly the input data', async () => {
+  const loginManager = new LoginManager(data)
+  expect(await loginManager.HandleLoginRequest()).toBeTruthy()
+})
