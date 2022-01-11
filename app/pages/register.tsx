@@ -23,32 +23,32 @@ const Home: NextPage = () => {
         {
           <>
             <span>
-              {EmailHelper.emailValidation(formRegisterValue.email)
-                ? "L'email est valide"
-                : "L'email est invalide"}
+              L'email est
+              {!EmailHelper.emailValidation(formRegisterValue.email) && ' in'}
+              valide
             </span>
             <br />
             <span>
-              Le mot de passe{' '}
-              {formRegisterValue.password.length >= 8 ? 'fait' : 'doit faire'}{' '}
-              au moins 8 caractères{' '}
+              Le mot de passe
+              {formRegisterValue.password.length >= 8 ? ' fait' : 'doit faire '}
+              au moins 8 caractères
             </span>
             <br />
             <span>
-              Le mot de passe{' '}
+              Le mot de passe
               {/[A-Z]/.test(formRegisterValue.password)
-                ? 'possède'
-                : 'doit posséder'}{' '}
+                ? ' possède'
+                : 'doit posséder'}
               une majuscule
             </span>
             <br />
             <span>
-              Le mot de passe{' '}
+              Le mot de passe
               {/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(
                 formRegisterValue.password,
               )
-                ? 'contient'
-                : 'doit contenir'}{' '}
+                ? ' contient'
+                : 'doit contenir '}
               un caractère spécial
             </span>
             <br />
