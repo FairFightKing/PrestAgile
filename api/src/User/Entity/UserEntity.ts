@@ -1,22 +1,12 @@
 import UserDTO from '../DTO/UserDTO'
 
 export default class User {
-  private _id: number
-  private _email: UserDTO['email']
-  private _name: UserDTO['name']
-  private _type: UserDTO['type']
-
   constructor(
-    id: number,
-    email: UserDTO['email'],
-    name: UserDTO['name'],
-    type: UserDTO['type'],
-  ) {
-    this._id = id
-    this._email = email
-    this._name = name
-    this._type = type
-  }
+    private _id: number,
+    private _email: UserDTO['email'],
+    private _name: UserDTO['name'],
+    private _type: UserDTO['type'],
+  ) {}
 
   get id(): number {
     return this._id
