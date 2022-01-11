@@ -1,4 +1,4 @@
-interface RegistrationInput {
+export interface RegistrationInput {
     email: string,
     password: string
 }

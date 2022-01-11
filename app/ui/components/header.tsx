@@ -11,6 +11,12 @@ export default function Header() {
           child={<Button color="primary">Test</Button>}
         />
       </Box>
+      <Box>
+        <LinkComponent
+          target="/register"
+          child={<Button color="primary">Test</Button>}
+        />
+      </Box>
     </Box>
   );
 }
