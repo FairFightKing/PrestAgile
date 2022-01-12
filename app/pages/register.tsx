@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
-import { useEffect, useState } from 'react';
-import { useEditable } from '@chakra-ui/react';
-import { RegistrationInput } from '../logic/registration/services/registrationServices';
+import { useState } from 'react';
 import { EmailHelper } from '../logic/helpers/emailHelper';
+import { ValidationSpan } from '../ui/components/register/ValidationSpan';
+import { Badge } from '@chakra-ui/react';
 
 const Home: NextPage = () => {
   const [formRegisterValue, setRegisterFormValue] = useState({
@@ -10,58 +10,66 @@ const Home: NextPage = () => {
     password: '',
   });
 
-  const setValues = ({ target }) => {
-    setRegisterFormValue({
-      ...formRegisterValue,
-      [target.type]: target.value,
-    });
-  };
-
+  // @ts-ignore
   return (
     <div>
-      <form action="" onChange={setValues}>
-        {
-          <>
-            <span>
-              L'email est
-              {!EmailHelper.emailValidation(formRegisterValue.email) && ' in'}
-              valide
-            </span>
-            <br />
-            <span>
-              Le mot de passe
-              {formRegisterValue.password.length >= 8 ? ' fait' : 'doit faire '}
-              au moins 8 caractères
-            </span>
-            <br />
-            <span>
-              Le mot de passe
-              {/[A-Z]/.test(formRegisterValue.password)
-                ? ' possède'
-                : 'doit posséder'}
-              une majuscule
-            </span>
-            <br />
-            <span>
-              Le mot de passe
-              {/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(
-                formRegisterValue.password,
-              )
-                ? ' contient'
-                : 'doit contenir '}
-              un caractère spécial
-            </span>
-            <br />
-          </>
+      {
+        <>
+          <ValidationSpan
+            regex={EmailHelper.emailValidation(formRegisterValue.email)}
+            value={
+              EmailHelper.emailValidation(formRegisterValue.email)
+                ? "L'email est valide"
+                : "L'email est invalide"
+            }
+          />
+          <br />
+          <ValidationSpan
+            context="passwordLength"
+            regex={formRegisterValue.password.length >= 8}
+            value={
+              formRegisterValue.password.length >= 8
+                ? 'Le mot de passe fait au moins 8 caractères'
+                : 'Le mot de passe doit faire au moins 8 caractères'
+            }
+          />
+          <br />
+          <ValidationSpan
+            context="passwordCaps"
+            regex={/[A-Z]/}
+            value={formRegisterValue.password}
+          />
+          <br />
+          <ValidationSpan
+            context="passwordSpecialChar"
+            regex={/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/}
+            value={formRegisterValue.password}
+          />
+        </>
+      }
+
+      <form
+        action=""
+        onChange={({ target }) =>
+          setRegisterFormValue({
+            ...formRegisterValue,
+            // @ts-ignore
+            [target.type]: target.value,
+          })
         }
+      >
         <br />
-        <label htmlFor="email">Entrez votre email</label>
+        <label htmlFor="email"> Entrez votre email</label>
         <br />
         <input type="email" autoComplete="invalid" />
         <br />
         <label htmlFor="email">Entrez votre mot de passe</label>
         <br />
         <input type="password" autoComplete="invalid" />
+        <br />
+        <label htmlFor="submission" />
+        <br />
+        <input type="submit" value="Valider mon inscription" />
       </form>
     </div>
   );
