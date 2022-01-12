@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { Badge } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 
@@ -23,10 +22,10 @@ export const ValidationSpan = ({ context, regex, value }: IValidationSpan) => {
         falseValue: 'Le mot de passe doit contenir un caractère spécial',
       },
     };
-    // @ts-ignore
     if (typeof regex !== 'boolean') {
       setValidatedValue(regex.test(value));
       return setValueToDisplay(
+        // @ts-ignore
         ValueValidationDispatcher[context][
           validatedValue ? 'validatedValue' : 'falseValue'
         ],
@@ -37,7 +36,7 @@ export const ValidationSpan = ({ context, regex, value }: IValidationSpan) => {
   }, [context, regex, validatedValue, value]);
 
   return (
-    <Badge colorScheme={validatedValue ? 'green' : 'red'}>
+    <Badge colorScheme={validatedValue ? 'green' : 'red'} m="0 0.2rem">
       {valueToDisplay}
     </Badge>
   );

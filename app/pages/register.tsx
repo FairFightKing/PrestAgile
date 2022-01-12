@@ -1,77 +1,70 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
-import { EmailHelper } from '../logic/helpers/emailHelper';
-import { ValidationSpan } from '../ui/components/register/ValidationSpan';
-import { Badge } from '@chakra-ui/react';
+import { ValidationContainer } from '../ui/components/register/ValidationContainer';
+import { Input } from '@chakra-ui/input';
+import { Container, Heading, Text } from '@chakra-ui/react';
 
 const Home: NextPage = () => {
   const [formRegisterValue, setRegisterFormValue] = useState({
     email: '',
     password: '',
+    confirmPassword: '',
+    firstName: '',
+    lastName: '',
+    phone: '',
   });
 
-  // @ts-ignore
   return (
-    <div>
-      {
-        <>
-          <ValidationSpan
-            regex={EmailHelper.emailValidation(formRegisterValue.email)}
-            value={
-              EmailHelper.emailValidation(formRegisterValue.email)
-                ? "L'email est valide"
-                : "L'email est invalide"
-            }
-          />
-          <br />
-          <ValidationSpan
-            context="passwordLength"
-            regex={formRegisterValue.password.length >= 8}
-            value={
-              formRegisterValue.password.length >= 8
-                ? 'Le mot de passe fait au moins 8 caractères'
-                : 'Le mot de passe doit faire au moins 8 caractères'
-            }
-          />
-          <br />
-          <ValidationSpan
-            context="passwordCaps"
-            regex={/[A-Z]/}
-            value={formRegisterValue.password}
-          />
-          <br />
-          <ValidationSpan
-            context="passwordSpecialChar"
-            regex={/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/}
-            value={formRegisterValue.password}
-          />
-        </>
-      }
-
+    <Container maxW="container.md">
       <form
-        action=""
         onChange={({ target }) =>
           setRegisterFormValue({
             ...formRegisterValue,
             // @ts-ignore
-            [target.type]: target.value,
+            [target.id]: target.value,
           })
         }
       >
+        <Heading size="xl" m="1rem 0">
+          Valide ton inscription
+        </Heading>
+        <Text as="label" htmlFor="firstName">
+          Entrez votre prénom
+        </Text>
+        <Input type="text" id="firstName" />
+        <Text as="label" htmlFor="lastName">
+          Entrez votre nom
+        </Text>
+        <Input type="text" id="lastName" />
+        <Text as="label" htmlFor="phone">
+          Entrez votre numéro de téléphone
+        </Text>
+        <Input type="text" id="phone" />
+        <Text as="label" htmlFor="email">
+          Entrez votre email
+        </Text>
+        <Input type="text" id="email" />
+        <Text as="label" htmlFor="password">
+          Entrez votre mot de passe
+        </Text>
+        <Input type="password" id="password" />
+        <Text as="label" htmlFor="confirmPassword">
+          Confirmez votre mot de passe
+        </Text>
+        <Input m="0 0 1rem 0" type="password" id="confirmPassword" />
         <br />
-        <label htmlFor="email"> Entrez votre email</label>
+        <ValidationContainer data={formRegisterValue} />
         <br />
-        <input type="email" autoComplete="invalid" />
-        <br />
-        <label htmlFor="email">Entrez votre mot de passe</label>
-        <br />
-        <input type="password" autoComplete="invalid" />
-        <br />
-        <label htmlFor="submission" />
-        <br />
-        <input type="submit" value="Valider mon inscription" />
+        <Text as="label" htmlFor="submission" />
+        <Input
+          backgroundColor="#2945FF"
+          color="white"
+          width="30%"
+          type="submit"
+          value="Valider mon inscription"
+        />
       </form>
-    </div>
+    </Container>
   );
 };
 
