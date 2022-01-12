@@ -119,7 +119,7 @@ export default function RecruitementHomePage() {
                 lineHeight="160%"
               >
                 Recommencez. La mission est terminée? Débloquez le paiement en
-                un clic et partez à la
+                un clic et partez à la recherche de votre prochain talent
               </Text>
             </GridItem>
           </WrapItem>
