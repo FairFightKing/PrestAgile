@@ -13,7 +13,7 @@ export interface LoginFormDTO {
   age?: number
 }
 
-export default class LoginDto {
+export default class LoginDTO {
   @ApiProperty({
     minimum: 9,
     maximum: 25,

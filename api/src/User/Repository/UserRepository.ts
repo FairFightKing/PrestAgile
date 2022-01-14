@@ -3,16 +3,23 @@ import UserEntity from '../Entity/UserEntity'
 import RegisterDto from '../../Authentification/DTO/RegisterDto'
 import PasswordHelper from '../../Authentification/helpers/PasswordHelper'
 import { ConflictException, InternalServerErrorException } from '@nestjs/common'
-import { JwtDto } from '../../Authentification/DTO/JwtDto'
+import { JwtDTO } from '../../Authentification/DTO/JwtDTO'
+import UserInfoEntity from '../Entity/UserInfoEntity'
+import * as bcrypt from 'bcrypt'
 
 @EntityRepository(UserEntity)
 export default class UserRepository extends Repository<UserEntity> {
   async register({ email, password }: RegisterDto): Promise<void> {
     const user = new UserEntity()
     user.email = email
-    user.password = await PasswordHelper.hash(password)
+    user.salt = await bcrypt.genSalt()
+    user.password = await PasswordHelper.hash(password, user.salt)
 
     try {
+      const userInfo = new UserInfoEntity()
+      await userInfo.save()
+      user.userInfo = userInfo
+
       await user.save()
     } catch (e) {
       //error code for already exist
@@ -24,12 +31,13 @@ export default class UserRepository extends Repository<UserEntity> {
   async validateUserPassword({
     email,
     password,
-  }: RegisterDto): Promise<JwtDto> {
+  }: RegisterDto): Promise<JwtDTO> {
     const auth = await this.findOne({ email })
 
     if (auth && (await auth.validatePassword(password))) {
       return {
         email: auth.email,
+        userInfo: auth.userInfo,
       }
     } else return null
   }

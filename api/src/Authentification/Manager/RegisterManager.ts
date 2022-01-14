@@ -2,8 +2,8 @@ import { ApiTags } from '@nestjs/swagger'
 import { Body, Controller, Post, ValidationPipe } from '@nestjs/common'
 import RegisterDto from '../DTO/RegisterDto'
 import AuthService from '../Service/AuthService'
-import LoginDto from '../DTO/LoginDTO'
-import { JwtDto } from '../DTO/JwtDto'
+import LoginDTO from '../DTO/LoginDTO'
+import { JwtDTO } from '../DTO/JwtDTO'
 
 @ApiTags('Register')
 @Controller('register')
@@ -17,8 +17,8 @@ export class RegisterManager {
 
   @Post('/login')
   login(
-    @Body(ValidationPipe) loginDto: LoginDto,
-  ): Promise<{ accessToken: string; user: JwtDto }> {
+    @Body(ValidationPipe) loginDto: LoginDTO,
+  ): Promise<{ accessToken: string; user: JwtDTO }> {
     return this.authService.login(loginDto)
   }
 }
