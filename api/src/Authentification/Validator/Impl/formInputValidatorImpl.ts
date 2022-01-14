@@ -1,4 +1,4 @@
-import { LoginFormDTO } from '../../DTO/LoginFormDTO'
+import { LoginFormDTO } from '../../DTO/LoginDTO'
 
 export const EmailRegexp = new RegExp(
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{9,25}))$/,

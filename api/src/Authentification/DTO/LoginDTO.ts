@@ -6,16 +6,24 @@ import {
 } from '../Validator/Impl/formInputValidatorImpl'
 import UserDTO from '../../User/DTO/UserDTO'
 
-export default class RegisterDto {
+export interface LoginFormDTO {
+  email: string
+  password?: string
+  passwordHash?: string
+  age?: number
+}
+
+export default class LoginDto {
   @ApiProperty({
     minimum: 9,
     maximum: 25,
     required: true,
     name: 'email',
   })
+  @IsString()
   @MinLength(9)
   @MaxLength(25)
-  @Matches(PasswordRegexp, { message: 'Email not conform' })
+  @Matches(EmailRegexp, { message: 'Email not conform' })
   email: UserDTO['email']
 
   @ApiProperty({
@@ -29,6 +37,6 @@ export default class RegisterDto {
   @IsString()
   @MinLength(8)
   @MaxLength(30)
-  @Matches(EmailRegexp, { message: 'Password too weak' })
+  @Matches(PasswordRegexp, { message: 'Password too weak' })
   password: UserDTO['password']
 }
