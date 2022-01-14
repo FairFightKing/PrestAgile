@@ -7,6 +7,7 @@ import {
   Wrap,
   WrapItem,
 } from '@chakra-ui/react';
+import { GridCategory } from './category/gridCategoryHomepage';
 
 export default function CategoryHomePage() {
   return (
@@ -29,236 +30,126 @@ export default function CategoryHomePage() {
         height="100%"
         m="auto"
       >
-        <WrapItem>
-          <GridItem
-            height="350px"
-            w="340px"
-            rounded="20px"
-            border="white 9px solid"
-            bg="#FFE8E8"
-            boxShadow="lg"
-            overflow="hidden"
-          >
-            <Image
-              src="Gridlistimage.png"
-              zIndex={6}
-              position="relative"
-              roundedBottom="20px"
-              alt="rth"
-            />
-            <Box
-              textAlign="center"
-              roundedTop="25px"
-              zIndex={7}
-              position="relative"
-              bg="white"
-              p={3}
-            >
-              <Text
-                fontSize="2xl"
-                fontFamily="Inter"
-                fontWeight="400"
-                lineHeight="120%"
-                letterSpacing="-1px"
-              >
-                Scrum Master
-              </Text>
-              <Button
-                mt={4}
-                color="white"
-                borderRadius="100px"
-                size="lg"
-                bg="#2945FF"
-              >
-                Découvrir
-              </Button>
-            </Box>
-          </GridItem>
-        </WrapItem>
-        <WrapItem>
-          <GridItem
-            height="350px"
-            w="340px"
-            rounded="20px"
-            border="white 9px solid"
-            bg="#FFE8E8"
-            boxShadow="lg"
-            overflow="hidden"
-          >
-            <Image
-              src="Gridlistimage.png"
-              zIndex={6}
-              position="relative"
-              roundedBottom="20px"
-              alt="rth"
-            />
-            <Box
-              textAlign="center"
-              roundedTop="25px"
-              zIndex={7}
-              position="relative"
-              bg="white"
-              p={3}
-            >
-              <Text
-                fontSize="2xl"
-                fontFamily="Inter"
-                fontWeight="400"
-                lineHeight="120%"
-                letterSpacing="-1px"
-              >
-                Scrum Master
-              </Text>
-              <Button
-                mt={4}
-                color="white"
-                borderRadius="100px"
-                size="lg"
-                bg="#2945FF"
-              >
-                Découvrir
-              </Button>
-            </Box>
-          </GridItem>
-        </WrapItem>
-        <WrapItem>
-          <GridItem
-            height="350px"
-            w="340px"
-            rounded="20px"
-            border="white 9px solid"
-            bg="#FFE8E8"
-            boxShadow="lg"
-            overflow="hidden"
-          >
-            <Image
-              src="Gridlistimage.png"
-              zIndex={6}
-              position="relative"
-              roundedBottom="20px"
-              alt="rth"
-            />
-            <Box
-              textAlign="center"
-              roundedTop="25px"
-              zIndex={7}
-              position="relative"
-              bg="white"
-              p={3}
-            >
-              <Text
-                fontSize="2xl"
-                fontFamily="Inter"
-                fontWeight="400"
-                lineHeight="120%"
-                letterSpacing="-1px"
-              >
-                Scrum Master
-              </Text>
-              <Button
-                mt={4}
-                color="white"
-                borderRadius="100px"
-                size="lg"
-                bg="#2945FF"
-              >
-                Découvrir
-              </Button>
-            </Box>
-          </GridItem>
-        </WrapItem>
-        <WrapItem>
-          <GridItem
-            height="350px"
-            w="340px"
-            rounded="20px"
-            border="white 9px solid"
-            bg="#FFE8E8"
-            boxShadow="lg"
-            overflow="hidden"
-          >
-            <Image
-              src="Gridlistimage.png"
-              zIndex={6}
-              position="relative"
-              roundedBottom="20px"
-              alt="rth"
-            />
-            <Box
-              textAlign="center"
-              roundedTop="25px"
-              zIndex={7}
-              position="relative"
-              bg="white"
-              p={3}
-            >
-              <Text
-                fontSize="2xl"
-                fontFamily="Inter"
-                fontWeight="400"
-                lineHeight="120%"
-                letterSpacing="-1px"
-              >
-                Scrum Master
-              </Text>
-              <Button
-                mt={4}
-                color="white"
-                borderRadius="100px"
-                size="lg"
-                bg="#2945FF"
-              >
-                Découvrir
-              </Button>
-            </Box>
-          </GridItem>
-        </WrapItem>
-        <WrapItem>
-          <GridItem
-            height="350px"
-            w="340px"
-            rounded="20px"
-            border="white 9px solid"
-            bg="#FFE8E8"
-            boxShadow="lg"
-            overflow="hidden"
-          >
-            <Image
-              src="Gridlistimage.png"
-              zIndex={6}
-              position="relative"
-              roundedBottom="20px"
-              alt="rth"
-            />
-            <Box
-              textAlign="center"
-              roundedTop="25px"
-              zIndex={7}
-              position="relative"
-              bg="white"
-              p={3}
-            >
-              <Text
-                fontSize="2xl"
-                fontFamily="Inter"
-                fontWeight="400"
-                lineHeight="120%"
-                letterSpacing="-1px"
-              >
-                Scrum Master
-              </Text>
-              <Button
-                mt={4}
-                color="white"
-                borderRadius="100px"
-                size="lg"
-                bg="#2945FF"
-              >
-                Découvrir
-              </Button>
-            </Box>
-          </GridItem>
-        </WrapItem>
+        <GridCategory
+          gridBackground="#FFE8E8"
+          gridHeight="350px"
+          gridWidth="340px"
+          gridRadius="20px"
+          gridBorder="white 9px solid"
+          gridBoxShadow="lg"
+          imageAlt="image zeby"
+          imageSrc="Gridlistimage.png"
+          boxTextAlign="center"
+          boxBackgroud="white"
+          boxRadiusTop="25px"
+          fontWeight="400"
+          fontSize="2xl"
+          fontFamilly="Inter"
+          lineHeight="120%"
+          letterSpacing="-1px"
+          textValue="Scrum Master"
+          buttonTextColor="white"
+          buttonBackground="#2945FF"
+          buttonSize="lg"
+          buttonRadius="100px"
+          buttonContent="Découvrir"
+        />
+        <GridCategory
+          gridBackground="#FFE8E8"
+          gridHeight="350px"
+          gridWidth="340px"
+          gridRadius="20px"
+          gridBorder="white 9px solid"
+          gridBoxShadow="lg"
+          imageAlt="image zeby"
+          imageSrc="Gridlistimage.png"
+          boxTextAlign="center"
+          boxBackgroud="white"
+          boxRadiusTop="25px"
+          fontWeight="400"
+          fontSize="2xl"
+          fontFamilly="Inter"
+          lineHeight="120%"
+          letterSpacing="-1px"
+          textValue="Scrum Master"
+          buttonTextColor="white"
+          buttonBackground="#2945FF"
+          buttonSize="lg"
+          buttonRadius="100px"
+          buttonContent="Découvrir"
+        />
+        <GridCategory
+          gridBackground="#FFE8E8"
+          gridHeight="350px"
+          gridWidth="340px"
+          gridRadius="20px"
+          gridBorder="white 9px solid"
+          gridBoxShadow="lg"
+          imageAlt="image zeby"
+          imageSrc="Gridlistimage.png"
+          boxTextAlign="center"
+          boxBackgroud="white"
+          boxRadiusTop="25px"
+          fontWeight="400"
+          fontSize="2xl"
+          fontFamilly="Inter"
+          lineHeight="120%"
+          letterSpacing="-1px"
+          textValue="Scrum Master"
+          buttonTextColor="white"
+          buttonBackground="#2945FF"
+          buttonSize="lg"
+          buttonRadius="100px"
+          buttonContent="Découvrir"
+        />
+        <GridCategory
+          gridBackground="#FFE8E8"
+          gridHeight="350px"
+          gridWidth="340px"
+          gridRadius="20px"
+          gridBorder="white 9px solid"
+          gridBoxShadow="lg"
+          imageAlt="image zeby"
+          imageSrc="Gridlistimage.png"
+          boxTextAlign="center"
+          boxBackgroud="white"
+          boxRadiusTop="25px"
+          fontWeight="400"
+          fontSize="2xl"
+          fontFamilly="Inter"
+          lineHeight="120%"
+          letterSpacing="-1px"
+          textValue="Scrum Master"
+          buttonTextColor="white"
+          buttonBackground="#2945FF"
+          buttonSize="lg"
+          buttonRadius="100px"
+          buttonContent="Découvrir"
+        />
+        <GridCategory
+          gridBackground="#FFE8E8"
+          gridHeight="350px"
+          gridWidth="340px"
+          gridRadius="20px"
+          gridBorder="white 9px solid"
+          gridBoxShadow="lg"
+          imageAlt="image zeby"
+          imageSrc="Gridlistimage.png"
+          boxTextAlign="center"
+          boxBackgroud="white"
+          boxRadiusTop="25px"
+          fontWeight="400"
+          fontSize="2xl"
+          fontFamilly="Inter"
+          lineHeight="120%"
+          letterSpacing="-1px"
+          textValue="Scrum Master"
+          buttonTextColor="white"
+          buttonBackground="#2945FF"
+          buttonSize="lg"
+          buttonRadius="100px"
+          buttonContent="Découvrir"
+        />
       </Wrap>
     </Box>
   );
