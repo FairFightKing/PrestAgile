@@ -1,12 +1,13 @@
 import * as bcrypt from 'bcrypt'
-import { LoginDTO } from '../DTO/LoginDTO'
+import LoginDTO from '../DTO/LoginDTO'
 
 export default class PasswordHelper {
   public static hash = (
     password: LoginDTO['password'],
+    salt: string | number = 10,
   ): Promise<LoginDTO['password']> => {
     if (password === undefined) throw Error
-    return bcrypt.hash(password, 10)
+    return bcrypt.hash(password, salt)
   }
   public static compare = (
     passwordToCompareTo: LoginDTO['password'] | Buffer,
