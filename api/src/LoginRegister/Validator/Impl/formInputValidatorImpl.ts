@@ -1,5 +1,14 @@
 import { LoginFormDTO } from '../../DTO/LoginFormDTO'
 
+export const EmailRegexp = new RegExp(
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{9,25}))$/,
+)
+
+// 1 upper, lowe, special, number
+export const PasswordRegexp = new RegExp(
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?_&])[A-Za-z\d#@$!%*?&]{8,30}$/,
+)
+
 export default class FormInputValidatorImpl {
   public static checkInputFields = ({
     email,
@@ -11,20 +20,12 @@ export default class FormInputValidatorImpl {
     return true
   }
   private static checkInputEmail = (email: LoginFormDTO['email']): boolean => {
-    // todo : check length  >= 11 && comment what does the regex do
-    const regexp = new RegExp(
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    )
-    return email.length >= 11 && regexp.test(email)
+    return email.length >= 11 && EmailRegexp.test(email)
   }
   private static checkInputPassword = (
     password: LoginFormDTO['password'],
   ): boolean => {
-    // todo : Make regex allow all special characters
-    const regexp = new RegExp(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?_&])[A-Za-z\d@$!%*?&]{8,}$/,
-    )
     if (password === undefined) throw Error
-    return regexp.test(password)
+    return PasswordRegexp.test(password)
   }
 }

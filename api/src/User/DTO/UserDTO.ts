@@ -2,6 +2,7 @@ export default interface UserDTO {
   email: string
   name: string
   type: Types[]
+  password: string
 }
 
 export enum Types {

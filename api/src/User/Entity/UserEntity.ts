@@ -1,42 +1,32 @@
 import UserDTO from '../DTO/UserDTO'
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  Unique,
+} from 'typeorm'
+import * as bcrypt from 'bcrypt'
 
-export default class User {
-  constructor(
-    private _id: number,
-    private _email: UserDTO['email'],
-    private _name: UserDTO['name'],
-    private _type: UserDTO['type'],
-  ) {}
+@Entity()
+@Unique(['email'])
+export default class UserEntity extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id: number
 
-  get id(): number {
-    return this._id
-  }
+  @Column({ type: 'varchar' })
+  email: UserDTO['email']
 
-  set id(value: number) {
-    this._id = value
-  }
+  @Column({ type: 'varchar' })
+  password: UserDTO['password']
 
-  get email(): UserDTO['email'] {
-    return this._email
-  }
+  @Column({ type: 'varchar' })
+  name: UserDTO['name']
 
-  set email(value: UserDTO['email']) {
-    this._email = value
-  }
+  @Column({ type: 'array' })
+  type: UserDTO['type']
 
-  get name(): UserDTO['name'] {
-    return this._name
-  }
-
-  set name(value: UserDTO['name']) {
-    this._name = value
-  }
-
-  get type(): UserDTO['type'] {
-    return this._type
-  }
-
-  set type(value: UserDTO['type']) {
-    this._type = value
+  async validatePassword(password: UserDTO['password']): Promise<boolean> {
+    return bcrypt.compare(password, this.password)
   }
 }
