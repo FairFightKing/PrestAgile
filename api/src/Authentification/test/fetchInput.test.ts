@@ -1,18 +1,18 @@
 import { expect } from '@jest/globals'
 import FormInputValidatorImpl from '../Validator/Impl/formInputValidatorImpl'
 import PasswordHelper from '../helpers/PasswordHelper'
-import { LoginFormDTO } from '../DTO/LoginFormDTO'
+import { LoginDTO } from '../DTO/LoginDTO'
 import { LoginManager } from '../Manager/LoginManager'
 
-const data: LoginFormDTO = {
+const data: LoginDTO = {
   email: 'sosthene.fruchard78@gmail.com',
   password: 'Password@7889',
 }
-const falseData: LoginFormDTO = {
+const falseData: LoginDTO = {
   email: 'soenefm',
   password: 'Password@7889',
 }
-const falseDataPassword: LoginFormDTO = {
+const falseDataPassword: LoginDTO = {
   email: 'sosthene.fruchard78@gmail.com',
   password: 'prd',
 }

@@ -1,8 +1,9 @@
 import { EntityRepository, Repository } from 'typeorm'
 import UserEntity from '../Entity/UserEntity'
-import RegisterDto from '../../LoginRegister/DTO/RegisterDto'
-import PasswordHelper from '../../LoginRegister/helpers/PasswordHelper'
+import RegisterDto from '../../Authentification/DTO/RegisterDto'
+import PasswordHelper from '../../Authentification/helpers/PasswordHelper'
 import { ConflictException, InternalServerErrorException } from '@nestjs/common'
+import { JwtDto } from '../../Authentification/DTO/JwtDto'
 
 @EntityRepository(UserEntity)
 export default class UserRepository extends Repository<UserEntity> {
@@ -23,7 +24,7 @@ export default class UserRepository extends Repository<UserEntity> {
   async validateUserPassword({
     email,
     password,
-  }: RegisterDto): Promise<object | null> {
+  }: RegisterDto): Promise<JwtDto> {
     const auth = await this.findOne({ email })
 
     if (auth && (await auth.validatePassword(password))) {

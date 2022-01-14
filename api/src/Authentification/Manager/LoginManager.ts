@@ -1,5 +1,5 @@
 import { LoginRegisterManagerStates } from '../Types/types'
-import { LoginFormDTO } from '../DTO/LoginFormDTO'
+import { LoginFormDTO } from '../DTO/LoginDTO'
 import FormInputValidatorImpl from '../Validator/Impl/formInputValidatorImpl'
 import PasswordHelper from '../helpers/PasswordHelper'
 
