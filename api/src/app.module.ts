@@ -7,19 +7,10 @@ import { Connection } from 'typeorm'
 import { UserModule } from './User/Module/UserModule'
 import { AuthModule } from './Authentification/Module/AuthModule'
 import { join } from 'path'
+import typeOrmConfig from './typeorm.config'
 
 @Module({
-  imports: [
-    AuthModule,
-    UserModule,
-    TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'database-pg.db',
-      entities: [join(__dirname, '**', 'Entity/*.{ts,js}')],
-      autoLoadEntities: true,
-      synchronize: false,
-    }),
-  ],
+  imports: [AuthModule, UserModule, TypeOrmModule.forRoot(typeOrmConfig)],
   controllers: [AppController],
   providers: [AppService],
   // TypeOrmModule.forRoot({
