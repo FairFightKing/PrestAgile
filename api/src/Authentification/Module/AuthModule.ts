@@ -3,8 +3,7 @@ import { PassportModule } from '@nestjs/passport'
 import { JwtModule } from '@nestjs/jwt'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import UserRepository from '../../User/Repository/UserRepository'
-import { LoginManager } from '../Manager/LoginManager'
-import { RegisterManager } from '../Manager/RegisterManager'
+import { AuthManager } from '../Manager/AuthManager'
 import AuthService from '../Service/AuthService'
 import { JwtValidatorImpl } from '../Validator/Impl/JwtValidatorImpl'
 
@@ -20,8 +19,8 @@ import { JwtValidatorImpl } from '../Validator/Impl/JwtValidatorImpl'
     }),
     TypeOrmModule.forFeature([UserRepository]),
   ],
-  controllers: [LoginManager, RegisterManager],
+  controllers: [AuthManager],
   providers: [AuthService, JwtValidatorImpl],
-  exports: [JwtValidatorImpl, PassportModule],
+  exports: [JwtValidatorImpl, PassportModule, AuthService],
 })
 export class AuthModule {}
