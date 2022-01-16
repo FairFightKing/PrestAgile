@@ -15,14 +15,15 @@ export interface LoginFormDTO {
 
 export default class LoginDTO {
   @ApiProperty({
-    minimum: 9,
-    maximum: 25,
+    minimum: 5,
+    maximum: 50,
     required: true,
     name: 'email',
+    type: 'string',
   })
   @IsString()
-  @MinLength(9)
-  @MaxLength(25)
+  @MinLength(5)
+  @MaxLength(50)
   @Matches(EmailRegexp, { message: 'Email not conform' })
   email: UserDTO['email']
 
@@ -33,6 +34,7 @@ export default class LoginDTO {
     name: 'password',
     description:
       'At least 8 character long, 1 capital, 1 small, 1 special character , 1 number',
+    type: 'string',
   })
   @IsString()
   @MinLength(8)

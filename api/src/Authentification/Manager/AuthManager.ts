@@ -5,7 +5,7 @@ import AuthService from '../Service/AuthService'
 import LoginDTO from '../DTO/LoginDTO'
 import { JwtDTO } from '../DTO/JwtDTO'
 
-@ApiTags('Register')
+@ApiTags('Authentication')
 @Controller('/auth')
 export class AuthManager {
   constructor(private authService: AuthService) {}
