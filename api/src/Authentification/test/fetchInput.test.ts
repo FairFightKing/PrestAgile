@@ -1,7 +1,7 @@
 import { expect } from '@jest/globals'
 import FormInputValidatorImpl from '../Validator/Impl/formInputValidatorImpl'
 import PasswordHelper from '../helpers/PasswordHelper'
-import { LoginDTO } from '../DTO/LoginDTO'
+import LoginDTO from '../DTO/LoginDTO'
 import { LoginManager } from '../Manager/LoginManager'
 
 const data: LoginDTO = {
