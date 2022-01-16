@@ -4,13 +4,18 @@ import { AppService } from './app.service'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { Connection } from 'typeorm'
 // import { TypeOrmModule } from '@nestjs/typeorm'
+import { UserModule } from './User/Module/UserModule'
+import { AuthModule } from './Authentification/Module/AuthModule'
+import { join } from 'path'
 
 @Module({
   imports: [
+    AuthModule,
+    UserModule,
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'database-pg.db',
-      entities: ['./**/Entity/*{.ts,.js}'],
+      entities: [join(__dirname, '**', 'Entity/*.{ts,js}')],
       autoLoadEntities: true,
       synchronize: false,
     }),

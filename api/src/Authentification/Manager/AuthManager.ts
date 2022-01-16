@@ -7,7 +7,7 @@ import { JwtDTO } from '../DTO/JwtDTO'
 
 @ApiTags('Register')
 @Controller('register')
-export class RegisterManager {
+export class AuthManager {
   constructor(private authService: AuthService) {}
 
   @Post('/register')

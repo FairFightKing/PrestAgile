@@ -29,8 +29,8 @@ export default class UserEntity extends BaseEntity {
   @Column()
   salt: string
 
-  @Column({ type: 'array' })
-  type: UserDTO['type']
+  //@Column({ type: 'array' })
+  //type: UserDTO['type']
 
   @OneToOne(() => UserInfoEntity, { eager: true })
   @JoinColumn()
