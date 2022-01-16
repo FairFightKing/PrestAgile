@@ -1,9 +1,11 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm'
 import { join } from 'path'
+import { config } from 'dotenv'
 
+config()
 const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'sqlite',
-  database: 'database-pg.db',
+  database: process.env.DB_NAME,
   entities: [join(__dirname, '**', 'Entity/*.{ts,js}')],
   autoLoadEntities: true,
   synchronize: true,

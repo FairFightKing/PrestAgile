@@ -6,6 +6,8 @@ import UserRepository from '../../User/Repository/UserRepository'
 import { AuthManager } from '../Manager/AuthManager'
 import AuthService from '../Service/AuthService'
 import { JwtValidatorImpl } from '../Validator/Impl/JwtValidatorImpl'
+import { config } from 'dotenv'
+config()
 
 @Global()
 @Module({

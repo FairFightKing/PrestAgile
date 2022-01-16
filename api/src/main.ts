@@ -2,8 +2,10 @@ import { NestFactory } from '@nestjs/core'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { AppModule } from './app.module'
 // import { getConnection } from 'typeorm'
+import { config } from 'dotenv'
 
 async function bootstrap() {
+  config()
   const app = await NestFactory.create(AppModule)
   const port = +process.env.APP_PORT || 3000
   app.setGlobalPrefix('api')
@@ -15,9 +17,9 @@ async function bootstrap() {
 
   await app.listen(port)
 }
-bootstrap().then(() =>
+bootstrap().then(() => {
   console.log(
     'success',
     //, getConnection()
-  ),
-)
+  )
+})
