@@ -7,6 +7,8 @@ import {
   Wrap,
   WrapItem,
 } from '@chakra-ui/react';
+import { GridRecruitement } from './recruitement/gridRecruitementHomepage';
+
 export default function RecruitementHomePage() {
   return (
     <Box mt={20} textAlign="center" h="auto">
@@ -33,96 +35,69 @@ export default function RecruitementHomePage() {
           height="100%"
           m="auto"
         >
-          <WrapItem>
-            <GridItem p="4" w="275px" h="100%">
-              <Center>
-                <Image
-                  alt="quelqu'un devant un téléphone"
-                  src="recruitement-image-1.png"
-                  justifyItems="center"
-                  alignItems="center"
-                />
-              </Center>
-              <Text
-                fontSize="3xl"
-                py="6"
-                fontFamily="Inter"
-                fontWeight="600"
-                lineHeight="120%"
-              >
-                1. Discover
-              </Text>
-              <Text
-                fontSize="xl"
-                fontFamily="Inter"
-                fontWeight="200"
-                lineHeight="160%"
-              >
-                Trouver facilement des compétences pointues pour vos projets et
-                contactez
-              </Text>
-            </GridItem>
-          </WrapItem>
-          <WrapItem>
-            <GridItem p="4" w="275px" h="100%">
-              <Center>
-                <Image
-                  alt="quelqu'un devant de la nouriture"
-                  src="recruitement-image-2.png"
-                  justifyItems="center"
-                  alignItems="center"
-                />
-              </Center>
-              <Text
-                fontSize="3xl"
-                py="6"
-                fontFamily="Inter"
-                fontWeight="600"
-                lineHeight="120%"
-              >
-                2. Copy & Paste
-              </Text>
-              <Text
-                fontSize="xl"
-                fontFamily="Inter"
-                fontWeight="200"
-                lineHeight="160%"
-              >
-                Travaillez main dans la main : décidez ensemble des modalités de
-                la mission puis collaborez en direct
-              </Text>
-            </GridItem>
-          </WrapItem>
-          <WrapItem>
-            <GridItem p="4" w="275px" h="100%">
-              <Center>
-                <Image
-                  alt="quelqu'un jouant de la guitare"
-                  src="recruitement-image-3.png"
-                  justifyItems="center"
-                  alignItems="center"
-                />
-              </Center>
-              <Text
-                fontSize="3xl"
-                py="6"
-                fontFamily="Inter"
-                fontWeight="600"
-                lineHeight="120%"
-              >
-                3. Export & Share
-              </Text>
-              <Text
-                fontSize="xl"
-                fontFamily="Inter"
-                fontWeight="200"
-                lineHeight="160%"
-              >
-                Recommencez. La mission est terminée? Débloquez le paiement en
-                un clic et partez à la recherche de votre prochain talent
-              </Text>
-            </GridItem>
-          </WrapItem>
+          <GridRecruitement
+            gridPadding="4"
+            gridWidth="275px"
+            gridHeight="100%"
+            imgAlt="quelqu'un devant son téléphone"
+            imgSrc="recruitement-image-1.png"
+            imgJustifyItems="center"
+            imgAlignItems="center"
+            textTitleFontSize="3xl"
+            textTitleFontFamily="Inter"
+            textTitleFontWeight="600"
+            textTitleLineHeight="120%"
+            textTitlePaddingY="6"
+            textContentTitle="1. Discover"
+            textFontSize="xl"
+            textFontFamily="Inter"
+            textFontWeight="200"
+            textLineHeight="160%"
+            textContent="Trouver facilement des compétences pointues pour vos projets et
+                contactez"
+          />
+          <GridRecruitement
+            gridPadding="4"
+            gridWidth="275px"
+            gridHeight="100%"
+            imgAlt="quelqu'un devant de la nouriture"
+            imgSrc="recruitement-image-2.png"
+            imgJustifyItems="center"
+            imgAlignItems="center"
+            textTitleFontSize="3xl"
+            textTitleFontFamily="Inter"
+            textTitleFontWeight="600"
+            textTitleLineHeight="120%"
+            textTitlePaddingY="6"
+            textContentTitle="2. Copy & Paste"
+            textFontSize="xl"
+            textFontFamily="Inter"
+            textFontWeight="200"
+            textLineHeight="160%"
+            textContent="Travaillez main dans la main : décidez ensemble des modalités de
+                la mission puis collaborez en direct"
+          />
+          <GridRecruitement
+            gridPadding="4"
+            gridWidth="275px"
+            gridHeight="100%"
+            imgAlt="quelqu'un jouant de la guitare"
+            imgSrc="recruitement-image-3.png"
+            imgJustifyItems="center"
+            imgAlignItems="center"
+            textTitleFontSize="3xl"
+            textTitleFontFamily="Inter"
+            textTitleFontWeight="600"
+            textTitleLineHeight="120%"
+            textTitlePaddingY="6"
+            textContentTitle="3. Export & Share"
+            textFontSize="xl"
+            textFontFamily="Inter"
+            textFontWeight="200"
+            textLineHeight="160%"
+            textContent="Recommencez. La mission est terminée? Débloquez le paiement en
+                un clic et partez à la recherche de votre prochain talent"
+          />
         </Wrap>
       </Box>
     </Box>
