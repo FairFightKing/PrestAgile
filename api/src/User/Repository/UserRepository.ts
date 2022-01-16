@@ -9,23 +9,26 @@ import * as bcrypt from 'bcrypt'
 
 @EntityRepository(UserEntity)
 export default class UserRepository extends Repository<UserEntity> {
-  async register({ email, password }: RegisterDto): Promise<void> {
+  async register({ email, password }: RegisterDto): Promise<boolean> {
     const user = new UserEntity()
     user.email = email
     user.salt = await bcrypt.genSalt()
     user.password = await PasswordHelper.hash(password, user.salt)
-
     try {
       const userInfo = new UserInfoEntity()
+      console.log('hello')
       await userInfo.save()
+      console.log('ici')
       user.userInfo = userInfo
-
       await user.save()
+      console.log('la')
     } catch (e) {
       //error code for already exist
+      console.log(e)
       if (e.code === '23505') throw new ConflictException('Email already exist')
       else throw new InternalServerErrorException()
     }
+    return true
   }
 
   async validateUserPassword({
@@ -33,7 +36,6 @@ export default class UserRepository extends Repository<UserEntity> {
     password,
   }: RegisterDto): Promise<JwtDTO> {
     const auth = await this.findOne({ email })
-
     if (auth && (await auth.validatePassword(password))) {
       return {
         email: auth.email,

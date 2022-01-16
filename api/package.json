@@ -18,12 +18,17 @@
       "test": "jest",
       "test:dev": "jest --verbose ./src/",
       "test:dev:user": "jest --verbose ./src/User/",
-      "test:dev:auth": "jest --verbose ./src/Authentification/",
+      "test:dev:auth": "jest --verbose ./src/Authentification/test/tu/",
+      "test:dev:auth:int": "jest --verbose ./src/Authentification/test/integration/",
       "test:watch": "jest --watch",
       "test:cov": "jest --coverage",
       "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
       "test:e2e": "jest --config ./test/jest-e2e.json",
-      "typeorm": "ts-node --require ts-node/register ./node_modules/typeorm/cli.js"
+      "typeorm": "ts-node --require ts-node/register ./node_modules/typeorm/cli.js",
+      "typeorm:create": "npm run typeorm migration:create -- -n",
+      "typeorm:generate": "npm run typeorm migration:generate -- -n",
+      "typeorm:run": "npm run typeorm migration:run",
+      "typeorm:revert": "npm run typeorm migration:revert"
    },
    "lint-staged": {
       "*.{tsx, ts, scss, css}": [

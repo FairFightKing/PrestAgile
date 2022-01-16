@@ -20,7 +20,7 @@ export default class FormInputValidatorImpl {
     return true
   }
   private static checkInputEmail = (email: LoginFormDTO['email']): boolean => {
-    return email.length >= 11 && EmailRegexp.test(email)
+    return EmailRegexp.test(email)
   }
   private static checkInputPassword = (
     password: LoginFormDTO['password'],

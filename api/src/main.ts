@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { AppModule } from './app.module'
+import { getConnection } from 'typeorm'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
@@ -14,4 +15,4 @@ async function bootstrap() {
 
   await app.listen(port)
 }
-bootstrap()
+bootstrap().then(() => console.log(getConnection()))

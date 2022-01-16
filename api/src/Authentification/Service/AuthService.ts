@@ -14,7 +14,7 @@ export default class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async register(registerDto: RegisterDto): Promise<void> {
+  async register(registerDto: RegisterDto): Promise<boolean> {
     return this.userRepository.register(registerDto)
   }
 
