@@ -10,7 +10,7 @@ async function bootstrap() {
 
   const options = new DocumentBuilder().addBearerAuth().build()
   const document = SwaggerModule.createDocument(app, options)
-  SwaggerModule.setup('api', app, document)
+  SwaggerModule.setup('/', app, document)
 
   await app.listen(port)
 }
