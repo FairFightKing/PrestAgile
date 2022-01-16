@@ -57,9 +57,10 @@ const Home: NextPage = () => {
         <br />
         <Text as="label" htmlFor="submission" />
         <Input
+          fontSize="1rem"
           backgroundColor="#2945FF"
           color="white"
-          width="30%"
+          width="50%"
           type="submit"
           value="Valider mon inscription"
         />
