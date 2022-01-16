@@ -16,8 +16,11 @@ export default class RegisterDto {
   @IsString()
   @MinLength(9)
   @MaxLength(25)
-  @Matches(EmailRegexp, { message: 'Email not conform' })
-  email: UserDTO['email']
+  @Matches(
+    /(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,4}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{9,25}))/,
+    { message: 'Email not conform' },
+  )
+  email: string
 
   @ApiProperty({
     minimum: 8,
@@ -30,6 +33,9 @@ export default class RegisterDto {
   @IsString()
   @MinLength(8)
   @MaxLength(30)
-  @Matches(PasswordRegexp, { message: 'Password too weak' })
+  @Matches(
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?_&])[A-Za-z\d#@$!%*?&]{8,30}$/,
+    { message: 'Password too weak' },
+  )
   password: UserDTO['password']
 }

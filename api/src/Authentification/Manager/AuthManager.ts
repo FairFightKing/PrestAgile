@@ -6,12 +6,12 @@ import LoginDTO from '../DTO/LoginDTO'
 import { JwtDTO } from '../DTO/JwtDTO'
 
 @ApiTags('Register')
-@Controller('register')
+@Controller('/auth')
 export class AuthManager {
   constructor(private authService: AuthService) {}
 
   @Post('/register')
-  register(@Body(ValidationPipe) registerDto: RegisterDto): Promise<void> {
+  register(@Body(ValidationPipe) registerDto: RegisterDto): Promise<boolean> {
     return this.authService.register(registerDto)
   }
 
