@@ -23,7 +23,9 @@ export default class AuthService {
   ): Promise<{ accessToken: string; user: JwtDTO }> {
     const response = await this.userRepository.validateUserPassword(loginDto)
     if (!response) throw new UnauthorizedException('Invalid Credentials')
-    const accessToken = this.jwtService.sign(response)
+    const accessToken = this.jwtService.sign(response, {
+      secret: process.env.JWT_SECRET,
+    })
 
     return {
       accessToken,
