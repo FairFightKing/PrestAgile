@@ -8,19 +8,17 @@ import UserDTO from '../../User/DTO/UserDTO'
 
 export default class RegisterDto {
   @ApiProperty({
-    minimum: 9,
-    maximum: 25,
+    minimum: 5,
+    maximum: 50,
     required: true,
     name: 'email',
+    type: 'string',
   })
   @IsString()
-  @MinLength(9)
-  @MaxLength(25)
-  @Matches(
-    /(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,4}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{9,25}))/,
-    { message: 'Email not conform' },
-  )
-  email: string
+  @MinLength(5)
+  @MaxLength(50)
+  @Matches(EmailRegexp, { message: 'Email not conform' })
+  email: UserDTO['email']
 
   @ApiProperty({
     minimum: 8,
@@ -29,13 +27,11 @@ export default class RegisterDto {
     name: 'password',
     description:
       'At least 8 character long, 1 capital, 1 small, 1 special character , 1 number',
+    type: 'string',
   })
   @IsString()
   @MinLength(8)
   @MaxLength(30)
-  @Matches(
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?_&])[A-Za-z\d#@$!%*?&]{8,30}$/,
-    { message: 'Password too weak' },
-  )
+  @Matches(PasswordRegexp, { message: 'Password too weak' })
   password: UserDTO['password']
 }

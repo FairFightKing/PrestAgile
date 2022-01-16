@@ -16,16 +16,13 @@ export default class UserRepository extends Repository<UserEntity> {
     user.password = await PasswordHelper.hash(password, user.salt)
     try {
       const userInfo = new UserInfoEntity()
-      console.log('hello')
       await userInfo.save()
-      console.log('ici')
       user.userInfo = userInfo
       await user.save()
-      console.log('la')
     } catch (e) {
       //error code for already exist
-      console.log(e)
-      if (e.code === '23505') throw new ConflictException('Email already exist')
+      if (e.errno === 19 || e.code === '23505')
+        throw new ConflictException('Email already exist')
       else throw new InternalServerErrorException()
     }
     return true

@@ -23,7 +23,7 @@ export default class UserEntity extends BaseEntity {
   @Column({ type: 'varchar' })
   password: UserDTO['password']
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', nullable: true })
   name: UserDTO['name']
 
   @Column()
