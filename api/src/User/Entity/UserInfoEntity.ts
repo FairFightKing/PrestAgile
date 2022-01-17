@@ -7,4 +7,10 @@ export default class UserInfoEntity extends BaseEntity {
 
   @Column({ type: 'varchar', nullable: true })
   phoneNumber: string
+
+  @Column({ type: 'varchar', nullable: false })
+  firstName: string
+
+  @Column({ type: 'varchar', nullable: false })
+  lastName: string
 }
