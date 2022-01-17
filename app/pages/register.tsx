@@ -18,10 +18,6 @@ const Home: NextPage = () => {
 
   const toast = useToast();
   useEffect(() => {
-    function handleError() {
-      setError(false);
-    }
-
     error &&
       toast({
         title: 'Erreur lors de la création du compte.',
@@ -29,7 +25,7 @@ const Home: NextPage = () => {
         status: 'error',
         duration: 9000,
         isClosable: true,
-        onCloseComplete: handleError,
+        onCloseComplete: () => setError(false),
       });
   }, [error]);
 
