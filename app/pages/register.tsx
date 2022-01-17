@@ -1,22 +1,22 @@
-import type { NextPage } from 'next';
-import { useEffect, useState } from 'react';
-import { ValidationContainer } from '../ui/components/register/ValidationContainer';
-import { Input } from '@chakra-ui/input';
-import { Button, Container, Heading, Text, useToast } from '@chakra-ui/react';
-import { RegistrationServicesImpl } from '../logic/registration/services/registrationServices';
-import FormRegister from '../ui/components/register/FormRegister';
+import type { NextPage } from 'next'
+import { useEffect, useState } from 'react'
+import { ValidationContainer } from '../ui/components/register/ValidationContainer'
+import { Input } from '@chakra-ui/input'
+import { Button, Container, Heading, Text, useToast } from '@chakra-ui/react'
+import { RegistrationServicesImpl } from '../logic/registration/services/registrationServices'
+import FormRegister from '../ui/components/register/FormRegister'
 
 const Home: NextPage = () => {
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(false)
   const [formRegisterValue, setRegisterFormValue] = useState({
     email: '',
     password: '',
     confirmPassword: '',
     firstName: '',
     lastName: '',
-  });
+  })
 
-  const toast = useToast();
+  const toast = useToast()
   useEffect(() => {
     error &&
       toast({
@@ -26,18 +26,18 @@ const Home: NextPage = () => {
         duration: 9000,
         isClosable: true,
         onCloseComplete: () => setError(false),
-      });
-  }, [error]);
+      })
+  }, [error])
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
     const cloneUserBasic = (({ confirmPassword, firstName, lastName, ...o }) =>
-      o)(formRegisterValue);
+      o)(formRegisterValue)
     const cloneUserInfo = (({ email, password, confirmPassword, ...o }) => o)(
       formRegisterValue,
-    );
+    )
     if (!RegistrationServicesImpl.checkInputForApi(cloneUserBasic))
-      return setError(true);
+      return setError(true)
     RegistrationServicesImpl.sendDataToApi({
       ...cloneUserBasic,
       userInfo: {
@@ -51,11 +51,11 @@ const Home: NextPage = () => {
           status: 'success',
           duration: 9000,
           isClosable: true,
-        });
+        })
       })
       .catch(_ => {
-        return setError(true);
-      });
+        return setError(true)
+      })
   }
 
   return (
@@ -72,7 +72,7 @@ const Home: NextPage = () => {
         }
       />
     </Container>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

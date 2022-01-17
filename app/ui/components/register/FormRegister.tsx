@@ -1,6 +1,6 @@
-import { Heading, Text } from '@chakra-ui/react';
-import { Input } from '@chakra-ui/input';
-import { ValidationContainer } from './ValidationContainer';
+import { Heading, Text } from '@chakra-ui/react'
+import { Input } from '@chakra-ui/input'
+import { ValidationContainer } from './ValidationContainer'
 
 export default function FormRegister({ submit, change, data }) {
   return (
@@ -42,5 +42,5 @@ export default function FormRegister({ submit, change, data }) {
         value="Valider mon inscription"
       />
     </form>
-  );
+  )
 }

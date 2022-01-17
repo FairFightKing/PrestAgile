@@ -1,6 +1,6 @@
-import { ValidationSpan } from './ValidationSpan';
-import { EmailHelper } from '../../../logic/helpers/emailHelper';
-import { Container } from '@chakra-ui/react';
+import { ValidationSpan } from './ValidationSpan'
+import { EmailHelper } from '../../../logic/helpers/emailHelper'
+import { Container } from '@chakra-ui/react'
 
 export const ValidationContainer = ({ data }) => (
   <Container maxW="container.sm'">
@@ -45,4 +45,4 @@ export const ValidationContainer = ({ data }) => (
       }
     />
   </Container>
-);
+)
