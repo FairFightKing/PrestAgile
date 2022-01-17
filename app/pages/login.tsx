@@ -29,7 +29,7 @@ const Home: NextPage = () => {
   function handleSubmit(e) {
     e.preventDefault()
     axios
-      .post('http://localhost:8000/api/auth/login', formLoginValue)
+      .post(`${process.env.API_URL}/api/auth/login`, formLoginValue)
       .then(_ => Router.push('/'))
       .catch(_ => setError(true))
   }
