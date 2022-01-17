@@ -1,9 +1,10 @@
 import type { NextPage } from 'next';
+import { Link } from '@chakra-ui/react';
 
 const Home: NextPage = () => {
   return (
     <div>
-      z ehdbhe behbeh efe bhfezbfh endn Page accueil Next Js. de wo enen
+      <Link href="/register">Register</Link>
     </div>
   );
 };
