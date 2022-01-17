@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ValidationContainer } from '../ui/components/register/ValidationContainer';
 import { Input } from '@chakra-ui/input';
 import { Button, Container, Heading, Text, useToast } from '@chakra-ui/react';
@@ -7,6 +7,7 @@ import { RegistrationServicesImpl } from '../logic/registration/services/registr
 import FormRegister from '../ui/components/register/FormRegister';
 
 const Home: NextPage = () => {
+  const [error, setError] = useState(false);
   const [formRegisterValue, setRegisterFormValue] = useState({
     email: '',
     password: '',
@@ -16,7 +17,21 @@ const Home: NextPage = () => {
   });
 
   const toast = useToast();
-  const [error, setError] = useState('');
+  useEffect(() => {
+    function handleError() {
+      setError(false);
+    }
+
+    error &&
+      toast({
+        title: 'Erreur lors de la création du compte.',
+        description: 'Réessayez ultèrieurement',
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+        onCloseComplete: handleError,
+      });
+  }, [error]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -26,7 +41,7 @@ const Home: NextPage = () => {
       formRegisterValue,
     );
     if (!RegistrationServicesImpl.checkInputForApi(cloneUserBasic))
-      return setError("Le mot de passe n'est pas valide");
+      return setError(true);
     RegistrationServicesImpl.sendDataToApi({
       ...cloneUserBasic,
       userInfo: {
@@ -43,13 +58,7 @@ const Home: NextPage = () => {
         });
       })
       .catch(_ => {
-        toast({
-          title: 'Erreur lors de la création du compte.',
-          description: "L'email associé existe déjà.",
-          status: 'error',
-          duration: 9000,
-          isClosable: true,
-        });
+        return setError(true);
       });
   }
 
