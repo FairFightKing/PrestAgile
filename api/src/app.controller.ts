@@ -4,22 +4,12 @@ import UserRepository from './User/Repository/UserRepository'
 import { ApiTags } from '@nestjs/swagger'
 
 @ApiTags('Root')
-@Controller('/ntm')
+@Controller('/app')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get('/hello')
   getHello(): string {
     return this.appService.getHello()
-  }
-
-  @Post('test')
-  async postRegister(): Promise<string> {
-    const userRepository = new UserRepository()
-    await userRepository.register({
-      email: 'j.d@gmail.com',
-      password: 'KliuJrat@87',
-    })
-    return 'yes'
   }
 }

@@ -15,7 +15,7 @@ export default function FormLogin({ submit, change, data }) {
       <Text as="label" htmlFor="password">
         Entrez votre mot de passe
       </Text>
-      <Input type="text" id="password" />
+      <Input type="password" id="password" />
       <Text as="label" htmlFor="submission" />
       <Input
         fontSize="1rem"

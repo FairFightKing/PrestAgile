@@ -31,9 +31,7 @@ export class RegistrationServicesImpl {
   public static sendDataToApi = (
     data: RegistrationInput,
   ): Promise<AxiosResponse<any>> => {
-    let response = axios.post('http://localhost:8000/api/auth/register', data)
-    return response.then(res => {
-      return res.data
-    })
+    let response = axios.post(`${process.env.API_URL}/api/auth/register`, data)
+    return response.then(res => res.data)
   }
 }
