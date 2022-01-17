@@ -9,15 +9,17 @@ import * as bcrypt from 'bcrypt'
 
 @EntityRepository(UserEntity)
 export default class UserRepository extends Repository<UserEntity> {
-  async register({ email, password }: RegisterDto): Promise<boolean> {
+  async register({ email, password, userInfo }: RegisterDto): Promise<boolean> {
     const user = new UserEntity()
     user.email = email
     user.salt = await bcrypt.genSalt()
     user.password = await PasswordHelper.hash(password, user.salt)
     try {
-      const userInfo = new UserInfoEntity()
-      await userInfo.save()
-      user.userInfo = userInfo
+      const userInfoEntity = new UserInfoEntity()
+      userInfoEntity.firstName = userInfo.firstName
+      userInfoEntity.lastName = userInfo.lastName
+      await userInfoEntity.save()
+      user.userInfo = userInfoEntity
       await user.save()
     } catch (e) {
       //error code for already exist

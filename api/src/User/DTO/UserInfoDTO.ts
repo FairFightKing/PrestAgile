@@ -1,3 +1,5 @@
 export default interface UserInfoDTO {
-  phoneNumber: string
+  phoneNumber?: string
+  firstName: string
+  lastName: string
 }

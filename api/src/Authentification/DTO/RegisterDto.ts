@@ -1,10 +1,20 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { IsString, Matches, MaxLength, MinLength } from 'class-validator'
+import {
+  IsJSON,
+  IsObject,
+  IsString,
+  Matches,
+  MaxLength,
+  MinLength,
+} from 'class-validator'
 import {
   EmailRegexp,
   PasswordRegexp,
 } from '../Validator/Impl/formInputValidatorImpl'
 import UserDTO from '../../User/DTO/UserDTO'
+import UserInfoDTO from '../../User/DTO/UserInfoDTO'
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator'
+import UserInfoEntity from '../../User/Entity/UserInfoEntity'
 
 export default class RegisterDto {
   @ApiProperty({
@@ -34,4 +44,12 @@ export default class RegisterDto {
   @MaxLength(30)
   @Matches(PasswordRegexp, { message: 'Password too weak' })
   password: UserDTO['password']
+
+  @ApiProperty({
+    name: 'userInfo',
+    description: 'All the infos about the user like phone number or names',
+    required: false,
+    type: 'object',
+  })
+  userInfo?: UserInfoDTO
 }
