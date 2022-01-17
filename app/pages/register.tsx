@@ -25,7 +25,6 @@ const Home: NextPage = () => {
     const cloneUserInfo = (({ email, password, confirmPassword, ...o }) => o)(
       formRegisterValue,
     );
-    console.log(cloneUserBasic, cloneUserInfo);
     if (!RegistrationServicesImpl.checkInputForApi(cloneUserBasic))
       return setError("Le mot de passe n'est pas valide");
     RegistrationServicesImpl.sendDataToApi({
