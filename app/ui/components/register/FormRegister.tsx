@@ -33,6 +33,7 @@ export default function FormRegister({ submit, change, data }) {
       <br />
       <Text as="label" htmlFor="submission" />
       <Input
+        mt="1rem"
         fontSize="1rem"
         backgroundColor="#2945FF"
         color="white"
