@@ -6,7 +6,12 @@ import { config } from 'dotenv'
 
 async function bootstrap() {
   config()
-  const app = await NestFactory.create(AppModule)
+  const app = await NestFactory.create(AppModule, {
+    cors: true,
+  })
+  app.enableCors({
+    origin: 'http://localhost:3000',
+  })
   const port = +process.env.APP_PORT || 3000
   app.setGlobalPrefix('api')
   console.log('Port running on: ', port)

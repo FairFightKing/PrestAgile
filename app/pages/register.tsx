@@ -4,6 +4,7 @@ import { ValidationContainer } from '../ui/components/register/ValidationContain
 import { Input } from '@chakra-ui/input';
 import { Button, Container, Heading, Text, useToast } from '@chakra-ui/react';
 import { RegistrationServicesImpl } from '../logic/registration/services/registrationServices';
+import FormRegister from '../ui/components/register/FormRegister';
 
 const Home: NextPage = () => {
   const [formRegisterValue, setRegisterFormValue] = useState({
@@ -35,14 +36,14 @@ const Home: NextPage = () => {
     })
       .then(() => {
         toast({
-          title: 'Account created.',
-          description: "We've created your account for you.",
+          title: 'Compte créer',
+          description: 'Votre compte à bien été créer',
           status: 'success',
           duration: 9000,
           isClosable: true,
         });
       })
-      .catch(error => {
+      .catch(_ => {
         toast({
           title: 'Erreur lors de la création du compte.',
           description: "L'email associé existe déjà.",
@@ -55,52 +56,17 @@ const Home: NextPage = () => {
 
   return (
     <Container maxW="container.md">
-      <form
-        onSubmit={handleSubmit}
-        onChange={({ target }) =>
+      <FormRegister
+        submit={handleSubmit}
+        data={formRegisterValue}
+        change={({ target }) =>
           setRegisterFormValue({
             ...formRegisterValue,
             // @ts-ignore
             [target.id]: target.value,
           })
         }
-      >
-        <Heading size="xl" m="1rem 0">
-          Valide ton inscription
-        </Heading>
-        <Text as="label" htmlFor="firstName">
-          Entrez votre prénom
-        </Text>
-        <Input type="text" id="firstName" />
-        <Text as="label" htmlFor="lastName">
-          Entrez votre nom
-        </Text>
-        <Input type="text" id="lastName" />
-        <Text as="label" htmlFor="email">
-          Entrez votre email
-        </Text>
-        <Input type="text" id="email" />
-        <Text as="label" htmlFor="password">
-          Entrez votre mot de passe
-        </Text>
-        <Input type="password" id="password" />
-        <Text as="label" htmlFor="confirmPassword">
-          Confirmez votre mot de passe
-        </Text>
-        <Input m="0 0 1rem 0" type="password" id="confirmPassword" />
-        <br />
-        <ValidationContainer data={formRegisterValue} />
-        <br />
-        <Text as="label" htmlFor="submission" />
-        <Input
-          fontSize="1rem"
-          backgroundColor="#2945FF"
-          color="white"
-          width="50%"
-          type="submit"
-          value="Valider mon inscription"
-        />
-      </form>
+      />
     </Container>
   );
 };
