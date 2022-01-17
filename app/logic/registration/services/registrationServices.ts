@@ -1,15 +1,16 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios'
+import { EmailHelper } from '../../helpers/emailHelper'
 
 export interface RegistrationInput {
-  email: string;
-  password: string;
-  userInfo?: userInfo;
+  email: string
+  password: string
+  userInfo?: userInfo
 }
 
 interface userInfo {
-  firstName: string;
-  lastName: string;
-  phone?: number;
+  firstName: string
+  lastName: string
+  phone?: number
 }
 
 export class RegistrationServicesImpl {
@@ -17,21 +18,22 @@ export class RegistrationServicesImpl {
     email,
     password,
   }: RegistrationInput): boolean => {
-    if (!(password.length >= 8)) return false;
-    if (!/[A-Z]/.test(password)) return false;
-    const emailRegex =
-      /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
-    if (!emailRegex.test(email)) return false;
-    const specialCharRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-    return specialCharRegex.test(password);
-  };
+    if (
+      !(password.length >= 8) ||
+      !/[A-Z]/.test(password) ||
+      !EmailHelper.emailValidation(email)
+    )
+      return false
+    const specialCharRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
+    return specialCharRegex.test(password)
+  }
 
   public static sendDataToApi = (
     data: RegistrationInput,
   ): Promise<AxiosResponse<any>> => {
-    let response = axios.post('http://localhost:8000/api/auth/register', data);
+    let response = axios.post('http://localhost:8000/api/auth/register', data)
     return response.then(res => {
-      return res.data;
-    });
-  };
+      return res.data
+    })
+  }
 }

@@ -1,15 +1,15 @@
-import { Badge } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { Badge } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
 
 interface IValidationSpan {
-  context?: string;
-  regex: RegExp | boolean;
-  value: string;
+  context?: string
+  regex: RegExp | boolean
+  value: string
 }
 
 export const ValidationSpan = ({ context, regex, value }: IValidationSpan) => {
-  const [validatedValue, setValidatedValue] = useState(false);
-  const [valueToDisplay, setValueToDisplay] = useState('');
+  const [validatedValue, setValidatedValue] = useState(false)
+  const [valueToDisplay, setValueToDisplay] = useState('')
 
   useEffect(() => {
     const ValueValidationDispatcher = {
@@ -21,23 +21,23 @@ export const ValidationSpan = ({ context, regex, value }: IValidationSpan) => {
         validatedValue: 'Le mot de passe contient un caractère spécial',
         falseValue: 'Le mot de passe doit contenir un caractère spécial',
       },
-    };
+    }
     if (typeof regex !== 'boolean') {
-      setValidatedValue(regex.test(value));
+      setValidatedValue(regex.test(value))
       return setValueToDisplay(
         // @ts-ignore
         ValueValidationDispatcher[context][
           validatedValue ? 'validatedValue' : 'falseValue'
         ],
-      );
+      )
     }
-    setValidatedValue(regex);
-    return setValueToDisplay(value);
-  }, [context, regex, validatedValue, value]);
+    setValidatedValue(regex)
+    return setValueToDisplay(value)
+  }, [context, regex, validatedValue, value])
 
   return (
     <Badge colorScheme={validatedValue ? 'green' : 'red'} m="0 0.2rem">
       {valueToDisplay}
     </Badge>
-  );
-};
+  )
+}

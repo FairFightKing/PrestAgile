@@ -1,5 +1,5 @@
-import Header from './header';
-import Footer from './footer';
+import Header from './header'
+import Footer from './footer'
 
 function Layout({ children }: any) {
   return (
@@ -8,7 +8,7 @@ function Layout({ children }: any) {
       <main>{children}</main>
       <Footer />
     </>
-  );
+  )
 }
 
-export default Layout;
+export default Layout
