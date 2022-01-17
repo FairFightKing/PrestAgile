@@ -2,7 +2,8 @@ import type { NextPage } from 'next';
 import { useState } from 'react';
 import { ValidationContainer } from '../ui/components/register/ValidationContainer';
 import { Input } from '@chakra-ui/input';
-import { Container, Heading, Text } from '@chakra-ui/react';
+import { Button, Container, Heading, Text, useToast } from '@chakra-ui/react';
+import { RegistrationServicesImpl } from '../logic/registration/services/registrationServices';
 
 const Home: NextPage = () => {
   const [formRegisterValue, setRegisterFormValue] = useState({
@@ -11,12 +12,51 @@ const Home: NextPage = () => {
     confirmPassword: '',
     firstName: '',
     lastName: '',
-    phone: '',
   });
+
+  const toast = useToast();
+  const [error, setError] = useState('');
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const cloneUserBasic = (({ confirmPassword, firstName, lastName, ...o }) =>
+      o)(formRegisterValue);
+    const cloneUserInfo = (({ email, password, confirmPassword, ...o }) => o)(
+      formRegisterValue,
+    );
+    console.log(cloneUserBasic, cloneUserInfo);
+    if (!RegistrationServicesImpl.checkInputForApi(cloneUserBasic))
+      return setError("Le mot de passe n'est pas valide");
+    RegistrationServicesImpl.sendDataToApi({
+      ...cloneUserBasic,
+      userInfo: {
+        ...cloneUserInfo,
+      },
+    })
+      .then(() => {
+        toast({
+          title: 'Account created.',
+          description: "We've created your account for you.",
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        });
+      })
+      .catch(error => {
+        toast({
+          title: 'Erreur lors de la création du compte.',
+          description: "L'email associé existe déjà.",
+          status: 'error',
+          duration: 9000,
+          isClosable: true,
+        });
+      });
+  }
 
   return (
     <Container maxW="container.md">
       <form
+        onSubmit={handleSubmit}
         onChange={({ target }) =>
           setRegisterFormValue({
             ...formRegisterValue,
@@ -36,10 +76,6 @@ const Home: NextPage = () => {
           Entrez votre nom
         </Text>
         <Input type="text" id="lastName" />
-        <Text as="label" htmlFor="phone">
-          Entrez votre numéro de téléphone
-        </Text>
-        <Input type="text" id="phone" />
         <Text as="label" htmlFor="email">
           Entrez votre email
         </Text>
