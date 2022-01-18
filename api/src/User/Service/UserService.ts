@@ -31,7 +31,6 @@ export default class UserService {
   ): Promise<UserInfoDTO> {
     const userInfo = await this.getUser(user)
     userInfo.phoneNumber = userInfoDTO.phoneNumber
-
     try {
       await userInfo.save()
     } catch (e) {

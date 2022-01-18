@@ -18,7 +18,7 @@
       "test": "jest",
       "test:dev": "jest --verbose ./src/",
       "test:dev:user": "jest --verbose ./src/User/",
-      "test:dev:auth": "jest --verbose ./src/Authentification/test/tu/",
+      "test:dev:auth": "jest --verbose src/Authentification/test/unitary/",
       "test:dev:auth:int": "jest --verbose ./src/Authentification/test/integration/",
       "test:watch": "jest --watch",
       "test:cov": "jest --coverage",

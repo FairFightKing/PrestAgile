@@ -15,17 +15,19 @@ export default class UserRepository extends Repository<UserEntity> {
     user.salt = await bcrypt.genSalt()
     user.password = await PasswordHelper.hash(password, user.salt)
     try {
-      const userInfoEntity = new UserInfoEntity()
-      userInfoEntity.firstName = userInfo.firstName
-      userInfoEntity.lastName = userInfo.lastName
-      await userInfoEntity.save()
-      user.userInfo = userInfoEntity
+      if (userInfo) {
+        const userInfoEntity = new UserInfoEntity()
+        userInfoEntity.firstName = userInfo.firstName
+        userInfoEntity.lastName = userInfo.lastName
+        await userInfoEntity.save()
+        user.userInfo = userInfoEntity
+      }
       await user.save()
     } catch (e) {
       //error code for already exist
       if (e.errno === 19 || e.code === '23505')
         throw new ConflictException('Email already exist')
-      else throw new InternalServerErrorException()
+      throw new InternalServerErrorException()
     }
     return true
   }
@@ -35,11 +37,11 @@ export default class UserRepository extends Repository<UserEntity> {
     password,
   }: RegisterDto): Promise<JwtDTO> {
     const auth = await this.findOne({ email })
-    if (auth && (await auth.validatePassword(password))) {
+    if (auth && (await auth.validatePassword(password)))
       return {
         email: auth.email,
         userInfo: auth.userInfo,
       }
-    } else return null
+    return null
   }
 }

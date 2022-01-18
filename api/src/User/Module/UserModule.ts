@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common'
-import { MulterModule } from '@nestjs/platform-express'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import UserInfoRepository from '../Repository/UserInfoRepository'
 import { UserManager } from '../Manager/UserManager'
