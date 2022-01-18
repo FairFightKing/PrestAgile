@@ -34,7 +34,7 @@ export const GridCategory = ({
           lineHeight="120%"
           letterSpacing="-1px"
           textContent={textContentOverride}
-        ></TextHomePage>
+        />
         <ButtonHomePage
           buttonContent="Découvrir"
           buttonSize="lg"
