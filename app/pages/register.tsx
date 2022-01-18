@@ -16,11 +16,13 @@ const Home: NextPage = () => {
     lastName: '',
   })
 
+  const [title, setTitle] = useState('Defaut')
+
   const toast = useToast()
   useEffect(() => {
     error &&
       toast({
-        title: 'Erreur lors de la création du compte.',
+        title: title,
         description: 'Réessayez ultèrieurement',
         status: 'error',
         duration: 9000,
@@ -36,8 +38,11 @@ const Home: NextPage = () => {
     const cloneUserInfo = (({ email, password, confirmPassword, ...o }) => o)(
       formRegisterValue,
     )
-    if (!RegistrationServicesImpl.checkInputForApi(cloneUserBasic))
-      return setError(true)
+    if (!RegistrationServicesImpl.checkInputForApi(cloneUserBasic)) {
+      setError(true)
+      setTitle('early exit')
+      return false
+    }
     RegistrationServicesImpl.sendDataToApi({
       ...cloneUserBasic,
       userInfo: {
