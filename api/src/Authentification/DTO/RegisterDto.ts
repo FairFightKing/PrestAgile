@@ -1,20 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger'
-import {
-  IsJSON,
-  IsObject,
-  IsString,
-  Matches,
-  MaxLength,
-  MinLength,
-} from 'class-validator'
+import { IsString, Matches, MaxLength, MinLength } from 'class-validator'
 import {
   EmailRegexp,
   PasswordRegexp,
 } from '../Validator/Impl/formInputValidatorImpl'
 import UserDTO from '../../User/DTO/UserDTO'
 import UserInfoDTO from '../../User/DTO/UserInfoDTO'
-import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator'
-import UserInfoEntity from '../../User/Entity/UserInfoEntity'
 
 export default class RegisterDto {
   @ApiProperty({

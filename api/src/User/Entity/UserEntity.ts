@@ -32,9 +32,9 @@ export default class UserEntity extends BaseEntity {
   //@Column({ type: 'varchar' })
   //type: UserDTO['type']
 
-  @OneToOne(() => UserInfoEntity, { eager: true })
+  @OneToOne(() => UserInfoEntity, { eager: true, nullable: true })
   @JoinColumn()
-  userInfo: UserInfoEntity
+  userInfo?: UserInfoEntity
 
   async validatePassword(password: UserDTO['password']): Promise<boolean> {
     return bcrypt.compare(password, this.password)

@@ -26,7 +26,6 @@ export default class AuthService {
     const accessToken = this.jwtService.sign(response, {
       secret: process.env.JWT_SECRET,
     })
-
     return {
       accessToken,
       user: response,
