@@ -1,67 +1,48 @@
-import { Box, Button, GridItem, Image, Text, WrapItem } from '@chakra-ui/react';
+import { Box, GridItem, Image, WrapItem } from '@chakra-ui/react';
 import { GridHomePageProps } from './types/GridHomePageApp';
+import { ButtonHomePage } from '../buttonHomePage/buttonHomePage';
+import { TextHomePage } from '../textHomePage/textHomePage';
 
 export const GridCategory = ({
-  buttonContent,
-  textValue,
   imageSrc,
-  fontSize,
-  fontFamilly,
-  fontWeight,
-  lineHeight,
-  letterSpacing,
-  buttonSize,
-  buttonBackground,
-  buttonRadius,
-  buttonTextColor,
-  gridHeight,
-  gridWidth,
-  gridRadius,
-  gridBorder,
-  gridBackground,
-  gridBoxShadow,
   imageAlt,
-  boxBackgroud,
-  boxRadiusTop,
-  boxTextAlign,
+  textContentOverride,
 }: GridHomePageProps) => (
   <WrapItem>
     <GridItem
-      h={gridHeight}
-      w={gridWidth}
-      rounded={gridRadius}
-      border={gridBorder}
-      bg={gridBackground}
-      boxShadow={gridBoxShadow}
+      h="350px"
+      w="340px"
+      rounded="20px"
+      border="white 9px solid"
+      bg="#FFE8E8"
+      boxShadow="lg"
       overflow="hidden"
     >
       <Image src={imageSrc} zIndex={6} position="relative" alt={imageAlt} />
       <Box
-        textAlign={boxTextAlign}
-        roundedTop={boxRadiusTop}
+        textAlign="center"
+        roundedTop="25px"
         zIndex={7}
         position="relative"
-        bg={boxBackgroud}
+        bg="white"
         p={3}
       >
-        <Text
-          fontSize={fontSize}
-          fontFamily={fontFamilly}
-          fontWeight={fontWeight}
-          lineHeight={lineHeight}
-          letterSpacing={letterSpacing}
-        >
-          {textValue}
-        </Text>
-        <Button
-          mt={4}
-          color={buttonTextColor}
-          borderRadius={buttonRadius}
-          size={buttonSize}
-          bg={buttonBackground}
-        >
-          {buttonContent}
-        </Button>
+        <TextHomePage
+          fontSize="2xl"
+          fontFamily="Inter"
+          fontWeight="400"
+          lineHeight="120%"
+          letterSpacing="-1px"
+          textContent={textContentOverride}
+        ></TextHomePage>
+        <ButtonHomePage
+          buttonContent="Découvrir"
+          buttonSize="lg"
+          buttonBackground="#2945FF"
+          buttonMargin="4"
+          buttonRadius="100px"
+          buttonTextColor="white"
+        />
       </Box>
     </GridItem>
   </WrapItem>
