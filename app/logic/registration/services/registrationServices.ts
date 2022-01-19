@@ -18,15 +18,11 @@ export class RegistrationServicesImpl {
     email,
     password,
   }: RegistrationInput): boolean => {
-    if (
-      password.length >= 8 &&
+    const specialCharRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
+    return password.length >= 8 &&
       /[A-Z]/.test(password) &&
-      EmailHelper.emailValidation(email)
-    ) {
-      const specialCharRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
-      return specialCharRegex.test(password)
-    }
-    return false;
+      EmailHelper.emailValidation(email) &&
+      specialCharRegex.test(password)
   }
 
   public static sendDataToApi = (

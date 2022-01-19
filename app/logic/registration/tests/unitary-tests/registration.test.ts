@@ -8,3 +8,11 @@ test('expect object to be validated', () => {
     RegistrationServicesImpl.checkInputForApi({ email, password }),
   ).toBeTruthy()
 })
+
+test('expect object to be too short', () => {
+  const email = 'jules'
+  const password = 'Pwrb5ed598@11'
+  expect(
+    RegistrationServicesImpl.checkInputForApi({ email, password }),
+  ).toBeFalsy()
+})
