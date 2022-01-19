@@ -6,11 +6,6 @@ on:
       - preprod
     paths:
       - 'app/**'
-  pull_request:
-    branches:
-      - preprod
-    paths:
-      - 'app/**'
 
 jobs:
   prettier:
