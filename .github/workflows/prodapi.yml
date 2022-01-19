@@ -1,13 +1,13 @@
-name: preprod-api
+name: prod CI BO
 
 on:
   push:
-    branches: [ preprod ]
+    branches: [ main ]
     paths:
       - 'api/**'
 
   pull_request:
-    branches: [ preprod ]
+    branches: [ main ]
     paths:
       - 'api/**'
 
@@ -50,7 +50,7 @@ jobs:
         uses: github/super-linter@v3
         env:
           VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: preprod
+          DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FILTER_REGEX_INCLUDE: .api/.
           FILTER_REGEX_EXCLUDE: .node_modules/.
@@ -64,9 +64,9 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_KEY }}
-          heroku_app_name: ${{ secrets.PRE_HEROKU_APP_API }}
+          heroku_app_name: ${{ secrets.PROD_HEROKU_APP_API }}
           heroku_email: ${{ secrets.HEROKU_MAIL }}
-          branch: preprod
+          branch: main
 
 
 

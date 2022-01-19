@@ -16,7 +16,7 @@ config()
     JwtModule.register({
       secret: process.env.JWT_SECRET,
       signOptions: {
-        expiresIn: +process.env.APP_EXPIRES,
+        expiresIn: +process.env.JWT_EXPIRES,
       },
     }),
     TypeOrmModule.forFeature([UserRepository]),
