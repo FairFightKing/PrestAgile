@@ -1,4 +1,4 @@
-import HttpClientImplementation from '../../../../logic/form-freelance/services/httpClient'
+import HttpClientImplementation from '../../../logic/form-freelance/services/httpClient'
 import { expect } from '@jest/globals'
 
 const HttpClientImpl = new HttpClientImplementation()

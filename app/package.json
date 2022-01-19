@@ -7,7 +7,7 @@
     "start": "next start",
     "lint": "prettier --check .",
     "format": "prettier --write .",
-    "test": "jest --verbose ./tests/form-freelance/unitary-test/fetchForm.test.ts",
+    "test": "jest --verbose ./tests/form-freelance/unitary-test/changeStep.test.ts",
     "integration": "jest --verbose ./tests/form-freelance/integration-test"
   },
   "lint-staged": {
