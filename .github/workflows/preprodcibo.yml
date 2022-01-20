@@ -5,6 +5,12 @@ on:
     branches: [ preprod ]
     paths:
       - 'backoffice/**'
+
+  pull_request:
+    branches: [ preprod ]
+    paths:
+      - 'backoffice/**'
+
 jobs:
   build:
     runs-on: ubuntu-latest

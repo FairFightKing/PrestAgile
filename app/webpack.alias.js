@@ -4,4 +4,4 @@ module.exports = {
       '@mui/styled-engine': '@mui/styled-engine-sc',
     },
   },
-}
+};

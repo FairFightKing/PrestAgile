@@ -6,6 +6,11 @@ on:
     paths:
       - 'backoffice/**'
 
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'backoffice/**'
+
 jobs:
   build:
     runs-on: ubuntu-latest

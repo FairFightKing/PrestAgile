@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - preprod
-    paths:
-      - 'app/**'
+  pull_request:
+    branches:
+      - preprod
 
 jobs:
   prettier:
