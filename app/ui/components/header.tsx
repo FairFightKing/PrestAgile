@@ -1,5 +1,15 @@
-import { LinkComponent } from './navigation/LinkComponent'
+import { LinkComponent } from './navigation/LinkComponent';
 
 export default function Header() {
-  return <div></div>
+  return (
+    <div>
+      <h1>Prestagile</h1>
+      <div>
+        <LinkComponent
+          target="/test"
+          child={<button color="primary">Test</button>}
+        />
+      </div>
+    </div>
+  );
 }
