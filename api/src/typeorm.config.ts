@@ -5,11 +5,12 @@ import { config } from 'dotenv'
 config()
 const typeOrmConfig: TypeOrmModuleOptions = {
   type: process.env.DB_TYPE as any,
-  database: process.env.Database,
-  host: process.env.Host,
-  port: parseInt(process.env.Port),
-  username: process.env.User,
-  password: process.env.Password,
+  name: process.env.DB_NAME,
+  database: process.env.DATABASE_URI,
+  host: process.env.DB_HOST,
+  port: parseInt(process.env.DB_PORT),
+  username: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
   entities: [join(__dirname, '**', 'Entity/*.{ts,js}')],
   autoLoadEntities: true,
   synchronize: true,
