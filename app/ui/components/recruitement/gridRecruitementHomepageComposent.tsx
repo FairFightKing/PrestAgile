@@ -1,5 +1,5 @@
-import { GridRecruitementHomepageProps } from './types/GridRecruitementHomepageApp';
-import { Center, GridItem, Image, Text, WrapItem } from '@chakra-ui/react';
+import { GridRecruitementHomepageProps } from './types/GridRecruitementHomepageApp'
+import { Center, GridItem, Image, Text, WrapItem } from '@chakra-ui/react'
 
 export const GridRecruitement = ({
   imgAlt,
@@ -31,4 +31,4 @@ export const GridRecruitement = ({
       </Text>
     </GridItem>
   </WrapItem>
-);
+)
