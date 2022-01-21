@@ -102,6 +102,7 @@ export default function BannerHomePage() {
         />
         <Image
           height="100%"
+          objectFit="cover"
           position="relative"
           top="-1092px"
           left="0px"

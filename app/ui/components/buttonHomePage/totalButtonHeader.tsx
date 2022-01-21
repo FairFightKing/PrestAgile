@@ -8,59 +8,59 @@ export default function TotalButtonHeader() {
       <LinkComponent
         target="/test"
         child={
-          <Button mx={5} px={6} py={4} variant="ghost" color="primary">
+          <Button
+            mx={5}
+            px={6}
+            py={4}
+            fontSize="1rem"
+            fontWeight="600"
+            color="white"
+            variant="ghost"
+            bg="#2945FF"
+            borderRadius="100px"
+            size="lg"
+          >
             Test
           </Button>
         }
       />
       <LinkComponent
+        target="/inscription"
         child={
-          <ButtonHomePage
-            buttonContent="Accueil"
-            buttonMarginX="5"
-            buttonPaddingX="6"
-            buttonPaddingy="4"
-            buttonFontSize="15px"
-            buttonFontWeight="600"
-            buttonSize="lg"
-            buttonRadius="100px"
-            buttonVariant="ghost"
-          />
+          <Button
+            mx={5}
+            px={6}
+            py={4}
+            fontSize="1rem"
+            fontWeight="600"
+            color="white"
+            variant="ghost"
+            bg="#2945FF"
+            borderRadius="100px"
+            size="lg"
+          >
+            Inscription
+          </Button>
         }
-        target="/test"
       />
       <LinkComponent
-        child={
-          <ButtonHomePage
-            buttonContent="Connexion"
-            buttonMarginX="5"
-            buttonPaddingX="6"
-            buttonPaddingy="4"
-            buttonFontSize="15px"
-            buttonFontWeight="600"
-            buttonSize="lg"
-            buttonRadius="100px"
-            buttonBackground="#FFEEEE"
-          />
-        }
         target="/connexion"
-      />
-      <LinkComponent
         child={
-          <ButtonHomePage
-            buttonContent="Inscription"
-            buttonMarginX="5"
-            buttonPaddingX="6"
-            buttonPaddingy="4"
-            buttonFontSize="15px"
-            buttonFontWeight="600"
-            buttonSize="lg"
-            buttonRadius="100px"
-            buttonBackground="#2945FF"
-            buttonTextColor="white"
-          />
+          <Button
+            mx={5}
+            px={6}
+            py={4}
+            fontSize="1rem"
+            fontWeight="600"
+            color="white"
+            variant="ghost"
+            bg="#2945FF"
+            borderRadius="100px"
+            size="lg"
+          >
+            Connexion
+          </Button>
         }
-        target="/"
       />
     </Box>
   )

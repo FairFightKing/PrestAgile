@@ -3,7 +3,7 @@ export declare interface ButtonHomePageProps {
   buttonRadius?: string
   buttonBackground?: string
   buttonTextColor?: string
-  buttonContent: string
+  buttonContent?: string
   buttonMarginT?: string
   buttonMarginX?: string
   buttonPaddingX?: string
