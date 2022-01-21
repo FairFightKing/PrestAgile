@@ -1,4 +1,4 @@
-import { Box, Flex, Button, ButtonGroup, Text, Image } from '@chakra-ui/react';
+import { Box, Flex, Button, ButtonGroup, Text, Image } from '@chakra-ui/react'
 
 export default function BannerHomePage() {
   return (
@@ -87,5 +87,5 @@ export default function BannerHomePage() {
         />
       </Box>
     </Flex>
-  );
+  )
 }

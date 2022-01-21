@@ -1,5 +1,5 @@
-import { Box, Text } from '@chakra-ui/react';
-import TotalGridCategory from './totalGridCategoryHomePage';
+import { Box, Text } from '@chakra-ui/react'
+import TotalGridCategory from './totalGridCategoryHomePage'
 
 export default function CategoryHomePage() {
   return (
@@ -16,5 +16,5 @@ export default function CategoryHomePage() {
       </Text>
       <TotalGridCategory />
     </Box>
-  );
+  )
 }

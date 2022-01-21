@@ -1,5 +1,5 @@
-import { GridCategory } from './gridCategoryHomepage';
-import { Wrap } from '@chakra-ui/react';
+import { GridCategory } from './gridCategoryHomepage'
+import { Wrap } from '@chakra-ui/react'
 
 export default function TotalGridCategory() {
   return (
@@ -37,5 +37,5 @@ export default function TotalGridCategory() {
         textContentOverride="Scrum Master"
       />
     </Wrap>
-  );
+  )
 }

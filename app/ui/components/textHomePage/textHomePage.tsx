@@ -1,5 +1,5 @@
-import { Text } from '@chakra-ui/react';
-import { TextHomePageProps } from './types/TextHomePageApp';
+import { Text } from '@chakra-ui/react'
+import { TextHomePageProps } from './types/TextHomePageApp'
 export const TextHomePage = ({
   fontFamily,
   fontSize,
@@ -17,4 +17,4 @@ export const TextHomePage = ({
   >
     {textContent}
   </Text>
-);
+)
