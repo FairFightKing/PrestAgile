@@ -3,7 +3,7 @@ name: deploy nexturl to vercel
 on:
   push:
     branches:
-      - preprod
+      - vercel-fix
     paths:
       - 'app/**'
 

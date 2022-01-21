@@ -1,4 +1,4 @@
-import { LinkComponent } from './navigation/LinkComponent';
+import { LinkComponent } from './navigation/LinkComponent'
 
 export default function Header() {
   return (
@@ -6,10 +6,14 @@ export default function Header() {
       <h1>Prestagile</h1>
       <div>
         <LinkComponent
-          target="/test"
-          child={<button color="primary">Test</button>}
+          target="/register"
+          child={<button color="primary">Inscription</button>}
+        />
+        <LinkComponent
+          target="/login"
+          child={<button color="primary">Connexion</button>}
         />
       </div>
     </div>
-  );
+  )
 }
