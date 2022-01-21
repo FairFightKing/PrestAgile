@@ -1,7 +1,7 @@
-import { Box, GridItem, Image, WrapItem } from '@chakra-ui/react';
-import { GridHomePageProps } from './types/GridHomePageApp';
-import { ButtonHomePage } from '../buttonHomePage/buttonHomePage';
-import { TextHomePage } from '../textHomePage/textHomePage';
+import { Box, GridItem, Image, WrapItem } from '@chakra-ui/react'
+import { GridHomePageProps } from './types/GridHomePageApp'
+import { ButtonHomePage } from '../buttonHomePage/buttonHomePage'
+import { TextHomePage } from '../textHomePage/textHomePage'
 
 export const GridCategory = ({
   imageSrc,
@@ -39,11 +39,11 @@ export const GridCategory = ({
           buttonContent="Découvrir"
           buttonSize="lg"
           buttonBackground="#2945FF"
-          buttonMargin="4"
+          buttonMarginT="4"
           buttonRadius="100px"
           buttonTextColor="white"
         />
       </Box>
     </GridItem>
   </WrapItem>
-);
+)
