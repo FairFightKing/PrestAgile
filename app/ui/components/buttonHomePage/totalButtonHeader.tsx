@@ -1,5 +1,5 @@
 import { ButtonHomePage } from './buttonHomePage'
-import { Box } from '@chakra-ui/react'
+import { Box, Button } from '@chakra-ui/react'
 import { LinkComponent } from '../navigation/LinkComponent'
 
 export default function TotalButtonHeader() {
@@ -7,12 +7,16 @@ export default function TotalButtonHeader() {
     <Box my={5} mx={10} py={3}>
       <LinkComponent
         target="/test"
-        child={<button color="primary">Test</button>}
+        child={
+          <Button mx={5} px={6} py={4} variant="ghost" color="primary">
+            Test
+          </Button>
+        }
       />
       <LinkComponent
         child={
           <ButtonHomePage
-            buttonContent="Acceuil"
+            buttonContent="Accueil"
             buttonMarginX="5"
             buttonPaddingX="6"
             buttonPaddingy="4"
@@ -23,7 +27,7 @@ export default function TotalButtonHeader() {
             buttonVariant="ghost"
           />
         }
-        target="/"
+        target="/test"
       />
       <LinkComponent
         child={
@@ -39,7 +43,7 @@ export default function TotalButtonHeader() {
             buttonBackground="#FFEEEE"
           />
         }
-        target="/"
+        target="/connexion"
       />
       <LinkComponent
         child={

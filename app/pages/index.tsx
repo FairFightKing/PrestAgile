@@ -8,7 +8,6 @@ import CategoryHomePage from '../ui/components/category/categoryHomePage'
 const Home: NextPage = () => {
   return (
     <div>
-      Page accueil Next Js.
       <BannerHomePage />
       <RecruitmentHomePage />
       <CategoryHomePage />
