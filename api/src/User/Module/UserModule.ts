@@ -8,12 +8,7 @@ import { config } from 'dotenv'
 
 config()
 @Module({
-  imports: [
-    TypeOrmModule.forFeature(
-      [UserRepository, UserInfoRepository],
-      process.env.DB_NAME,
-    ),
-  ],
+  imports: [TypeOrmModule.forFeature([UserRepository, UserInfoRepository])],
   controllers: [UserManager],
   providers: [UserService],
   exports: [UserService],

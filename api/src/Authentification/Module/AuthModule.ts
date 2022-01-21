@@ -7,8 +7,10 @@ import { AuthManager } from '../Manager/AuthManager'
 import AuthService from '../Service/AuthService'
 import { JwtValidatorImpl } from '../Validator/Impl/JwtValidatorImpl'
 import { config } from 'dotenv'
-config()
+import UserInfoRepository from '../../User/Repository/UserInfoRepository'
+import { JWT_MODULE_OPTIONS } from '@nestjs/jwt/dist/jwt.constants'
 
+config()
 @Global()
 @Module({
   imports: [
@@ -19,10 +21,10 @@ config()
         expiresIn: +process.env.JWT_EXPIRES,
       },
     }),
-    TypeOrmModule.forFeature([UserRepository]),
+    TypeOrmModule.forFeature([UserRepository, UserInfoRepository]),
   ],
   controllers: [AuthManager],
   providers: [AuthService, JwtValidatorImpl],
-  exports: [JwtValidatorImpl, PassportModule, AuthService],
+  exports: [JwtValidatorImpl, AuthService],
 })
 export class AuthModule {}
