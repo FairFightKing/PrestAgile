@@ -4,7 +4,7 @@ import { Wrap } from '@chakra-ui/react'
 export default function TotalGridCategory() {
   return (
     <Wrap
-      spacing="5rem"
+      spacing={{ base: '10', md: '2.5rem', lg: '5rem' }}
       h="21rem"
       width="85%"
       justify="center"

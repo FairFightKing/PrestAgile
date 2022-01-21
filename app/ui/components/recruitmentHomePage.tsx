@@ -20,7 +20,7 @@ export default function RecruitementHomePage() {
       </Text>
       <Box mt={10}>
         <Wrap
-          spacing="10rem"
+          spacing={{ base: '5', md: '6', lg: '10rem' }}
           h="21rem"
           width="75%"
           justify="center"
