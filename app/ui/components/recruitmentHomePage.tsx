@@ -1,5 +1,5 @@
-import { Box, Text, Wrap } from '@chakra-ui/react';
-import { GridRecruitement } from './recruitement/gridRecruitementHomepageComposent';
+import { Box, Text, Wrap } from '@chakra-ui/react'
+import { GridRecruitement } from './recruitement/gridRecruitementHomepageComposent'
 
 export default function RecruitementHomePage() {
   return (
@@ -20,7 +20,7 @@ export default function RecruitementHomePage() {
       </Text>
       <Box mt={10}>
         <Wrap
-          spacing="10rem"
+          spacing={{ base: '5', md: '6', lg: '10rem' }}
           h="21rem"
           width="75%"
           justify="center"
@@ -51,5 +51,5 @@ export default function RecruitementHomePage() {
         </Wrap>
       </Box>
     </Box>
-  );
+  )
 }

@@ -1,52 +1,75 @@
-import { Box, Flex, Button, ButtonGroup, Text, Image } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Button,
+  ButtonGroup,
+  Text,
+  Image,
+  useMediaQuery,
+} from '@chakra-ui/react'
 
 export default function BannerHomePage() {
   return (
-    <Flex h="520px">
-      <Box bg="#2945FF" w="50%" color="white">
-        <Box my="7.5%" ml="20%">
+    <Flex h={{ base: '425px', md: '520px', lg: '520px' }}>
+      <Box
+        bg="#2945FF"
+        w={{ base: '100%', md: '60%', lg: '50%' }}
+        color="white"
+      >
+        <Box
+          my={{ base: '5%', md: '7.5%', lg: '7.5%' }}
+          ml="20%"
+          mr={{ base: '20%', md: '1', lg: '0' }}
+        >
           <Text
             lineHeight="120%"
             my="2%"
             fontFamily="Inter"
             letterSpacing="-1px"
             fontWeight="500"
-            fontSize="64px"
+            fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
           >
             Votre expert à
             <br />
             portée de clic
           </Text>
           <Text
-            pt="2.5%"
+            px={{ base: '2', md: '1', lg: '0' }}
+            pt="4"
             lineHeight="120%"
             fontFamily="Inter"
             fontWeight="400"
             letterSpacing="-1px"
-            fontSize="24px"
+            fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
           >
             Trouver un expert freelance en agilité ou en gestion
             <br />
             de projet selon vos projet ...
           </Text>
           <ButtonGroup
-            mt="10%"
+            display={{ base: 'block', md: 'block', lg: 'flex' }}
+            mt={{ base: '5%', md: '7.5%', lg: '10%' }}
             letterSpacing="-1px"
-            spacing="3.5rem"
+            spacing={{ base: '0', md: '0', lg: '3.5rem' }}
             variant="solid"
             color="black"
             size="lg"
           >
-            <Button py={8} px={12} borderRadius="100px" bg="#FFEEEE">
+            <Button py={8} my={1} px={12} borderRadius="100px" bg="#FFEEEE">
               Un freelance
             </Button>
-            <Button py={8} px={12} borderRadius="100px" bg="#E1DCFF">
+            <Button py={8} my={1} px={12} borderRadius="100px" bg="#E1DCFF">
               Une mission
             </Button>
           </ButtonGroup>
         </Box>
       </Box>
-      <Box w="50%" position="static" top="0px" left="0px">
+      <Box
+        w={{ base: '0', md: '50%', lg: '50%' }}
+        position="static"
+        top="0px"
+        left="0px"
+      >
         <Box
           position="relative"
           top="0px"
@@ -79,6 +102,7 @@ export default function BannerHomePage() {
         />
         <Image
           height="100%"
+          objectFit="cover"
           position="relative"
           top="-1092px"
           left="0px"
@@ -87,5 +111,5 @@ export default function BannerHomePage() {
         />
       </Box>
     </Flex>
-  );
+  )
 }

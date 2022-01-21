@@ -1,19 +1,19 @@
-import { LinkComponent } from './navigation/LinkComponent'
+import TotalButtonHeader from './buttonHomePage/totalButtonHeader'
+import { Box, Flex, Spacer, Image, Text } from '@chakra-ui/react'
 
 export default function Header() {
   return (
-    <div>
-      <h1>Prestagile</h1>
-      <div>
-        <LinkComponent
-          target="/register"
-          child={<button color="primary">Inscription</button>}
-        />
-        <LinkComponent
-          target="/login"
-          child={<button color="primary">Connexion</button>}
-        />
-      </div>
-    </div>
+    <Flex fontFamily="Inter" height="auto" width="100%">
+      <Box textAlign="center" py={4} px={5}>
+        <Box px={5}>
+          <Image alt="Logo Prestagile" src="PA-logo.png" />
+          <Text fontSize="lg" fontWeight="600">
+            Prestagile
+          </Text>
+        </Box>
+      </Box>
+      <Spacer />
+      <TotalButtonHeader />
+    </Flex>
   )
 }
