@@ -15,6 +15,11 @@ const typeOrmConfig: TypeOrmModuleOptions = {
     entitiesDir: 'src/**/Entity/*.{ts,js}',
     migrationsDir: 'src/migration',
   },
+  extra: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
 }
 console.log(typeOrmConfig)
 
