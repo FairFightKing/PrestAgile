@@ -2,7 +2,7 @@ name: preprod-api
 
 on:
   push:
-    branches: [ preprod ]
+    branches: [ preprod,PRES-58 ]
     paths:
       - 'api/**'
 
