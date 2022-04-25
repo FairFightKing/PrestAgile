@@ -20,7 +20,7 @@ jobs:
           cache-dependency-path: api/package-lock.json
       - run: |
           cd api
-          npm install
+          npm ci
   #         npm run build
 
   unit:
@@ -32,7 +32,7 @@ jobs:
           fetch-depth: 0
       - run: |
           cd api
-          npm install
+          npm ci
           npm run test
   heroku-deploy:
     needs: [ build, unit ]
