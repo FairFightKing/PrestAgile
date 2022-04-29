@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_steps_steps",
+  "info": {
+    "name": "steps",
+    "icon": "ad"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "inputs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inputs.inputs"
+    }
+  }
+}

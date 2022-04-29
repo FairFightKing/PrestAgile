@@ -24,7 +24,7 @@ export default function TotalButtonHeader() {
         }
       />
       <LinkComponent
-        target="/connexion"
+        target="/login"
         child={
           <Button
             mx={5}
@@ -42,7 +42,7 @@ export default function TotalButtonHeader() {
         }
       />
       <LinkComponent
-        target="/inscription"
+        target="/register"
         child={
           <Button
             mx={5}

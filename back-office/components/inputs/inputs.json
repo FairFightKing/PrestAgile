@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_inputs_inputs",
+  "info": {
+    "name": "inputs",
+    "icon": "align-left"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "information": {
+      "type": "text"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

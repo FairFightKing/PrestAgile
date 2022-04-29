@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test": "jest"
   },
   "lint-staged": {
     "*.{tsx, ts, scss, css}": [
