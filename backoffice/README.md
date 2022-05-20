@@ -1,17 +1,57 @@
-# Devlab / Devinci Startup Prestagile
+# 🚀 Getting started with Strapi
 
-## Fonctionnement des CI/CD
+Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
 
-<code>Path des fichiers: .github/workflows</code>
+### `develop`
 
-L'application est déployé sur heroku, il y a deux fichiers de déploiement **procibo** et **preprodcibo**:
+Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
 
-Les deux sont déployés sur heroku et les config sont très semblables la première listen sur la branch **preprod** et l'autre sur **main**.
-Les fichiers de configuration comprennent entre autre le lancement des tests (package.json à modifier quand les tests unitaires seront rédigés une fois que l'application sera un peu plus avancé).
+```
+npm run develop
+# or
+yarn develop
+```
 
-## Fonctionalités de la CI
+### `start`
 
-Linter automatique, le linter vérifie la code base quelque soit le langage utilisé afin d'assurer la structure du code.
+Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
 
-Jest permet de lancer les tests le processus de déploiement ne se lance pas tant que les tests, le build et le linter ne soient finit.
-Une fois que la codebase est validé le déploiement sur heroku est automatiquement lancé.
+```
+npm run start
+# or
+yarn start
+```
+
+### `build`
+
+Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-build)
+
+```
+npm run build
+# or
+yarn build
+```
+
+## ⚙️ Deployment
+
+Strapi gives you many possible deployment options for your project. Find the one that suits you on the [deployment section of the documentation](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html).
+
+## 📚 Learn more
+
+- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
+- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
+- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
+- [Strapi blog](https://docs.strapi.io) - Official Strapi blog containing articles made by the Strapi team and the community.
+- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+
+Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+
+## ✨ Community
+
+- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
+- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
+- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+
+---
+
+<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
