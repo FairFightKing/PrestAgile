@@ -22,5 +22,5 @@ import UserInfoRepository from './User/Repository/UserInfoRepository'
   providers: [AppService],
 })
 export class AppModule {
-  // constructor(private connection: Connection) {}
+  constructor(private connection: Connection) {}
 }

@@ -23,5 +23,5 @@ async function bootstrap() {
   await app.listen(port)
 }
 bootstrap().then(() => {
-  // console.log('success', getConnection())
+  console.log('success', getConnection())
 })

@@ -27,7 +27,11 @@ export default class UserRepository extends Repository<UserEntity> {
       //error code for already exist
       if (e.errno === 19 || e.code === '23505')
         throw new ConflictException('Email already exist')
-      throw new InternalServerErrorException()
+      if (e.code === '23502')
+        throw new InternalServerErrorException(
+          `${e.driverError.column} not found. ${e.driverError}`,
+        )
+      throw new InternalServerErrorException(`${e.driverError}`)
     }
     return true
   }
