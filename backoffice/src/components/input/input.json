@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_input_inputs",
+  "info": {
+    "displayName": "input",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "sizeLabel": {
+      "type": "enumeration",
+      "enum": [
+        "small",
+        "medium",
+        "large"
+      ]
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}
