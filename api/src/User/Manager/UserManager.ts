@@ -9,7 +9,7 @@ import { GetUser } from '../../Authentification/Decorator/GetUser'
 @ApiTags('User')
 @ApiBearerAuth()
 @Controller('user')
-@UseGuards(AuthGuard())
+@UseGuards(AuthGuard('jwt'))
 export class UserManager {
   constructor(private userService: UserService) {}
 

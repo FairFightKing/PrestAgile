@@ -32,6 +32,12 @@
 $ npm install
 ```
 
+#### Set up the docker postgres database for development
+
+```bash
+$ cd ../ && docker compose up -d
+```
+
 ## Running the app
 
 ```bash
@@ -50,6 +56,9 @@ $ npm run start:prod
 ```bash
 # unit tests
 $ npm run test
+
+# watch tests
+$ npm run test:watch
 
 # e2e tests
 $ npm run test:e2e
