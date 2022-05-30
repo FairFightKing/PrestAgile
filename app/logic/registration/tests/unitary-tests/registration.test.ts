@@ -1,5 +1,5 @@
 import { expect } from '@jest/globals'
-import { RegistrationServicesImpl } from '../../services/registrationServices'
+import { RegistrationServicesImpl } from '../../services/registrationServicesImpl'
 
 test('expect object to be validated', () => {
   const email = 'julesgabriel.dayaux@gmail.com'
