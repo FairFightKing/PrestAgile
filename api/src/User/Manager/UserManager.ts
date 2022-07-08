@@ -3,8 +3,8 @@ import { Body, Controller, Get, Patch, UseGuards } from '@nestjs/common'
 import { AuthGuard } from '@nestjs/passport'
 import UserService from '../Service/UserService'
 import UserEntity from '../Entity/UserEntity'
-import UserInfoDTO from '../DTO/UserInfoDTO'
 import { GetUser } from '../../Authentification/Decorator/GetUser'
+import UserDTO from '../DTO/UserDTO'
 
 @ApiTags('User')
 @ApiBearerAuth()
@@ -14,16 +14,13 @@ export class UserManager {
   constructor(private userService: UserService) {}
 
   @Get()
-  getUserInfo(@GetUser() user: UserEntity): Promise<UserInfoDTO> {
+  getUserInfo(@GetUser() user: UserEntity): Promise<UserDTO> {
     return this.userService.getUser(user)
   }
 
   @Patch()
   @ApiConsumes('multipart/form-data')
-  updateUserInfo(
-    @Body() userInfoDTO: UserInfoDTO,
-    @GetUser() user: UserEntity,
-  ): Promise<UserInfoDTO> {
-    return this.userService.updateUserInfo(user, userInfoDTO)
+  updateUserInfo(@GetUser() user: UserEntity): Promise<UserDTO> {
+    return this.userService.updateUserInfo(user)
   }
 }

@@ -4,24 +4,18 @@ import RegisterDto from '../../Authentification/DTO/RegisterDto'
 import PasswordHelper from '../../Authentification/helpers/PasswordHelper'
 import { ConflictException, InternalServerErrorException } from '@nestjs/common'
 import { JwtDTO } from '../../Authentification/DTO/JwtDTO'
-import UserInfoEntity from '../Entity/UserInfoEntity'
 import * as bcrypt from 'bcrypt'
+import LoginDTO from '../../Authentification/DTO/LoginDTO'
 
 @EntityRepository(UserEntity)
 export default class UserRepository extends Repository<UserEntity> {
-  async register({ email, password, userInfo }: RegisterDto): Promise<boolean> {
+  async register({ email, password, uuid }: RegisterDto): Promise<boolean> {
     const user = new UserEntity()
     user.email = email
+    user.uuid = uuid
     user.salt = await bcrypt.genSalt()
     user.password = await PasswordHelper.hash(password, user.salt)
     try {
-      if (userInfo) {
-        const userInfoEntity = new UserInfoEntity()
-        userInfoEntity.firstName = userInfo.firstName
-        userInfoEntity.lastName = userInfo.lastName
-        await userInfoEntity.save()
-        user.userInfo = userInfoEntity
-      }
       await user.save()
     } catch (e) {
       //error code for already exist
@@ -36,15 +30,12 @@ export default class UserRepository extends Repository<UserEntity> {
     return true
   }
 
-  async validateUserPassword({
-    email,
-    password,
-  }: RegisterDto): Promise<JwtDTO> {
+  async validateUserPassword({ email, password }: LoginDTO): Promise<JwtDTO> {
     const auth = await this.findOne({ email })
     if (auth && (await auth.validatePassword(password)))
       return {
         email: auth.email,
-        userInfo: auth.userInfo,
+        uuid: auth.uuid,
       }
     return null
   }

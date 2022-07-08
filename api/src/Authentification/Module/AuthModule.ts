@@ -7,7 +7,6 @@ import { AuthManager } from '../Manager/AuthManager'
 import AuthService from '../Service/AuthService'
 import { JwtValidatorImpl } from '../Validator/Impl/JwtValidatorImpl'
 import { config } from 'dotenv'
-import UserInfoRepository from '../../User/Repository/UserInfoRepository'
 import { JWT_MODULE_OPTIONS } from '@nestjs/jwt/dist/jwt.constants'
 
 config()
@@ -21,7 +20,7 @@ config()
         expiresIn: +process.env.JWT_EXPIRES,
       },
     }),
-    TypeOrmModule.forFeature([UserRepository, UserInfoRepository]),
+    TypeOrmModule.forFeature([UserRepository]),
   ],
   controllers: [AuthManager],
   providers: [AuthService, JwtValidatorImpl],

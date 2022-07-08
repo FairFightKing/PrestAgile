@@ -14,7 +14,6 @@ import { UserManager } from './User/Manager/UserManager'
 import { JwtModule, JwtService } from '@nestjs/jwt'
 import { PassportModule } from '@nestjs/passport'
 import UserRepository from './User/Repository/UserRepository'
-import UserInfoRepository from './User/Repository/UserInfoRepository'
 
 @Module({
   imports: [AuthModule, UserModule, TypeOrmModule.forRoot(typeOrmConfig)],
