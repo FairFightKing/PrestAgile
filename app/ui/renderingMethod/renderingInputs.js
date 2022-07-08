@@ -1,3 +1,1 @@
-const renderingInputs = (data) => {
-
-}
+const renderingInputs = data => {}

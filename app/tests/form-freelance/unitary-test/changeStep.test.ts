@@ -56,7 +56,7 @@ const data = {
 test('should return the new array with new step and inputs content inside it', () => {
   const stepGeneratorImpl = new StepGeneratorImplementation()
   const currentContext = 0
-  const {id, attributes} = data.steps.data[currentContext]
+  const { id, attributes } = data.steps.data[currentContext]
   const stepValue = {
     id: id,
     title: attributes.title,
