@@ -1,0 +1,52 @@
+name: preprod-api
+
+on:
+  push:
+    branches: [ preprod ]
+    paths:
+      - 'api/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+          cache: 'npm'
+          cache-dependency-path: api/package-lock.json
+      - run: |
+          cd api
+          npm ci
+#          npm run build
+
+  unit:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: |
+          cd api
+          npm ci
+          npm run test
+  heroku-deploy:
+    needs: [ build, unit ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_KEY }}
+          heroku_app_name: ${{ secrets.PRE_HEROKU_APP_API }}
+          heroku_email: ${{ secrets.HEROKU_MAIL }}
+          branch: preprod
+
+
+

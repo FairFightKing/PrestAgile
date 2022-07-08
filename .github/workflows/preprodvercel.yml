@@ -3,10 +3,9 @@ name: deploy nexturl to vercel
 on:
   push:
     branches:
-      - preprod
-  pull_request:
-    branches:
-      - preprod
+      - vercel-fix
+    paths:
+      - 'app/**'
 
 jobs:
   prettier:

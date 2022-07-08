@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
@@ -19,3 +20,20 @@
     "noFallthroughCasesInSwitch": false
   }
 }
+=======
+   "compilerOptions": {
+      "lib": [
+         "es5",
+         "es6",
+         "DOM"
+      ],
+      "target": "esnext",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "outDir": "./build",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": true
+   }
+}
+>>>>>>> preprod

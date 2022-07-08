@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_step_steps",
+  "info": {
+    "displayName": "steps",
+    "icon": "clipboard-list"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "inputs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "input.input"
+    }
+  }
+}
