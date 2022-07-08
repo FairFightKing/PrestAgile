@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/formulaire-freelance",
+      "handler": "formulaire-freelance.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/formulaire-freelance",
+      "handler": "formulaire-freelance.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/formulaire-freelance",
+      "handler": "formulaire-freelance.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
