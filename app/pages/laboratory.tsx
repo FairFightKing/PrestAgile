@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 const Laboratory: NextPage = () => {
   const Fetch = async () => {
     return await HttpRequests.getHttpRequest(
+      'strapi',
       'form-freelance',
       PopulationEnum.deep,
     )

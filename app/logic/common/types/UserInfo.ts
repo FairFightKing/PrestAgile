@@ -1,5 +1,5 @@
 export default interface UserInfo {
-    firstName: string
-    lastName: string
-    phone?: number
+  firstName: string
+  lastName: string
+  phone?: number
 }

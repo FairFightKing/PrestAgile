@@ -1,7 +1,7 @@
-import UserInfo  from "../../common/types/UserInfo";
+import UserInfo from '../../common/types/UserInfo'
 
 export default interface RegistrationInput {
-    email: string
-    password: string
-    userInfo?: UserInfo
+  email: string
+  password: string
+  userInfo?: UserInfo
 }

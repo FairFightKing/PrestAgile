@@ -2,7 +2,8 @@
   "collectionName": "components_input_inputs",
   "info": {
     "displayName": "input",
-    "icon": "archive"
+    "icon": "archive",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -18,7 +19,23 @@
       ]
     },
     "type": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "button",
+        "checkbox",
+        "date",
+        "email",
+        "file",
+        "image",
+        "number",
+        "password",
+        "radio",
+        "range",
+        "submit",
+        "tel",
+        "text",
+        "url"
+      ]
     }
   }
 }
