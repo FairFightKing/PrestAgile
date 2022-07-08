@@ -4,8 +4,8 @@ import { PopulationEnum } from '../logic/common/enum/Population'
 import { useEffect } from 'react'
 
 const Laboratory: NextPage = () => {
-  const Fetch = async () => {
-    return await HttpRequests.getHttpRequest(
+  const Fetch = () => {
+    return HttpRequests.getHttpRequest(
       'strapi',
       'form-freelance',
       PopulationEnum.deep,
