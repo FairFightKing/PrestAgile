@@ -1,73 +1,59 @@
-import { StepGeneratorImplementation } from '../../../logic/form-freelance/services/changeStep'
-import { expect } from '@jest/globals'
+import {StepGeneratorImplementation} from '../../../logic/form-freelance/services/changeStep'
+import {expect} from '@jest/globals'
+import {Form} from "../../../logic/form-freelance/interfaces/Form";
+import {Step} from "../../../logic/form-freelance/interfaces/Step";
+import exp from "constants";
 
-const data = {
-  steps: {
-    data: [
-      {
+
+const data: Array<Step> = [
+    {
         id: 1,
-        attributes: {
-          title: 'Etape 1',
-          description: 'Description 1',
-          createdAt: '2022-01-19T12:53:36.805Z',
-          updatedAt: '2022-01-19T12:53:39.294Z',
-          publishedAt: '2022-01-19T12:53:39.291Z',
-          inputs: [
+        title: "Informations personnelles",
+        inputs: [
             {
-              id: 4,
-              type: 'checkbox',
-              information: 'Votre métier actuel',
-              label: 'Votre métier',
-              repeatable: false,
+                id: 1,
+                label: "Prénom",
+                sizeLabel: "large",
+                type: "text"
             },
             {
-              id: 5,
-              type: 'selectOnTyping',
-              information: 'Choisissez toutes vos compétences',
-              label: 'Vos compétences',
-              repeatable: false,
-            },
-          ],
-        },
-      },
-      {
+                id: 2,
+                label: "Nom",
+                sizeLabel: "large",
+                type: "text"
+            }
+        ]
+    },
+    {
         id: 2,
-        attributes: {
-          title: 'Etape 2',
-          description: 'Description 2',
-          createdAt: '2022-01-19T12:54:54.669Z',
-          updatedAt: '2022-01-19T12:54:56.817Z',
-          publishedAt: '2022-01-19T12:54:56.816Z',
-          inputs: [
+        title: "Etape 2 ",
+        inputs: [
             {
-              id: 6,
-              type: 'experiences',
-              information: 'Vos expériences à mettre en avant',
-              label: 'Vos expériences',
-              repeatable: true,
-            },
-          ],
-        },
-      },
-    ],
-  },
-}
+                id: 3,
+                label: "Oui le deux",
+                sizeLabel: "small",
+                type: "text"
+            }
+        ]
+    }
+]
 
-test('should return the new array with new step and inputs content inside it', () => {
-  const stepGeneratorImpl = new StepGeneratorImplementation()
-  const currentContext = 0
-  const { id, attributes } = data.steps.data[currentContext]
-  const stepValue = {
-    id: id,
-    title: attributes.title,
-    description: attributes.description,
-    inputs: [...attributes.inputs],
-  }
-  expect(stepGeneratorImpl.changeStep(currentContext, data)).toEqual(stepValue)
+const StepGenerator = new StepGeneratorImplementation()
+
+describe('works', () => {
+    it('Should return first index of data when no index is provided as argument', () => {
+        expect(StepGenerator.changeStep(data)).toEqual(data[0])
+    })
+
+    it('Should return the steps pass in index when index is provided', () => {
+        expect(StepGenerator.changeStep(data, 0)).toEqual(data[0])
+    })
 })
 
-test("should return error if index of Etapes doesn't exist", () => {
-  const stepGeneratorImpl = new StepGeneratorImplementation()
-  const currentContext = data.steps.data.length + 1
-  expect(() => stepGeneratorImpl.changeStep(currentContext, data)).toThrow()
+describe('does not work', () => {
+    it('Should throw an error when index pass in argument does not exist in the data argument', () => {
+        const changeStepInstanciation = () => StepGenerator.changeStep(data, 100)
+        expect(changeStepInstanciation).toThrow(Error)
+        expect(changeStepInstanciation).toThrow('The step does not exist')
+    })
 })

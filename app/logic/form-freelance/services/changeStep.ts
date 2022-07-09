@@ -1,25 +1,15 @@
-import { Step } from '../interfaces/Step'
+import {Step} from '../interfaces/Step'
+import {Input} from "../interfaces/Input";
+import {Form} from "../interfaces/Form";
 
 export interface StepGeneratorInterface {
-  changeStep(value: number, array: Array<Object>): Step | Error
+    changeStep(array: Array<Step>, index?: number): Step | boolean
 }
 
 export class StepGeneratorImplementation implements StepGeneratorInterface {
-  changeStep = (value, array): Step => {
-    if (array.steps.data[value].id === undefined)
-      throw new Error('The index of the step is undefined')
-    let step = array.steps.data[value]
-    console.log({
-      id: array.steps.data[value].id,
-      title: step.attributes.title,
-      description: step.attributes.description,
-      inputs: [...step.attributes.inputs],
-    })
-    return {
-      id: array.steps.data[value].id,
-      title: step.attributes.title,
-      description: step.attributes.description,
-      inputs: [...step.attributes.inputs],
+    changeStep(array: Array<Step>, index?: number): Step  {
+        if (index === undefined) return array[0]
+        if (array[index] === undefined) throw new Error('The step does not exist')
+        return array[index]
     }
-  }
 }

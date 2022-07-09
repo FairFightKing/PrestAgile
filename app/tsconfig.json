@@ -19,7 +19,8 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-    "typeRoots": ["environment.d.ts"],
+    "typeRoots": ["environment.d.ts", "./types", "./node_modules/@types"],
+    "types": ["reflect-metadata", "jest"],
     "paths": {
       "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
     }
