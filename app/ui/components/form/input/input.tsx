@@ -1,47 +1,6 @@
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Flex,
-  Input,
-  Checkbox,
-  InputGroup,
-  InputLeftElement,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-} from '@chakra-ui/react'
-import { ButtonProps } from './types/ButtonApp'
+import { Box, Input } from '@chakra-ui/react'
 import { TextAppProps } from './types/TextApp'
 import { useEffect, useState } from 'react'
-import { CheckboxAppProps } from './types/CheckboxApp'
-import { NumberInputAppProps } from './types/NumberInputAppProps'
-
-export const ButtonApp = ({
-  right = false,
-  left = false,
-  icon,
-  content,
-  variantButton,
-  colorButton,
-  isDisable = false,
-  sized,
-}: ButtonProps) => (
-  <Flex justifyContent={'center'}>
-    <Button
-      rightIcon={icon}
-      leftIcon={icon}
-      variant={variantButton}
-      colorScheme={colorButton}
-      isDisabled={isDisable}
-      size={sized}
-    >
-      {content}
-    </Button>
-  </Flex>
-)
 
 export const TextApp = ({
   placeholder,
@@ -55,17 +14,6 @@ export const TextApp = ({
     variant={variant}
     onChange={onChange}
   />
-)
-
-export const GroupTextApp = ({ placeholder, onChange }: TextAppProps) => (
-  <InputGroup>
-    <InputLeftElement pointerEvents="none" children={<p>Okay</p>} />
-    <Input placeholder={placeholder} onChange={onChange} />
-  </InputGroup>
-)
-
-export const ButtonGroupApp = ({ children }) => (
-  <ButtonGroup>{children}</ButtonGroup>
 )
 
 export const Autocomplete = ({ data }) => {
@@ -109,43 +57,3 @@ export const Autocomplete = ({ data }) => {
     </>
   )
 }
-
-export const CheckboxApp = ({
-  isDisable = false,
-  content,
-  colorCheckbox,
-  sized,
-  checkboxName,
-  checkboxValue,
-}: CheckboxAppProps) => (
-  <Checkbox
-    isDisabled={isDisable}
-    size={sized}
-    colorScheme={colorCheckbox}
-    name={checkboxName}
-    value={checkboxValue}
-  >
-    {content}
-  </Checkbox>
-)
-export const NumberInputApp = ({
-  steps,
-  valueDefault,
-  maximum,
-  minimum,
-  sized,
-}: NumberInputAppProps) => (
-  <NumberInput
-    step={steps}
-    size={sized}
-    defaultValue={valueDefault}
-    max={maximum}
-    min={minimum}
-  >
-    <NumberInputField />
-    <NumberInputStepper>
-      <NumberIncrementStepper />
-      <NumberDecrementStepper />
-    </NumberInputStepper>
-  </NumberInput>
-)

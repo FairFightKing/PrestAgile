@@ -3,7 +3,7 @@ import { EmailHelper } from '../../helpers/emailHelper'
 import { RegistrationServices } from './registrationServices'
 import RegistrationInput from '../types/RegistrationInput'
 import { HttpRequests } from '../../common/methods/httpRequests/HttpRequests'
-import {specialChar} from "../../helpers/specialChar";
+import { specialChar } from '../../helpers/specialChar'
 
 export class RegistrationServicesImpl implements RegistrationServices {
   checkInputForApi({ email, password }: RegistrationInput): boolean {
