@@ -1,8 +1,9 @@
 import { NextPage } from 'next'
 import { HttpRequests } from '../logic/common/methods/httpRequests/HttpRequests'
 import { PopulationEnum } from '../logic/common/enum/Population'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { StepHandlerImplementation } from '../logic/form-freelance/services/changeStep'
+import PrestText from '../ui/components/PrestText'
 
 const Laboratory: NextPage = () => {
   const Fetch = () => {
@@ -19,7 +20,17 @@ const Laboratory: NextPage = () => {
     // Fetch().then(res => console.log(res))
   })
 
-  return <div>{stepGenerator.handleOutputForUi()}</div>
+  const dictionnary = {
+    PrestText: PrestText,
+  }
+
+  return (
+    <div>
+      {React.createElement(
+        dictionnary[stepGenerator.handleOutputForUi('text')],
+      )}
+    </div>
+  )
 }
 
 export default Laboratory
