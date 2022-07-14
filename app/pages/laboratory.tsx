@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import { HttpRequests } from '../logic/common/methods/httpRequests/HttpRequests'
 import { PopulationEnum } from '../logic/common/enum/Population'
 import { useEffect } from 'react'
-import { StepGeneratorImplementation } from '../logic/form-freelance/services/changeStep'
+import { StepHandlerImplementation } from '../logic/form-freelance/services/changeStep'
 
 const Laboratory: NextPage = () => {
   const Fetch = () => {
@@ -13,13 +13,13 @@ const Laboratory: NextPage = () => {
     )
   }
 
-  const stepGenerator = new StepGeneratorImplementation()
+  const stepGenerator = new StepHandlerImplementation()
 
   useEffect(() => {
     // Fetch().then(res => console.log(res))
   })
 
-  return <div>{stepGenerator.callComponentsBasedOnStepInput()}</div>
+  return <div>{stepGenerator.handleOutputForUi()}</div>
 }
 
 export default Laboratory

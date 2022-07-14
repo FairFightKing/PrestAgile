@@ -1,22 +1,20 @@
-import { Step } from '../interfaces/Step'
-import { Input } from '../interfaces/Input'
-import {ButtonHomePage} from "../../../ui/components/buttonHomePage/buttonHomePage";
-import React from "react";
+import {Step} from '../interfaces/Step'
+import {firstLetterUppercase} from "../../helpers/firstLetterUppercase";
 
-export interface StepGeneratorInterface {
-  changeStep(array: Array<Step>, index?: number): Step | boolean
-  callComponentsBasedOnStepInput(): JSX.Element
+export interface StepHandler {
+    changeStep(array: Array<Step>, index?: number): Step | boolean
+
+    handleOutputForUi(input: string): string
 }
 
-export class StepGeneratorImplementation implements StepGeneratorInterface {
-  changeStep(array: Array<Step>, index?: number): Step {
-    if (index === undefined) return array[0]
-    if (array[index] === undefined) throw new Error('The step does not exist')
-    return array[index]
-  }
+export class StepHandlerImplementation implements StepHandler {
+    changeStep(array: Array<Step>, index?: number): Step {
+        if (index === undefined) return array[0]
+        if (array[index] === undefined) throw new Error('The step does not exist')
+        return array[index]
+    }
 
-  callComponentsBasedOnStepInput(): JSX.Element {
-    return React.createElement(ButtonHomePage)
-  }
-
+    handleOutputForUi(input: string): string {
+        return 'prest' + firstLetterUppercase(input)
+    }
 }
