@@ -1,18 +1,44 @@
-import { expect } from '@jest/globals'
-import { RegistrationServicesImpl } from '../../services/registrationServices'
+import { RegistrationServicesImpl } from '../../services/registrationServicesImpl'
 
-test('expect object to be validated', () => {
-  const email = 'julesgabriel.dayaux@gmail.com'
-  const password = 'Pwrb5ed598@11'
-  expect(
-    RegistrationServicesImpl.checkInputForApi({ email, password }),
-  ).toBeTruthy()
+const registrationService = new RegistrationServicesImpl()
+
+describe('works', () => {
+  it('should Email and password be ok when email and password are in the good format', () => {
+    const email = 'julesgabriel.dayaux@gmail.com'
+    const password = 'Pwrb5ed598@11'
+    expect(
+      registrationService.checkInputForApi({ email, password }),
+    ).toBeTruthy()
+  })
 })
 
-test('expect object to be too short', () => {
-  const email = 'jules'
-  const password = 'Pwrb5ed598@11'
-  expect(
-    RegistrationServicesImpl.checkInputForApi({ email, password }),
-  ).toBeFalsy()
+describe('does not work', function () {
+  it('should email not to be in the good format', () => {
+    const email = 'jules'
+    const password = 'Pwrb5ed598@11'
+    const checkInput = () =>
+      registrationService.checkInputForApi({ email, password })
+    expect(checkInput).toThrow(Error)
+    expect(checkInput).toThrow('The email format is not valid')
+  })
+  it('should password throw an error if does not have at least one special char', () => {
+    const email = 'julesgabriel.dayaux@gmail.com'
+    const password = 'Pwrb5ed598111'
+    const checkInput = () =>
+      registrationService.checkInputForApi({ email, password })
+    expect(checkInput).toThrow(Error)
+    expect(checkInput).toThrow(
+      'The password should have at least one special character',
+    )
+  })
+  it('should password throw an error if does not have at least one uppercase char', () => {
+    const email = 'julesgabriel.dayaux@gmail.com'
+    const password = 'pwrb5ed598@11'
+    const checkInput = () =>
+      registrationService.checkInputForApi({ email, password })
+    expect(checkInput).toThrow(Error)
+    expect(checkInput).toThrow(
+      'The password should have at least one uppercase',
+    )
+  })
 })

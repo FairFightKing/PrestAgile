@@ -1,5 +1,5 @@
 import { Box, Text, Wrap } from '@chakra-ui/react'
-import { GridRecruitement } from './recruitement/gridRecruitementHomepageComposent'
+import { GridRecruitement } from './recruitement/gridRecruitementHomepageComponent'
 
 export default function RecruitementHomePage() {
   return (

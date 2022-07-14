@@ -1,8 +1,7 @@
 export declare interface Input {
   id: number
-  name: string
-  information: string
-  additionnalData?: Array<Object> | null
+  information?: string
+  label: string
+  sizeLabel: string
   type: string
-  multipleChoice?: boolean
 }

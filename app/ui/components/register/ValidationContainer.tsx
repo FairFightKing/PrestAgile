@@ -1,6 +1,7 @@
 import { ValidationSpan } from './ValidationSpan'
 import { EmailHelper } from '../../../logic/helpers/emailHelper'
 import { Container } from '@chakra-ui/react'
+import { specialChar } from '../../../logic/helpers/specialChar'
 
 export const ValidationContainer = ({ data }) => (
   <Container maxW="container.sm'">
@@ -31,7 +32,7 @@ export const ValidationContainer = ({ data }) => (
     <br />
     <ValidationSpan
       context="passwordSpecialChar"
-      regex={/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/}
+      regex={specialChar}
       value={data.password}
     />
     <br />

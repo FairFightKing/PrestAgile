@@ -1,7 +1,21 @@
 import { ButtonHomePageProps } from './types/ButtonHomePageApp'
 import { Button } from '@chakra-ui/react'
+import { FC } from 'react'
 
-export const ButtonHomePage = ({
+export const ButtonHomePage: ({
+  buttonBackground,
+  buttonContent,
+  buttonMarginT,
+  buttonRadius,
+  buttonSize,
+  buttonTextColor,
+  buttonVariant,
+  buttonFontSize,
+  buttonFontWeight,
+  buttonMarginX,
+  buttonPaddingX,
+  buttonPaddingy,
+}: ButtonHomePageProps) => JSX.Element = ({
   buttonBackground,
   buttonContent,
   buttonMarginT,

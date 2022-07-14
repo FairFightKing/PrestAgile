@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Informations personnelles",
+    "inputs": [
+      {
+        "id": 1,
+        "label": "Prénom",
+        "sizeLabel": "large",
+        "type": "text"
+      },
+      {
+        "id": 2,
+        "label": "Nom",
+        "sizeLabel": "large",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Etape 2",
+    "inputs": [
+      {
+        "id": 3,
+        "label": "Oui le deux",
+        "sizeLabel": "small",
+        "type": "text"
+      }
+    ]
+  }
+]
