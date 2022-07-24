@@ -7,3 +7,4 @@ temp/
 *.db
 .env
 dist/
+app/dist/
