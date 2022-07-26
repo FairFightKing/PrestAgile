@@ -10,9 +10,9 @@ async function bootstrap() {
     cors: true,
   })
   const port = +process.env.PORT || 3000
-  app.enableCors({
-    origin: 'http://localhost:' + port,
-  })
+  // app.enableCors({
+  //   origin: 'http://localhost:' + port,
+  // })
   app.setGlobalPrefix('api')
   console.log('Port running on: ', port)
 
