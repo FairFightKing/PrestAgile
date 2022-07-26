@@ -1,6 +1,6 @@
 import { Step } from '../interfaces/Step'
 import { firstLetterUppercase } from '../../helpers/firstLetterUppercase'
-import {OutputForUiEnum} from "../enum/OutputForUiEnum";
+import { OutputForUiEnum } from '../enum/OutputForUiEnum'
 
 export interface StepHandler {
   handleStep(array: Array<Step>, index?: number): Step | boolean
@@ -22,6 +22,6 @@ export class StepHandlerImplementation implements StepHandler {
   handleOutputForUi(input: string): string {
     const output = 'Prest' + firstLetterUppercase(input)
     const values = Object.values(OutputForUiEnum)
-    return !values.includes(output as OutputForUiEnum) ? "Default" : output
+    return !values.includes(output as OutputForUiEnum) ? 'Default' : output
   }
 }
