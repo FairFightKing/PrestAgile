@@ -20,7 +20,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, options)
   SwaggerModule.setup('/', app, document)
 
-  await app.listen(port)
+  await app.listen(port, '0.0.0.0')
 }
 bootstrap().then(() => {
   console.log('success', getConnection())
