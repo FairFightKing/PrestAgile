@@ -21,21 +21,29 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "button",
-        "checkbox",
-        "date",
-        "email",
-        "file",
-        "image",
-        "number",
-        "password",
-        "radio",
-        "range",
-        "submit",
-        "tel",
         "text",
-        "url"
+        "tel",
+        "select",
+        "search",
+        "date",
+        "textarea",
+        "file",
+        "radio",
+        "checkbox"
       ]
+    },
+    "information": {
+      "type": "string",
+      "required": false
+    },
+    "subfield": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::subfield.subfield"
+    },
+    "multipleSelection": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

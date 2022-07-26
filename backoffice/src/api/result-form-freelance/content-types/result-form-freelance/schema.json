@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "result_form_freelances",
+  "info": {
+    "singularName": "result-form-freelance",
+    "pluralName": "result-form-freelances",
+    "displayName": "result-form-freelance"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "step": {
+      "type": "component",
+      "repeatable": true,
+      "component": "step.steps"
+    }
+  }
+}
