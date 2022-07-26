@@ -9,7 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     cors: true,
   })
-  const port = +process.env.PORT || 3000
+  const port = process.env.PORT
   // app.enableCors({
   //   origin: 'http://localhost:' + port,
   // })
@@ -20,7 +20,8 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, options)
   SwaggerModule.setup('/', app, document)
 
-  await app.listen(port, '0.0.0.0')
+  // @ts-ignore
+  await app.listen(parseInt(process.env.PORT, '0.0.0.0') || 3000)
 }
 bootstrap().then(() => {
   console.log('success', getConnection())
