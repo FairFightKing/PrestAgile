@@ -9,25 +9,25 @@ import PrestSelect from '../components/PrestInputs/PrestSelect'
 
 export default function renderInputs(input) {
   const { type } = input
-  if (type === 'text') {
+  if ('text' === type) {
     return <PrestText props={input}></PrestText>
   }
-  if (type === 'tel') {
+  if ('tel' === type) {
     return <PrestTel props={input}></PrestTel>
   }
-  if (type === 'file') {
+  if ('file' === type) {
     return <PrestFile props={input}></PrestFile>
   }
-  if (type === 'radio') {
+  if ('radio' === type) {
     return <PrestRadio props={input}></PrestRadio>
   }
-  if (type === 'date') {
+  if ('date' === type) {
     return <PrestDate props={input}></PrestDate>
   }
-  if (type === 'textarea') {
+  if ('textarea' === type) {
     return <PrestTextarea props={input}></PrestTextarea>
   }
-  if (type === 'select') {
+  if ('select' === type) {
     return <PrestSelect props={input}></PrestSelect>
   }
   return <PrestCheckbox props={input}></PrestCheckbox>

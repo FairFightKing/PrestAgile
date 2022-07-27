@@ -2,12 +2,14 @@ import { Box, FormLabel, Select } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 
 export default function PrestSelect({ props }): JSX.Element {
-  const { subfield, information, label } = props
+  const { subfield, information, label, required } = props
   const [state, setState] = useState<object>({})
 
   return (
     <Box>
-      <FormLabel>{label}</FormLabel>
+      <FormLabel>
+        {label} {required && '*'}
+      </FormLabel>
       <Select
         placeholder={information}
         onChange={e =>

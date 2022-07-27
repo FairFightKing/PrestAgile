@@ -16,23 +16,25 @@ export default function PrestCheckbox({ props }): JSX.Element {
     return setCheckboxesSelected(oldCheckboxes => [...oldCheckboxes, value])
   }
 
+  const { label, subfield, required } = props
+
   return (
     <>
-      <FormLabel>{props.label}</FormLabel>
+      <FormLabel>
+        {label} {required && '*'}
+      </FormLabel>
       <CheckboxGroup>
         <Stack direction="column">
-          {props.subfield.data.attributes['subfield_values'].data.map(
-            (el, key) => (
-              <Checkbox
-                key={key}
-                onChange={handleChangeOnCheckbox}
-                value={el.attributes.value}
-                width={'100%'}
-              >
-                {el.attributes.value}
-              </Checkbox>
-            ),
-          )}
+          {subfield.data.attributes['subfield_values'].data.map((el, key) => (
+            <Checkbox
+              key={key}
+              onChange={handleChangeOnCheckbox}
+              value={el.attributes.value}
+              width={'100%'}
+            >
+              {el.attributes.value}
+            </Checkbox>
+          ))}
         </Stack>
       </CheckboxGroup>
     </>
