@@ -1,11 +1,15 @@
 import { Input } from '@chakra-ui/input'
-import { FormLabel } from '@chakra-ui/react'
+import { FormControl, FormHelperText, FormLabel } from '@chakra-ui/react'
 
-export default function PrestText({ label }) {
+export default function PrestText({ props }) {
+  const { label, information, placeholder } = props
   return (
-    <>
+    <FormControl>
       <FormLabel>{label}</FormLabel>
-      <Input placeholder="oui" type="text" />
-    </>
+      <Input type="text" placeholder={placeholder} />
+      {information !== undefined && (
+        <FormHelperText>{information}</FormHelperText>
+      )}
+    </FormControl>
   )
 }
