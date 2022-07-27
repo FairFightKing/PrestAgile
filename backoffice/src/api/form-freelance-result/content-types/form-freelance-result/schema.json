@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "form_freelance_results",
+  "info": {
+    "singularName": "form-freelance-result",
+    "pluralName": "form-freelance-results",
+    "displayName": "form-freelance-result",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "inputResult": {
+      "type": "component",
+      "repeatable": true,
+      "component": "input-result.input-result"
+    }
+  }
+}

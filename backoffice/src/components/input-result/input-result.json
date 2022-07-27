@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_input_result_input_results",
+  "info": {
+    "displayName": "inputResult",
+    "icon": "calendar-check",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "keys_form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::keys-form.keys-form"
+    },
+    "value": {
+      "type": "string"
+    },
+    "subfield_values": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subfield-value.subfield-value"
+    }
+  }
+}

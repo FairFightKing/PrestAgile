@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "keys_forms",
+  "info": {
+    "singularName": "keys-form",
+    "pluralName": "keys-forms",
+    "displayName": "keysForm",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "key": {
+      "type": "string"
+    }
+  }
+}
