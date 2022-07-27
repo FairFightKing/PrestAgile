@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subfields",
+  "info": {
+    "singularName": "subfield",
+    "pluralName": "subfields",
+    "displayName": "subfield",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "picker",
+        "radioHugeLabels",
+        "classicCheckbox"
+      ],
+      "required": true
+    },
+    "subfield_values": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subfield-value.subfield-value"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

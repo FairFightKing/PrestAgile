@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { ValidationContainer } from '../ui/components/register/ValidationContainer'
 import { Input } from '@chakra-ui/input'
 import { Button, Container, Heading, Text, useToast } from '@chakra-ui/react'
-import { RegistrationServicesImpl } from '../logic/registration/services/registrationServices'
+import { RegistrationServicesImpl } from '../logic/registration/services/registrationServicesImpl'
 import FormRegister from '../ui/components/register/FormRegister'
 
 const Home: NextPage = () => {

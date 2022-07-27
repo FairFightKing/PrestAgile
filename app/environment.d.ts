@@ -4,6 +4,7 @@ declare global {
       GITHUB_AUTH_TOKEN: string
       NODE_ENV: 'development' | 'production'
       API_URL: string
+      STRAPI_URL: string
       PORT?: string
       PWD: string
     }

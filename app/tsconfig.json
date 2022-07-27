@@ -15,13 +15,18 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "declaration": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
+    "typeRoots": [
+      "environment.d.ts", "./types", "./node_modules/@types"],
+    "types": ["reflect-metadata", "jest"],
     "paths": {
       "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
