@@ -24,8 +24,4 @@ async function bootstrap() {
 }
 bootstrap().then(() => {
   console.log('success', getConnection())
-<<<<<<< HEAD
 })
-=======
-})
->>>>>>> preprod
