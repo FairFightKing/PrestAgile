@@ -6,31 +6,26 @@ import {
 import { InjectRepository } from '@nestjs/typeorm'
 import UserRepository from '../Repository/UserRepository'
 import UserEntity from '../Entity/UserEntity'
-import UserInfoEntity from '../Entity/UserInfoEntity'
-import UserInfoRepository from '../Repository/UserInfoRepository'
-import UserInfoDTO from '../DTO/UserInfoDTO'
+import UserDTO from '../DTO/UserDTO'
 
 @Injectable()
 export default class UserService {
   constructor(
     @InjectRepository(UserRepository)
-    private userRepository: UserInfoRepository,
+    private userRepository: UserRepository,
   ) {}
 
-  async getUser(user: UserEntity): Promise<UserInfoEntity> {
+  async getUser(user: UserEntity): Promise<UserEntity> {
     const userInfo = await this.userRepository.findOne({
-      where: { id: user.userInfo.id },
+      where: { id: user.id },
     })
     if (!userInfo) throw new NotFoundException('User not found.')
     return userInfo
   }
 
-  async updateUserInfo(
-    user: UserEntity,
-    userInfoDTO: UserInfoDTO,
-  ): Promise<UserInfoDTO> {
+  async updateUserInfo(user: UserEntity): Promise<UserDTO> {
     const userInfo = await this.getUser(user)
-    userInfo.phoneNumber = userInfoDTO.phoneNumber
+    userInfo.uuid = user.uuid
     try {
       await userInfo.save()
     } catch (e) {

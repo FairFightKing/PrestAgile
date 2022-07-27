@@ -26,7 +26,6 @@ import { UserManager } from './User/Manager/UserManager'
 import { JwtModule, JwtService } from '@nestjs/jwt'
 import { PassportModule } from '@nestjs/passport'
 import UserRepository from './User/Repository/UserRepository'
-import UserInfoRepository from './User/Repository/UserInfoRepository'
 
 @Module({
   imports: [AuthModule, UserModule, TypeOrmModule.forRoot(typeOrmConfig)],
@@ -34,6 +33,6 @@ import UserInfoRepository from './User/Repository/UserInfoRepository'
   providers: [AppService],
 })
 export class AppModule {
-  // constructor(private connection: Connection) {}
+  constructor(private connection: Connection) {}
 }
 >>>>>>> preprod

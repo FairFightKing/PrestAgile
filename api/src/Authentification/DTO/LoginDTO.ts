@@ -10,7 +10,6 @@ export interface LoginFormDTO {
   email: string
   password?: string
   passwordHash?: string
-  age?: number
 }
 
 export default class LoginDTO {
@@ -40,5 +39,5 @@ export default class LoginDTO {
   @MinLength(8)
   @MaxLength(30)
   @Matches(PasswordRegexp, { message: 'Password too weak' })
-  password: UserDTO['password']
+  password: string
 }

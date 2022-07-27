@@ -3,40 +3,33 @@ import {
   BaseEntity,
   Column,
   Entity,
-  OneToOne,
-  JoinColumn,
   PrimaryGeneratedColumn,
   Unique,
 } from 'typeorm'
 import * as bcrypt from 'bcrypt'
-import UserInfoEntity from './UserInfoEntity'
 
 @Entity()
-@Unique(['email'])
+@Unique(['email', 'uuid'])
 export default class UserEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 
   @Column({ type: 'varchar' })
+  uuid: UserDTO['uuid']
+
+  @Column({ type: 'varchar' })
   email: UserDTO['email']
 
   @Column({ type: 'varchar' })
-  password: UserDTO['password']
-
-  @Column({ type: 'varchar', nullable: true })
-  name: UserDTO['name']
+  password: string
 
   @Column()
   salt: string
 
-  //@Column({ type: 'varchar' })
-  //type: UserDTO['type']
+  // @Column({ type: 'varchar' })
+  // type: UserDTO['type']
 
-  @OneToOne(() => UserInfoEntity, { eager: true, nullable: true })
-  @JoinColumn()
-  userInfo?: UserInfoEntity
-
-  async validatePassword(password: UserDTO['password']): Promise<boolean> {
+  async validatePassword(password: string): Promise<boolean> {
     return bcrypt.compare(password, this.password)
   }
 }

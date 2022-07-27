@@ -5,7 +5,6 @@ import {
   PasswordRegexp,
 } from '../Validator/Impl/formInputValidatorImpl'
 import UserDTO from '../../User/DTO/UserDTO'
-import UserInfoDTO from '../../User/DTO/UserInfoDTO'
 
 export default class RegisterDto {
   @ApiProperty({
@@ -34,13 +33,17 @@ export default class RegisterDto {
   @MinLength(8)
   @MaxLength(30)
   @Matches(PasswordRegexp, { message: 'Password too weak' })
-  password: UserDTO['password']
+  password: string
 
   @ApiProperty({
-    name: 'userInfo',
-    description: 'All the infos about the user like phone number or names',
-    required: false,
-    type: 'object',
+    minimum: 5,
+    maximum: 50,
+    required: true,
+    name: 'uuid',
+    type: 'string',
   })
-  userInfo?: UserInfoDTO
+  @IsString()
+  @MinLength(5)
+  @MaxLength(50)
+  uuid: UserDTO['uuid']
 }
