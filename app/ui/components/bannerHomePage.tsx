@@ -46,22 +46,6 @@ export default function BannerHomePage() {
             <br />
             de projet selon vos projet ...
           </Text>
-          <ButtonGroup
-            display={{ base: 'block', md: 'block', lg: 'flex' }}
-            mt={{ base: '5%', md: '7.5%', lg: '10%' }}
-            letterSpacing="-1px"
-            spacing={{ base: '0', md: '0', lg: '3.5rem' }}
-            variant="solid"
-            color="black"
-            size="lg"
-          >
-            <Button py={8} my={1} px={12} borderRadius="100px" bg="#FFEEEE">
-              Un freelance
-            </Button>
-            <Button py={8} my={1} px={12} borderRadius="100px" bg="#E1DCFF">
-              Une mission
-            </Button>
-          </ButtonGroup>
         </Box>
       </Box>
       <Box
