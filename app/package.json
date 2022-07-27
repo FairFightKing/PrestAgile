@@ -5,9 +5,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "prettier --check .",
-    "format": "prettier --write .",
-    "test": "jest"
+    "lint": "prettier --check ",
+    "format": "prettier --write ",
+    "jest:watch": "onchange 'tests/form-freelance/unitary-test/reversedHandleHyphen.test.ts' -- npm run jest",
+    "jest": "jest --verbose tests/form-freelance/unitary-test/reversedHandleHyphen.test.ts",
+    "test:coverage": "jest --collect-coverage",
+    "integration": "jest --verbose tests/form-freelance/integration-test"
   },
   "lint-staged": {
     "*.{tsx, ts, scss, css}": [
@@ -23,10 +26,11 @@
     "@chakra-ui/react": "^1.7.3",
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
-    "axios": "^0.24.0",
+    "axios": "^0.27.2",
     "framer-motion": "^4.1.17",
     "lint-staged": "^12.0.2",
     "next": "12.0.5",
+    "onchange": "^7.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",

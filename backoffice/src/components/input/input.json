@@ -2,7 +2,8 @@
   "collectionName": "components_input_inputs",
   "info": {
     "displayName": "input",
-    "icon": "archive"
+    "icon": "archive",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -18,7 +19,40 @@
       ]
     },
     "type": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "tel",
+        "select",
+        "date",
+        "textarea",
+        "file",
+        "radio",
+        "checkbox"
+      ]
+    },
+    "information": {
+      "type": "string",
+      "required": false
+    },
+    "subfield": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::subfield.subfield"
+    },
+    "multipleSelection": {
+      "type": "boolean",
+      "default": false
+    },
+    "keys_form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::keys-form.keys-form"
+    },
+    "required": {
+      "type": "boolean",
+      "default": true,
+      "required": true
     }
   }
 }

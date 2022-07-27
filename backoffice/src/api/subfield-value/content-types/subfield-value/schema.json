@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subfield_values",
+  "info": {
+    "singularName": "subfield-value",
+    "pluralName": "subfield-values",
+    "displayName": "subfieldValue"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    }
+  }
+}
