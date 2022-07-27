@@ -1,10 +1,10 @@
-import Header from './header'
+import HeaderNoConnection from './headerNoConnection'
 import Footer from './footer'
 
 function Layout({ children }: any) {
   return (
     <>
-      <Header />
+      <HeaderNoConnection />
       <main>{children}</main>
       <Footer />
     </>

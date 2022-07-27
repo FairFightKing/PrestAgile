@@ -2,7 +2,7 @@ import TotalButtonHeader from './buttonHomePage/totalButtonHeader'
 import { Box, Flex, Spacer, Image, Text } from '@chakra-ui/react'
 import { LinkComponent } from './navigation/LinkComponent'
 
-export default function Header() {
+export default function HeaderNoConnection() {
   return (
     <Flex fontFamily="Inter" height="auto" width="100%">
       <Box textAlign="center" py={4} px={5}>
