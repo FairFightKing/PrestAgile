@@ -24,7 +24,6 @@
         "text",
         "tel",
         "select",
-        "search",
         "date",
         "textarea",
         "file",
@@ -44,6 +43,16 @@
     "multipleSelection": {
       "type": "boolean",
       "default": false
+    },
+    "keys_form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::keys-form.keys-form"
+    },
+    "required": {
+      "type": "boolean",
+      "default": true,
+      "required": true
     }
   }
 }
