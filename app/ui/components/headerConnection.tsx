@@ -18,7 +18,7 @@ export default function HeaderNoConnection() {
         />
       </Box>
       <Spacer />
-      <Box my={5}>
+      <Flex my={5}>
         <Button
           mx={5}
           my={{ base: '2', md: '0', lg: '0' }}
@@ -43,6 +43,16 @@ export default function HeaderNoConnection() {
         >
           Mes missions
         </Button>
+        <Box mx={3}>
+          <Flex>
+            <Image src="avatar.svg" width="45px" mx={3} />
+            <Box>
+              <b>Allan Germe</b>
+              <br />
+              Mon profil
+            </Box>
+          </Flex>
+        </Box>
         <Button
           mx={5}
           my={{ base: '2', md: '0', lg: '0' }}
@@ -57,7 +67,7 @@ export default function HeaderNoConnection() {
         >
           Déconexion
         </Button>
-      </Box>
+      </Flex>
     </Flex>
   )
 }
