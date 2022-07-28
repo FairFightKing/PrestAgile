@@ -27,8 +27,7 @@
         "date",
         "textarea",
         "file",
-        "radio",
-        "checkbox"
+        "radio"
       ]
     },
     "information": {

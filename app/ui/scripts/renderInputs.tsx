@@ -1,34 +1,38 @@
 import PrestText from '../components/PrestInputs/PrestText'
 import PrestTel from '../components/PrestInputs/PrestTel'
-import PrestCheckbox from '../components/PrestInputs/PrestCheckbox'
 import PrestDate from '../components/PrestInputs/PrestDate'
 import PrestFile from '../components/PrestInputs/PrestFile'
 import PrestRadio from '../components/PrestInputs/PrestRadio'
 import PrestTextarea from '../components/PrestInputs/PrestTextarea'
 import PrestSelect from '../components/PrestInputs/PrestSelect'
+import { getBackendUrl } from '../../logic/helpers/getBackendUrl'
 
-export default function renderInputs(input) {
+export default function renderInputs(input, context) {
   const { type } = input
   if ('text' === type) {
-    return <PrestText props={input}></PrestText>
+    // @ts-ignore
+    return <PrestText props={input} ctx={context}></PrestText>
   }
   if ('tel' === type) {
-    return <PrestTel props={input}></PrestTel>
+    // @ts-ignore
+    return <PrestTel props={input} ctx={context}></PrestTel>
   }
   if ('file' === type) {
-    return <PrestFile props={input}></PrestFile>
+    // @ts-ignore
+    return <PrestFile props={input} ctx={context}></PrestFile>
   }
   if ('radio' === type) {
-    return <PrestRadio props={input}></PrestRadio>
+    // @ts-ignore
+    return <PrestRadio props={input} ctx={context}></PrestRadio>
   }
   if ('date' === type) {
-    return <PrestDate props={input}></PrestDate>
+    // @ts-ignore
+    return <PrestDate props={input} ctx={context}></PrestDate>
   }
   if ('textarea' === type) {
-    return <PrestTextarea props={input}></PrestTextarea>
+    // @ts-ignore
+    return <PrestTextarea props={input} ctx={context}></PrestTextarea>
   }
-  if ('select' === type) {
-    return <PrestSelect props={input}></PrestSelect>
-  }
-  return <PrestCheckbox props={input}></PrestCheckbox>
+  // @ts-ignore
+  return <PrestSelect props={input} ctx={context}></PrestSelect>
 }

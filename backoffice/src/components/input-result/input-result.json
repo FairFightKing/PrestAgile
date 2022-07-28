@@ -14,11 +14,6 @@
     },
     "value": {
       "type": "string"
-    },
-    "subfield_values": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::subfield-value.subfield-value"
     }
   }
 }
