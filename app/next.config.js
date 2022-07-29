@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
   env: {
     API_URL: process.env.API_URL,
@@ -7,3 +7,5 @@ module.exports = {
   },
   trailingSlash: true,
 }
+
+module.exports = nextConfig

@@ -2,7 +2,7 @@ import { FormLabel } from '@chakra-ui/react'
 import { Input } from '@chakra-ui/input'
 import { useState } from 'react'
 
-export default function PrestTel({ props }) {
+export default function PrestTel({ props, ctx }) {
   const { label, information, required } = props
   const [tel, setTel] = useState<object>({})
   return (
@@ -11,11 +11,9 @@ export default function PrestTel({ props }) {
         {label} {required && '*'}
       </FormLabel>
       <Input
-        onChange={e =>
-          setTel({
-            [label]: e.target.value,
-          })
-        }
+        onChange={e => {
+          ctx(props['keys_form'].data.id, e.target.value)
+        }}
         placeholder={information}
         type="tel"
       />

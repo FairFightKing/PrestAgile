@@ -7,5 +7,4 @@ export enum OutputForUiEnum {
   'textarea' = 'PrestTextarea',
   'file' = 'PrestFile',
   'radio' = 'PrestRadio',
-  'checkbox' = 'PrestCheckbox',
 }
