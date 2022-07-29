@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 interface IValidationSpan {
   context?: string
-  regex: RegExp | boolean
+  regex: boolean | undefined
   value: string
 }
 
