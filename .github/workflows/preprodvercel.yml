@@ -18,6 +18,15 @@ jobs:
         uses: creyD/prettier_action@v4.0
         with:
           prettier_options: --write app/*.{js,md}
+  test:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Testing
+          uses: actions/checkout@v2
+          with:
+            script: |
+              npm ci
+              npm run test
   deploy:
     needs: prettier
     runs-on: ubuntu-latest

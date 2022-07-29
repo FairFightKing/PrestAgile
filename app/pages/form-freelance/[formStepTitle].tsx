@@ -31,6 +31,7 @@ export default function StepPageFormFreelance({
 
   return (
     <Box margin={10}>
+      OUI
       <Heading>{step.title}</Heading>
       {step.inputs.map((el, index) => {
         return (
