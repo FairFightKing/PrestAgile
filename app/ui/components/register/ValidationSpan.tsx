@@ -23,6 +23,7 @@ export const ValidationSpan = ({ context, regex, value }: IValidationSpan) => {
       },
     }
     if (typeof regex !== 'boolean') {
+      // @ts-ignore
       setValidatedValue(regex.test(value))
       return setValueToDisplay(
         // @ts-ignore
