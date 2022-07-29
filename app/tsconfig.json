@@ -21,7 +21,7 @@
     "baseUrl": "./",
     "typeRoots": [
       "environment.d.ts", "./types", "./node_modules/@types"],
-    "types": ["reflect-metadata", "jest"],
+    "types": ["jest"],
     "paths": {
       "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
     }
