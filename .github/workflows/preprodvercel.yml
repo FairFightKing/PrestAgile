@@ -2,7 +2,7 @@ name: deploy nexturl to vercel
 
 on:
   push:
-    branches: [ fix/ci-cd ]
+    branches: [ preprod ]
     paths:
       - 'app/**'
 

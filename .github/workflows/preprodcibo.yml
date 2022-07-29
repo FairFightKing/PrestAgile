@@ -21,18 +21,6 @@ jobs:
           cd backoffice
           npm install
   #         npm run build
-
-  unit:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - run: |
-          cd backoffice
-          npm install
-          npm run test
   heroku-deploy:
       needs: [ build, unit ]
       runs-on: ubuntu-latest
@@ -46,6 +34,3 @@ jobs:
             heroku_app_name: ${{ secrets.PRE_HEROKU_APP }}
             heroku_email: ${{ secrets.HEROKU_MAIL }}
             branch: preprod
-
-
-
