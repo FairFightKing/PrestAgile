@@ -50,6 +50,7 @@ export default function StepPageFormFreelance({
         </Box>
       ) : (
         <Box margin={5} alignItems={'center'} width={'40%'}>
+          {/**@ts-ignore*/}
           <Button colorScheme="blue" onClick={form.sendForm}>
             Finaliser l'inscription
           </Button>
