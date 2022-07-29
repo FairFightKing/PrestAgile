@@ -5,8 +5,8 @@ import RegistrationInput from '../types/RegistrationInput'
 import { HttpRequests } from '../../common/methods/httpRequests/HttpRequests'
 import { specialChar } from '../../helpers/specialChar'
 
-export class RegistrationServicesImpl implements RegistrationServices {
-  checkInputForApi({ email, password }: RegistrationInput): boolean {
+export default class RegistrationServicesImpl implements RegistrationServices {
+   checkInputForApi({ email, password }: RegistrationInput): boolean | undefined {
     if (password.length < 8) throw new Error('The password is too short')
     if (!/[A-Z]/.test(password))
       throw new Error('The password should have at least one uppercase')
@@ -18,4 +18,5 @@ export class RegistrationServicesImpl implements RegistrationServices {
   async sendDataToApi(data: RegistrationInput): Promise<AxiosResponse> {
     return HttpRequests.postHttpRequest('back-end', '/api/auth/register', data)
   }
+
 }

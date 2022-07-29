@@ -1,9 +1,7 @@
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
-import { ValidationContainer } from '../ui/components/register/ValidationContainer'
-import { Input } from '@chakra-ui/input'
-import { Button, Container, Heading, Text, useToast } from '@chakra-ui/react'
-import { RegistrationServicesImpl } from '../logic/registration/services/registrationServicesImpl'
+import { Container, useToast } from '@chakra-ui/react'
+import RegistrationServicesImpl from '../logic/registration/services/registrationServicesImpl'
 import FormRegister from '../ui/components/register/FormRegister'
 
 const Home: NextPage = () => {
@@ -31,6 +29,8 @@ const Home: NextPage = () => {
       })
   }, [error])
 
+  const registerService = new RegistrationServicesImpl()
+
   function handleSubmit(e) {
     e.preventDefault()
     const cloneUserBasic = (({ confirmPassword, firstName, lastName, ...o }) =>
@@ -38,19 +38,18 @@ const Home: NextPage = () => {
     const cloneUserInfo = (({ email, password, confirmPassword, ...o }) => o)(
       formRegisterValue,
     )
-    // @ts-ignore
-    if (!RegistrationServicesImpl.checkInputForApi(cloneUserBasic)) {
+    if (!registerService.checkInputForApi(cloneUserBasic)) {
       setError(true)
       setTitle('early exit')
       return false
     }
-    // @ts-ignore
-    RegistrationServicesImpl.sendDataToApi({
-      ...cloneUserBasic,
-      userInfo: {
-        ...cloneUserInfo,
-      },
-    })
+    registerService
+      .sendDataToApi({
+        ...cloneUserBasic,
+        userInfo: {
+          ...cloneUserInfo,
+        },
+      })
       .then(() => {
         toast({
           title: 'Compte créer',
