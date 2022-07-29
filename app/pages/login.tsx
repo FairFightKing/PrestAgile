@@ -36,7 +36,6 @@ const Home: NextPage = () => {
 
   return (
     <Container maxW="container.md">
-      OUI
       <FormLogin
         submit={handleSubmit}
         data={formLoginValue}
