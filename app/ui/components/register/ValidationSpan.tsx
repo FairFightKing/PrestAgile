@@ -22,7 +22,7 @@ export const ValidationSpan = ({ context, regex, value }: IValidationSpan) => {
         falseValue: 'Le mot de passe doit contenir un caractère spécial',
       },
     }
-    if (typeof regex !== 'boolean') {
+    if (typeof regex !== 'boolean' && regex !== undefined) {
       setValidatedValue(regex.test(value))
       return setValueToDisplay(
         // @ts-ignore

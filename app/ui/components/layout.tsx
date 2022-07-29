@@ -1,10 +1,9 @@
 import Header from './header'
 import Footer from './footer'
 import { Box, useToast } from '@chakra-ui/react'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { FormContext } from '../../logic/context/Context'
 import axios from 'axios'
-import { getBackendUrl } from '../../logic/helpers/getBackendUrl'
 
 function Layout({ children }: any) {
   const [form, setForm] = useState({})
