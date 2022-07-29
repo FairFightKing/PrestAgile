@@ -38,11 +38,13 @@ const Home: NextPage = () => {
     const cloneUserInfo = (({ email, password, confirmPassword, ...o }) => o)(
       formRegisterValue,
     )
+    // @ts-ignore
     if (!RegistrationServicesImpl.checkInputForApi(cloneUserBasic)) {
       setError(true)
       setTitle('early exit')
       return false
     }
+    // @ts-ignore
     RegistrationServicesImpl.sendDataToApi({
       ...cloneUserBasic,
       userInfo: {
