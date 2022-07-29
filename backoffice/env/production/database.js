@@ -3,6 +3,10 @@ const config = parse(process.env.DATABASE_URL);
 module.exports = ({ env }) => ({
   connection: {
     client: 'postgres',
+    proxy: true,
+    app: {
+      keys: env.array("APP_KEYS", ["DATABASE_URL", "https://preprodprestagile.herokuapp.com/"]),
+    },
     connection: {
       host: config.host,
       port: config.port,
