@@ -18,12 +18,13 @@ export default function StepPageFormFreelance({
   const form = useContext(FormContext)
   const method = (key, value) => {
     // @ts-ignore
+    // @ts-ignore
     form.setState({
       // @ts-ignore
       ...form.state,
-      // @ts-ignore
       [key]: Array.isArray(value)
-        ? [...(new Set(value.map(el => el)) as Array)]
+        ? // @ts-ignore
+          [...(new Set(value.map(el => el)) as Array)]
         : value,
     })
   }
