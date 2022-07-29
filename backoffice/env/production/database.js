@@ -7,6 +7,7 @@ module.exports = ({ env }) => ({
     app: {
       keys: env.array("APP_KEYS", ["DATABASE_URL", "MY_HEROKU_URL", "NODE_ENV", "PROJECT_PATH"]),
     },
+    url: env('MY_HEROKU_URL'),
     connection: {
       host: config.host,
       port: config.port,
