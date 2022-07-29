@@ -5,7 +5,7 @@ module.exports = ({ env }) => ({
     client: 'postgres',
     proxy: true,
     app: {
-      keys: env.array("APP_KEYS", ["DATABASE_URL", "https://preprodprestagile.herokuapp.com/"]),
+      keys: env.array("APP_KEYS", ["DATABASE_URL", "MY_HEROKU_URL", "NODE_ENV", "PROJECT_PATH"]),
     },
     connection: {
       host: config.host,
